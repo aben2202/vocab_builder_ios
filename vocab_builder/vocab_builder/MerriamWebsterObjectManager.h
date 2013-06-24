@@ -11,7 +11,7 @@
 
 @interface MerriamWebsterObjectManager : RKObjectManager
 
-@property (strong, nonatomic) NSString *key;
+@property (strong, nonatomic, readonly) NSString *key;
 
 -(void)getWord:(NSString *)word withSuccess:(void (^)(Word *word))success failure:(void (^)(NSError *error))failure;
 

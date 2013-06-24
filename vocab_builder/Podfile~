@@ -1,2 +1,4 @@
-platform :ios
 pod 'RestKit'
+pos 'SSKeychain'
+pod 'SVProgressHUD'
+pod 'NVSlideMenuController'

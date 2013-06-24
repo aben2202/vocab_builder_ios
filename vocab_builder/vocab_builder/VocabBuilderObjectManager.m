@@ -10,6 +10,10 @@
 
 @implementation VocabBuilderObjectManager
 
+-(void)signInWithEmail:(NSString *)email andPassword:(NSString *)password withSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
+    [self ]
+}
+
 -(void)loadCurrentWordsWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
     NSDictionary *params = @{@"type" : @"current"};
     [self getObjectsAtPath:@"/words" parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

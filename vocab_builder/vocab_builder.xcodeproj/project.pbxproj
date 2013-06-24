@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		91F8B8D0334D453BA3865D0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E59390E5C6F4F75BC7AB10A /* libPods.a */; };
+		CB1318F11778DAFE00E8AFD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F01778DAFE00E8AFD1 /* LoginViewController.m */; };
+		CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */; };
+		CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F71778E8B000E8AFD1 /* CredentialStore.m */; };
+		CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FA1778EB8600E8AFD1 /* Global.m */; };
 		D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D2007F177793CB00C94B0D /* UIKit.framework */; };
 		D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20083177793CB00C94B0D /* CoreGraphics.framework */; };
@@ -45,6 +49,14 @@
 /* Begin PBXFileReference section */
 		7774DF15F0A84CF1866C62F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		7E59390E5C6F4F75BC7AB10A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB1318EF1778DAFE00E8AFD1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CB1318F01778DAFE00E8AFD1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CB1318F21778DB1300E8AFD1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		CB1318F61778E8B000E8AFD1 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
+		CB1318F71778E8B000E8AFD1 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
+		CB1318F91778EB8600E8AFD1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		CB1318FA1778EB8600E8AFD1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		D8D2007C177793CB00C94B0D /* vocab_builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vocab_builder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D2007F177793CB00C94B0D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8D20081177793CB00C94B0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,6 +118,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB1318EE1778DAD900E8AFD1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8D2009A177793CC00C94B0D /* HomeViewController.h */,
+				D8D2009B177793CC00C94B0D /* HomeViewController.m */,
+				CB1318EF1778DAFE00E8AFD1 /* LoginViewController.h */,
+				CB1318F01778DAFE00E8AFD1 /* LoginViewController.m */,
+				CB1318F21778DB1300E8AFD1 /* RegisterViewController.h */,
+				CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CB1318F51778E88600E8AFD1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D8D200BE1777BB7A00C94B0D /* MappingProvider.h */,
+				D8D200BF1777BB7A00C94B0D /* MappingProvider.m */,
+				D8D200C11777BDDC00C94B0D /* VocabBuilderObjectManager.h */,
+				D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */,
+				D8D200C41777CB8B00C94B0D /* MerriamWebsterObjectManager.h */,
+				D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */,
+				CB1318F61778E8B000E8AFD1 /* CredentialStore.h */,
+				CB1318F71778E8B000E8AFD1 /* CredentialStore.m */,
+				CB1318F91778EB8600E8AFD1 /* Global.h */,
+				CB1318FA1778EB8600E8AFD1 /* Global.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		D8D20073177793CB00C94B0D = {
 			isa = PBXGroup;
 			children = (
@@ -141,19 +183,13 @@
 		D8D20085177793CB00C94B0D /* vocab_builder */ = {
 			isa = PBXGroup;
 			children = (
+				CB1318F51778E88600E8AFD1 /* Helpers */,
+				CB1318EE1778DAD900E8AFD1 /* Controllers */,
 				D8D200BD1777A24E00C94B0D /* Models */,
 				D8D2008E177793CB00C94B0D /* AppDelegate.h */,
 				D8D2008F177793CB00C94B0D /* AppDelegate.m */,
 				D8D20097177793CC00C94B0D /* MainStoryboard.storyboard */,
-				D8D2009A177793CC00C94B0D /* HomeViewController.h */,
-				D8D2009B177793CC00C94B0D /* HomeViewController.m */,
 				D8D20086177793CB00C94B0D /* Supporting Files */,
-				D8D200BE1777BB7A00C94B0D /* MappingProvider.h */,
-				D8D200BF1777BB7A00C94B0D /* MappingProvider.m */,
-				D8D200C11777BDDC00C94B0D /* VocabBuilderObjectManager.h */,
-				D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */,
-				D8D200C41777CB8B00C94B0D /* MerriamWebsterObjectManager.h */,
-				D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */,
 			);
 			path = vocab_builder;
 			sourceTree = "<group>";
@@ -353,6 +389,10 @@
 				D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */,
 				D8D200C9177885D800C94B0D /* User.m in Sources */,
 				D8D200CC1778981D00C94B0D /* Definition.m in Sources */,
+				CB1318F11778DAFE00E8AFD1 /* LoginViewController.m in Sources */,
+				CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */,
+				CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */,
+				CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,9 @@
 
 @interface VocabBuilderObjectManager : RKObjectManager
 
+-(void)signInWithEmail:(NSString *)email andPassword:(NSString *)password withSuccess:(void (^)(NSArray *words))success
+               failure:(void (^)(NSError *error))failure;
+
 -(void)loadCurrentWordsWithSuccess:(void (^)(NSArray *words))success
                         failure:(void (^)(NSError *error))failure;
 
