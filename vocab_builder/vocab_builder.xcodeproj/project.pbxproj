@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91F8B8D0334D453BA3865D0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E59390E5C6F4F75BC7AB10A /* libPods.a */; };
 		D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D2007F177793CB00C94B0D /* UIKit.framework */; };
 		D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20083177793CB00C94B0D /* CoreGraphics.framework */; };
@@ -23,6 +24,10 @@
 		D8D200A6177793CC00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D200AE177793CC00C94B0D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8D200AC177793CC00C94B0D /* InfoPlist.strings */; };
 		D8D200B1177793CC00C94B0D /* vocab_builderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200B0177793CC00C94B0D /* vocab_builderTests.m */; };
+		D8D200BC1777A24400C94B0D /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BB1777A24400C94B0D /* Word.m */; };
+		D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BF1777BB7A00C94B0D /* MappingProvider.m */; };
+		D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */; };
+		D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7774DF15F0A84CF1866C62F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		7E59390E5C6F4F75BC7AB10A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D2007C177793CB00C94B0D /* vocab_builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vocab_builder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D2007F177793CB00C94B0D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8D20081177793CB00C94B0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +65,14 @@
 		D8D200AD177793CC00C94B0D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8D200AF177793CC00C94B0D /* vocab_builderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vocab_builderTests.h; sourceTree = "<group>"; };
 		D8D200B0177793CC00C94B0D /* vocab_builderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vocab_builderTests.m; sourceTree = "<group>"; };
+		D8D200BA1777A24400C94B0D /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		D8D200BB1777A24400C94B0D /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		D8D200BE1777BB7A00C94B0D /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
+		D8D200BF1777BB7A00C94B0D /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
+		D8D200C11777BDDC00C94B0D /* VocabBuilderObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabBuilderObjectManager.h; sourceTree = "<group>"; };
+		D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabBuilderObjectManager.m; sourceTree = "<group>"; };
+		D8D200C41777CB8B00C94B0D /* MerriamWebsterObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerriamWebsterObjectManager.h; sourceTree = "<group>"; };
+		D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerriamWebsterObjectManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +83,7 @@
 				D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */,
 				D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */,
 				D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */,
+				91F8B8D0334D453BA3865D0C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +107,7 @@
 				D8D200A9177793CC00C94B0D /* vocab_builderTests */,
 				D8D2007E177793CB00C94B0D /* Frameworks */,
 				D8D2007D177793CB00C94B0D /* Products */,
+				7774DF15F0A84CF1866C62F9 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +127,7 @@
 				D8D20081177793CB00C94B0D /* Foundation.framework */,
 				D8D20083177793CB00C94B0D /* CoreGraphics.framework */,
 				D8D200A3177793CC00C94B0D /* SenTestingKit.framework */,
+				7E59390E5C6F4F75BC7AB10A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,12 +135,19 @@
 		D8D20085177793CB00C94B0D /* vocab_builder */ = {
 			isa = PBXGroup;
 			children = (
+				D8D200BD1777A24E00C94B0D /* Models */,
 				D8D2008E177793CB00C94B0D /* AppDelegate.h */,
 				D8D2008F177793CB00C94B0D /* AppDelegate.m */,
 				D8D20097177793CC00C94B0D /* MainStoryboard.storyboard */,
 				D8D2009A177793CC00C94B0D /* HomeViewController.h */,
 				D8D2009B177793CC00C94B0D /* HomeViewController.m */,
 				D8D20086177793CB00C94B0D /* Supporting Files */,
+				D8D200BE1777BB7A00C94B0D /* MappingProvider.h */,
+				D8D200BF1777BB7A00C94B0D /* MappingProvider.m */,
+				D8D200C11777BDDC00C94B0D /* VocabBuilderObjectManager.h */,
+				D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */,
+				D8D200C41777CB8B00C94B0D /* MerriamWebsterObjectManager.h */,
+				D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */,
 			);
 			path = vocab_builder;
 			sourceTree = "<group>";
@@ -160,6 +185,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D8D200BD1777A24E00C94B0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D8D200BA1777A24400C94B0D /* Word.h */,
+				D8D200BB1777A24400C94B0D /* Word.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8D200B4177793CC00C94B0D /* Build configuration list for PBXNativeTarget "vocab_builder" */;
 			buildPhases = (
+				3046D1272EFD4F4398398948 /* Check Pods Manifest.lock */,
 				D8D20078177793CB00C94B0D /* Sources */,
 				D8D20079177793CB00C94B0D /* Frameworks */,
 				D8D2007A177793CB00C94B0D /* Resources */,
+				64C9805AE7A945D9B60965A1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,6 +286,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3046D1272EFD4F4398398948 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		64C9805AE7A945D9B60965A1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		D8D200A0177793CC00C94B0D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,6 +337,10 @@
 				D8D2008C177793CB00C94B0D /* main.m in Sources */,
 				D8D20090177793CB00C94B0D /* AppDelegate.m in Sources */,
 				D8D2009C177793CC00C94B0D /* HomeViewController.m in Sources */,
+				D8D200BC1777A24400C94B0D /* Word.m in Sources */,
+				D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */,
+				D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */,
+				D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +448,7 @@
 		};
 		D8D200B5177793CC00C94B0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7774DF15F0A84CF1866C62F9 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vocab_builder/vocab_builder-Prefix.pch";
@@ -391,6 +460,7 @@
 		};
 		D8D200B6177793CC00C94B0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7774DF15F0A84CF1866C62F9 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vocab_builder/vocab_builder-Prefix.pch";
@@ -453,6 +523,7 @@
 				D8D200B6177793CC00C94B0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8D200B7177793CC00C94B0D /* Build configuration list for PBXNativeTarget "vocab_builderTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +532,7 @@
 				D8D200B9177793CC00C94B0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

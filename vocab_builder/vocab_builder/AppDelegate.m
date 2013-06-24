@@ -7,12 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "VocabBuilderObjectManager.h"
+#import "MerriamWebsterObjectManager.h"
+#import "MappingProvider.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    VocabBuilderObjectManager *vbObjectManager = [VocabBuilderObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://vocab_builder.herokuapp.com/api"]];
+    MerriamWebsterObjectManager *mwObjectManager = [MerriamWebsterObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://merriamwebster.com/api"]];
+    
+    [MappingProvider setupResponseAndRequestDescriptors];
     return YES;
 }
 							

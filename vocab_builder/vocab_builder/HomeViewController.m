@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,6 +35,7 @@
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     return @[@"In the works...", @"Done and done..."];
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0: //"In the works" section
