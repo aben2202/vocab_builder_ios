@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) NSString *key;
 
--(void)getWord:(void (^)(Word *word))success failure:(void (^)(NSError *error))failure;
+-(void)getWord:(NSString *)word withSuccess:(void (^)(Word *word))success failure:(void (^)(NSError *error))failure;
 
 @end

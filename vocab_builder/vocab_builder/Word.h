@@ -10,21 +10,22 @@
 
 typedef enum _WordType {
     WordTypeNoun        = 0,
-	WordTypeVerb        = 1,
-	WordTypeAdverb      = 2,
-    WordTypeAdjective   = 3,
-    WordTypePronoun     = 4,
+    WordTypePronoun     = 1,
+	WordTypeVerb        = 2,
+	WordTypeAdverb      = 3,
+    WordTypeAdjective   = 4,
     WordTypePreposition = 5
 } WordType;
 
 @interface Word : NSObject
 
 @property (strong, nonatomic) NSString *theWord;
-@property (strong, nonatomic) NSString *definition;
+@property (strong, nonatomic) NSString *pronunciationKey;
+@property (strong, nonatomic) NSArray *definitions;
 @property (strong, nonatomic) NSArray *synonyms;
 @property (strong, nonatomic) NSArray *antonyms;
 @property (strong, nonatomic) NSString *origin;
-@property (strong, nonatomic) NSNumber *firstUse;
-@property (strong, nonatomic) NSString *wordType;
+//@property (strong, nonatomic) NSNumber *firstUse;
+@property (strong, nonatomic) NSArray *wordTypes;
 
 @end

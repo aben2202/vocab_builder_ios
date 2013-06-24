@@ -17,8 +17,8 @@
 {
     // Override point for customization after application launch.
     
-    VocabBuilderObjectManager *vbObjectManager = [VocabBuilderObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://vocab_builder.herokuapp.com/api"]];
-    MerriamWebsterObjectManager *mwObjectManager = [MerriamWebsterObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://merriamwebster.com/api"]];
+    self.vbObjectManager = [VocabBuilderObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://vocab_builder.herokuapp.com/api"]];
+    self.mwObjectManager = [MerriamWebsterObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://www.dictionaryapi.com/api/v1/references/collegiate/xml"]];
     
     [MappingProvider setupResponseAndRequestDescriptors];
     return YES;

@@ -12,6 +12,7 @@
 @interface MappingProvider : NSObject
 
 + (RKObjectMapping *)wordMapping;
++ (RKObjectMapping *)definitionMapping;
 
 + (void)setupResponseAndRequestDescriptors;
 

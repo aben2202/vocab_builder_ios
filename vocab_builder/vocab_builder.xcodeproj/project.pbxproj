@@ -28,6 +28,8 @@
 		D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BF1777BB7A00C94B0D /* MappingProvider.m */; };
 		D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */; };
 		D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */; };
+		D8D200C9177885D800C94B0D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C8177885D800C94B0D /* User.m */; };
+		D8D200CC1778981D00C94B0D /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200CB1778981D00C94B0D /* Definition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,10 @@
 		D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabBuilderObjectManager.m; sourceTree = "<group>"; };
 		D8D200C41777CB8B00C94B0D /* MerriamWebsterObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerriamWebsterObjectManager.h; sourceTree = "<group>"; };
 		D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerriamWebsterObjectManager.m; sourceTree = "<group>"; };
+		D8D200C7177885D800C94B0D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D8D200C8177885D800C94B0D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D8D200CA1778981C00C94B0D /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		D8D200CB1778981D00C94B0D /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,10 @@
 			children = (
 				D8D200BA1777A24400C94B0D /* Word.h */,
 				D8D200BB1777A24400C94B0D /* Word.m */,
+				D8D200CA1778981C00C94B0D /* Definition.h */,
+				D8D200CB1778981D00C94B0D /* Definition.m */,
+				D8D200C7177885D800C94B0D /* User.h */,
+				D8D200C8177885D800C94B0D /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -341,6 +351,8 @@
 				D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */,
 				D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */,
 				D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */,
+				D8D200C9177885D800C94B0D /* User.m in Sources */,
+				D8D200CC1778981D00C94B0D /* Definition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

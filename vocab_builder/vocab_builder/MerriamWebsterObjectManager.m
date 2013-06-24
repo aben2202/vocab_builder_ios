@@ -10,8 +10,11 @@
 
 @implementation MerriamWebsterObjectManager
 
--(void)getWord:(void (^)(Word *))success failure:(void (^)(NSError *))failure{
-    [self getObjectsAtPath:@"/words" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+-(void)getWord:(NSString *)word withSuccess:(void (^)(Word *))success failure:(void (^)(NSError *))failure{
+    NSString *path = [NSString stringWithFormat:@"/%@", word];
+    NSDictionary *params = @{@"key": [self.key]};
+    
+    [self getObjectsAtPath:path parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         Word *theWord = [mappingResult firstObject];
         if (success) success(theWord);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
