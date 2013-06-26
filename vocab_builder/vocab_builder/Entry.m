@@ -1,17 +1,15 @@
 //
-//  Word.m
+//  Entry.m
 //  vocab_builder
 //
-//  Created by Andrew Benson on 6/26/13.
+//  Created by andebenson on 6/23/13.
 //  Copyright (c) 2013 andebenson. All rights reserved.
 //
 
-#import "Word.h"
+#import "Entry.h"
 
-@implementation Word
+@implementation Entry
 
-@synthesize theWord = _theWord;
-@synthesize entries = _entries;
 @synthesize previousReview = _previousReview;
 @synthesize nextReview = _nextReview;
 

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
+#import "LoginCredentials.h"
+#import "User.h"
 
 @interface VocabBuilderObjectManager : RKObjectManager
 
--(void)signInWithEmail:(NSString *)email andPassword:(NSString *)password withSuccess:(void (^)(NSArray *words))success
+-(void)signInWithCredentials:(LoginCredentials *)credentials withSuccess:(void (^)(User *user))success
                failure:(void (^)(NSError *error))failure;
 
 -(void)loadCurrentWordsWithSuccess:(void (^)(NSArray *words))success

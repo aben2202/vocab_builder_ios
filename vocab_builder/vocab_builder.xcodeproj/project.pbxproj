@@ -12,6 +12,9 @@
 		CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */; };
 		CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F71778E8B000E8AFD1 /* CredentialStore.m */; };
 		CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FA1778EB8600E8AFD1 /* Global.m */; };
+		CB1318FE1778EEF200E8AFD1 /* LoginCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FD1778EEF200E8AFD1 /* LoginCredentials.m */; };
+		CB1319011778F54E00E8AFD1 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1319001778F54E00E8AFD1 /* Session.m */; };
+		CB131904177B382900E8AFD1 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB131903177B382900E8AFD1 /* Word.m */; };
 		D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D2007F177793CB00C94B0D /* UIKit.framework */; };
 		D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20083177793CB00C94B0D /* CoreGraphics.framework */; };
@@ -28,7 +31,7 @@
 		D8D200A6177793CC00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D200AE177793CC00C94B0D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8D200AC177793CC00C94B0D /* InfoPlist.strings */; };
 		D8D200B1177793CC00C94B0D /* vocab_builderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200B0177793CC00C94B0D /* vocab_builderTests.m */; };
-		D8D200BC1777A24400C94B0D /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BB1777A24400C94B0D /* Word.m */; };
+		D8D200BC1777A24400C94B0D /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BB1777A24400C94B0D /* Entry.m */; };
 		D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BF1777BB7A00C94B0D /* MappingProvider.m */; };
 		D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */; };
 		D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */; };
@@ -57,6 +60,12 @@
 		CB1318F71778E8B000E8AFD1 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
 		CB1318F91778EB8600E8AFD1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		CB1318FA1778EB8600E8AFD1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		CB1318FC1778EEF200E8AFD1 /* LoginCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginCredentials.h; path = ../../../../iOS/top_this/top_this/LoginCredentials.h; sourceTree = "<group>"; };
+		CB1318FD1778EEF200E8AFD1 /* LoginCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginCredentials.m; path = ../../../../iOS/top_this/top_this/LoginCredentials.m; sourceTree = "<group>"; };
+		CB1318FF1778F54E00E8AFD1 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = ../../../../iOS/top_this/top_this/Session.h; sourceTree = "<group>"; };
+		CB1319001778F54E00E8AFD1 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = ../../../../iOS/top_this/top_this/Session.m; sourceTree = "<group>"; };
+		CB131902177B382900E8AFD1 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		CB131903177B382900E8AFD1 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		D8D2007C177793CB00C94B0D /* vocab_builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vocab_builder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D2007F177793CB00C94B0D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8D20081177793CB00C94B0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,8 +88,8 @@
 		D8D200AD177793CC00C94B0D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8D200AF177793CC00C94B0D /* vocab_builderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vocab_builderTests.h; sourceTree = "<group>"; };
 		D8D200B0177793CC00C94B0D /* vocab_builderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vocab_builderTests.m; sourceTree = "<group>"; };
-		D8D200BA1777A24400C94B0D /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
-		D8D200BB1777A24400C94B0D /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		D8D200BA1777A24400C94B0D /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		D8D200BB1777A24400C94B0D /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		D8D200BE1777BB7A00C94B0D /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
 		D8D200BF1777BB7A00C94B0D /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
 		D8D200C11777BDDC00C94B0D /* VocabBuilderObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabBuilderObjectManager.h; sourceTree = "<group>"; };
@@ -230,12 +239,18 @@
 		D8D200BD1777A24E00C94B0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D8D200BA1777A24400C94B0D /* Word.h */,
-				D8D200BB1777A24400C94B0D /* Word.m */,
+				CB1318FF1778F54E00E8AFD1 /* Session.h */,
+				CB1319001778F54E00E8AFD1 /* Session.m */,
+				CB1318FC1778EEF200E8AFD1 /* LoginCredentials.h */,
+				CB1318FD1778EEF200E8AFD1 /* LoginCredentials.m */,
+				D8D200BA1777A24400C94B0D /* Entry.h */,
+				D8D200BB1777A24400C94B0D /* Entry.m */,
 				D8D200CA1778981C00C94B0D /* Definition.h */,
 				D8D200CB1778981D00C94B0D /* Definition.m */,
 				D8D200C7177885D800C94B0D /* User.h */,
 				D8D200C8177885D800C94B0D /* User.m */,
+				CB131902177B382900E8AFD1 /* Word.h */,
+				CB131903177B382900E8AFD1 /* Word.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -383,7 +398,7 @@
 				D8D2008C177793CB00C94B0D /* main.m in Sources */,
 				D8D20090177793CB00C94B0D /* AppDelegate.m in Sources */,
 				D8D2009C177793CC00C94B0D /* HomeViewController.m in Sources */,
-				D8D200BC1777A24400C94B0D /* Word.m in Sources */,
+				D8D200BC1777A24400C94B0D /* Entry.m in Sources */,
 				D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */,
 				D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */,
 				D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */,
@@ -393,6 +408,9 @@
 				CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */,
 				CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */,
 				CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */,
+				CB1318FE1778EEF200E8AFD1 /* LoginCredentials.m in Sources */,
+				CB1319011778F54E00E8AFD1 /* Session.m in Sources */,
+				CB131904177B382900E8AFD1 /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 #import "VocabBuilderObjectManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "LoginViewController.h"
+#import "LoginCredentials.h"
+#import "Session.h"
 
 @interface LoginViewController ()
 
@@ -55,6 +58,15 @@
 }
 
 - (IBAction)signInButtonClicked:(id)sender {
+    LoginCredentials *credentials = [[LoginCredentials alloc] init];
+    credentials.email = self.emailTextField.text;
+    credentials.password = self.passwordTextField.text;
+    
+    [[VocabBuilderObjectManager sharedManager] signInWithCredentials:credentials withSuccess:^(User *user) {
+        <#code#>
+    } failure:^(NSError *error) {
+        <#code#>
+    }];
     
 }
 

@@ -11,7 +11,10 @@
 
 @interface MappingProvider : NSObject
 
-+ (RKObjectMapping *)wordMapping;
++ (RKObjectMapping *)userMapping;
++ (RKObjectMapping *)vocabBuilderWordMapping;
++ (RKObjectMapping *)merriamWebsterWordMapping;
++ (RKObjectMapping *)entryMapping;
 + (RKObjectMapping *)definitionMapping;
 
 + (void)setupResponseAndRequestDescriptors;

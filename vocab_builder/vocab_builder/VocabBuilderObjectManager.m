@@ -7,11 +7,21 @@
 //
 
 #import "VocabBuilderObjectManager.h"
+#import "LoginCredentials.h"
 
 @implementation VocabBuilderObjectManager
 
--(void)signInWithEmail:(NSString *)email andPassword:(NSString *)password withSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{
-    [self ]
+-(void)signInWithCredentials:(LoginCredentials *)credentials withSuccess:(void (^)(User *))success failure:(void (^)(NSError *))failure{
+    NSString *path = @"/login";
+    
+    [self postObject:credentials path:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        User *user = [mappingResult firstObject];
+        if (success) success(user);
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
 }
 
 -(void)loadCurrentWordsWithSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure{

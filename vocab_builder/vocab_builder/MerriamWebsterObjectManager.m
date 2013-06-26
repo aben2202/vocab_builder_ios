@@ -12,7 +12,7 @@
 
 -(void)getWord:(NSString *)word withSuccess:(void (^)(Word *))success failure:(void (^)(NSError *))failure{
     NSString *path = [NSString stringWithFormat:@"/%@", word];
-    NSDictionary *params = @{@"key": [self.key]};
+    NSDictionary *params = @{@"key": self.key};
     
     [self getObjectsAtPath:path parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         Word *theWord = [mappingResult firstObject];
