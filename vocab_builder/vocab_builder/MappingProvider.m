@@ -13,38 +13,61 @@
 #import "User.h"
 #import "VocabBuilderObjectManager.h"
 #import "MerriamWebsterObjectManager.h"
+#import "Session.h"
 
 @implementation MappingProvider
 
-// The first two mappings are used when calling the Vocab Builder api
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////// Mappings for Vocab Builder api
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//session mappings (login/logout)
++ (RKMapping *)sessionMapping{
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Session class]];
+    [mapping addAttributeMappingsFromArray:@[@"success", @"auth_token"]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"current_user" mapping:[MappingProvider userMapping]];
+    
+    return mapping;
+}
+
++ (RKMapping *)loginRequestMapping{
+    RKObjectMapping *mapping = [RKObjectMapping requestMapping];
+    [mapping addAttributeMappingsFromArray:@[@"email",@"password"]];
+    
+    return mapping;
+}
+
 +(RKObjectMapping *)userMapping{
     RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[User class]];
-    [userMapping addAttributeMappingsFromDictionary:@{@"email": @"email",
-                                                      @"current_words": @"currentWords",
-                                                      @"finished_words": @"finishedWords"}];
-    [userMapping addRelationshipMappingWithSourceKeyPath:@"current_words" mapping:[self vocabBuilderWordMapping]];
-    [userMapping addRelationshipMappingWithSourceKeyPath:@"finished_words" mapping:[self vocabBuilderWordMapping]];
+    [userMapping addAttributeMappingsFromDictionary:@{@"id": @"userId",
+                                                      @"email": @"email"}];
+    [userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"words" toKeyPath:@"words" withMapping:[self vocabBuilderWordMapping]]];
+    //[userMapping addRelationshipMappingWithSourceKeyPath:@"words" mapping:[self vocabBuilderWordMapping]];
     return userMapping;
 }
 
 +(RKObjectMapping *)vocabBuilderWordMapping{
     RKObjectMapping *wordMapping = [RKObjectMapping mappingForClass:[Word class]];
-    [wordMapping addAttributeMappingsFromDictionary:@{@"previous_review": @"previousReview",
-                                                      @"next_review": @"nextReview"}];
+    [wordMapping addAttributeMappingsFromDictionary:@{@"id": @"wordId",
+                                                      @"the_word": @"theWord",
+                                                      @"review_cycle_start": @"reviewCycleStart",
+                                                      @"previous_review": @"previousReview",
+                                                      @"finished": @"finished"}];
     
     return wordMapping;
 }
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////// Mappings for Merriam Webster api
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// The remaining mappings are used when calling the Merriam Webster api
-
-//+(RKObjectMapping *)merriamWebsterWordMapping{
-//    RKObjectMapping *wordMapping = [RKObjectMapping mappingForClass:[Word class]];
-//    [wordMapping addRelationshipMappingWithSourceKeyPath:@"entry_list" mapping:[self entryMapping]];
-//    
-//    return wordMapping;
-//}
++(RKObjectMapping *)merriamWebsterWordMapping{
+    RKObjectMapping *wordMapping = [RKObjectMapping mappingForClass:[Word class]];
+    [wordMapping addRelationshipMappingWithSourceKeyPath:@"entry_list" mapping:[self entryMapping]];
+    
+    return wordMapping;
+}
 
 +(RKObjectMapping *)entryMapping{
     RKObjectMapping *entryMapping = [RKObjectMapping mappingForClass:[Entry class]];
@@ -59,21 +82,35 @@
 +(RKObjectMapping *)definitionMapping{
     RKObjectMapping *definitionMapping = [RKObjectMapping mappingForClass:[Definition class]];
     [definitionMapping addAttributeMappingsFromDictionary:@{@"date": @"firstUse",
-                                                  @"sn": @"senseNumbers",
-                                                  @"dt": @"definitions"}];
+                                                            @"sn": @"senseNumbers",
+                                                            @"dt": @"definitions"}];
     return definitionMapping;
 }
 
+
 +(void)setupResponseAndRequestDescriptors{
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
-    VocabBuilderObjectManager *vbObjectManager = [VocabBuilderObjectManager sharedManager];
-    MerriamWebsterObjectManager *mwObjectManager = [MerriamWebsterObjectManager sharedManager];
     
-    RKResponseDescriptor *userResponse = [RKResponseDescriptor responseDescriptorWithMapping:[self userMapping] pathPattern:nil keyPath:@"user" statusCodes:statusCodeSet];
-    [vbObjectManager addResponseDescriptor:userResponse];
-    
+//    RKResponseDescriptor *userResponse = [RKResponseDescriptor responseDescriptorWithMapping:[self userMapping] pathPattern:nil keyPath:@"user" statusCodes:statusCodeSet];
+//    [vbObjectManager addResponseDescriptor:userResponse];
+//    
     RKResponseDescriptor *mwWordResponse = [RKResponseDescriptor responseDescriptorWithMapping:[self entryMapping] pathPattern:nil keyPath:@"entry_list" statusCodes:statusCodeSet];
-    [mwObjectManager addResponseDescriptor:mwWordResponse];
+    [[MerriamWebsterObjectManager sharedManager] addResponseDescriptor:mwWordResponse];
+    
+    // sessions /////////////
+    // requests
+//    RKRequestDescriptor *loginRequestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:[self loginRequestMapping] objectClass:[LoginCredentials class] rootKeyPath:@"credentials"];
+//    [vbObjectManager addRequestDescriptor:loginRequestDescriptor];
+//    // responses
+//    RKResponseDescriptor *session = [RKResponseDescriptor responseDescriptorWithMapping:[self sessionMapping] pathPattern:@"login" keyPath:nil statusCodes:statusCodeSet];
+//    [vbObjectManager addResponseDescriptor:session];
+//    
+    
+//    // error mappings
+//    RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
+//    [errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:@"error" toKeyPath:@"errorMessage"]];
+//    [vbObjectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:errorMapping pathPattern:nil keyPath:@"error" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)]];
+
 }
 
 @end

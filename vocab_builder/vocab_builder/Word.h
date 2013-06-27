@@ -10,9 +10,12 @@
 
 @interface Word : NSObject
 
+@property (strong, nonatomic) NSNumber *wordId;
 @property (strong, nonatomic) NSString *theWord;
 @property (strong, nonatomic) NSArray *entries;
+@property (strong, nonatomic) NSDate *reviewCycleStart;
 @property (strong, nonatomic) NSDate *previousReview;
 @property (strong, nonatomic) NSDate *nextReview;
+@property  BOOL *finished;
 
 @end

@@ -10,7 +10,8 @@
 
 @implementation Global
 
-@synthesize serverBaseURL = _serverBaseURL;
+@synthesize vbBaseURL = _vbBaseURL;
+@synthesize mwBaseURL = _mwBaseURL;
 @synthesize currentUser = _currentUser;
 
 -(id)init{
@@ -18,14 +19,13 @@
     return self;
 }
 
--(NSMutableString *)serverBaseURL{
-    return [NSMutableString stringWithFormat:@"http://localhost:3000"];
-    //return [NSMutableString stringWithFormat:@"http://vocab-builder.herokuapp.com"];
+-(NSURL *)vbBaseURL{
+    return [NSURL URLWithString:@"http://localhost:3000/api/v1"];
+    //return [NSURL URLWithString:@"http://vocab-builder.herokuapp.com"];
 }
 
--(NSString *)getURLStringWithPath:(NSString *)path{
-    
-    return [NSString stringWithFormat:@"%@%@", self.serverBaseURL, path];
+-(NSURL *)mwBaseURL{
+    return [NSURL URLWithString:@"http://www.dictionaryapi.com/api/v1/references/collegiate/xml"];
 }
 
 static Global *instance =nil;

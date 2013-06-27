@@ -47,23 +47,23 @@
                                 </state>
                                 <connections>
                                     <action selector="signInButtonClicked:" destination="fmY-2t-JdM" eventType="touchUpInside" id="iGa-Wp-Kqn"/>
-                                    <segue destination="2" kind="push" identifier="toMainApp" id="8vt-uS-fWG"/>
+                                    <segue destination="2" kind="modal" identifier="toMainApp" id="8vt-uS-fWG"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bVw-yv-Iuo" firstAttribute="top" secondItem="MfU-uJ-82K" secondAttribute="top" constant="20" symbolic="YES" type="default" id="3wZ-mc-3sN"/>
                             <constraint firstItem="3tH-G2-URa" firstAttribute="top" secondItem="bVw-yv-Iuo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="56z-fe-g0g"/>
                             <constraint firstItem="mXu-r9-TMi" firstAttribute="centerX" secondItem="MfU-uJ-82K" secondAttribute="centerX" type="default" id="8iW-w8-fL1"/>
                             <constraint firstItem="q1Q-pn-N5b" firstAttribute="leading" secondItem="MfU-uJ-82K" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="BG2-CC-KqB"/>
                             <constraint firstItem="3tH-G2-URa" firstAttribute="leading" secondItem="bVw-yv-Iuo" secondAttribute="leading" type="default" id="EOY-tw-lpb"/>
-                            <constraint firstItem="bVw-yv-Iuo" firstAttribute="top" secondItem="MfU-uJ-82K" secondAttribute="top" constant="214" id="Fdm-Tc-P0h"/>
                             <constraint firstAttribute="trailing" secondItem="3tH-G2-URa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IQF-Wq-bCO"/>
+                            <constraint firstItem="q1Q-pn-N5b" firstAttribute="top" secondItem="MfU-uJ-82K" secondAttribute="top" constant="62" id="JWR-dQ-zNd"/>
                             <constraint firstAttribute="trailing" secondItem="bVw-yv-Iuo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="OOy-hD-cYz"/>
-                            <constraint firstItem="q1Q-pn-N5b" firstAttribute="top" secondItem="MfU-uJ-82K" secondAttribute="top" constant="256" id="e85-8a-wRx"/>
                             <constraint firstItem="WRa-Fi-i3f" firstAttribute="trailing" secondItem="q1Q-pn-N5b" secondAttribute="trailing" type="default" id="lNG-hg-ew7"/>
-                            <constraint firstItem="WRa-Fi-i3f" firstAttribute="top" secondItem="MfU-uJ-82K" secondAttribute="top" constant="218" id="qlG-3p-cYp"/>
-                            <constraint firstAttribute="bottom" secondItem="mXu-r9-TMi" secondAttribute="bottom" constant="220" id="wPj-ZZ-yZ1"/>
+                            <constraint firstItem="WRa-Fi-i3f" firstAttribute="top" secondItem="MfU-uJ-82K" secondAttribute="top" constant="24" id="ows-5h-idV"/>
+                            <constraint firstItem="mXu-r9-TMi" firstAttribute="top" secondItem="MfU-uJ-82K" secondAttribute="top" constant="172" id="rqX-bt-Oth"/>
                         </constraints>
                     </view>
                     <connections>

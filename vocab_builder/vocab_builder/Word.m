@@ -10,9 +10,12 @@
 
 @implementation Word
 
+@synthesize wordId = _wordId;
 @synthesize theWord = _theWord;
 @synthesize entries = _entries;
+@synthesize reviewCycleStart = _reviewCycleStart;
 @synthesize previousReview = _previousReview;
 @synthesize nextReview = _nextReview;
+@synthesize finished = _finished;
 
 @end

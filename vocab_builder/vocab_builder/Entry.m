@@ -10,7 +10,4 @@
 
 @implementation Entry
 
-@synthesize previousReview = _previousReview;
-@synthesize nextReview = _nextReview;
-
 @end

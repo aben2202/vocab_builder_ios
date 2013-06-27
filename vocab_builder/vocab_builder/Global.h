@@ -12,10 +12,11 @@
 
 @interface Global : NSObject
 
-@property(nonatomic,retain)NSMutableString *serverBaseURL;
+@property(nonatomic,retain)NSURL *vbBaseURL;
+@property(nonatomic,retain)NSURL *mwBaseURL;
+
 @property(nonatomic, retain)User *currentUser;
 
--(NSString *)getURLStringWithPath:(NSString *)path;
 +(Global*)getInstance;
 
 //generic functions for use in all classes

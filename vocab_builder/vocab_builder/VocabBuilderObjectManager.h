@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 #import "LoginCredentials.h"
-#import "User.h"
+#import "Session.h"
 
 @interface VocabBuilderObjectManager : RKObjectManager
 
--(void)signInWithCredentials:(LoginCredentials *)credentials withSuccess:(void (^)(User *user))success
+-(void)signInWithCredentials:(LoginCredentials *)credentials withSuccess:(void (^)(Session *session))success
                failure:(void (^)(NSError *error))failure;
 
 -(void)loadCurrentWordsWithSuccess:(void (^)(NSArray *words))success

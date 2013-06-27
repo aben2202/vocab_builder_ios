@@ -12,9 +12,10 @@
 		CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */; };
 		CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F71778E8B000E8AFD1 /* CredentialStore.m */; };
 		CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FA1778EB8600E8AFD1 /* Global.m */; };
-		CB1318FE1778EEF200E8AFD1 /* LoginCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FD1778EEF200E8AFD1 /* LoginCredentials.m */; };
-		CB1319011778F54E00E8AFD1 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1319001778F54E00E8AFD1 /* Session.m */; };
 		CB131904177B382900E8AFD1 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB131903177B382900E8AFD1 /* Word.m */; };
+		CB1393D6177B67B600EBE426 /* LoginCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1393D3177B67B600EBE426 /* LoginCredentials.m */; };
+		CB1393D7177B67B600EBE426 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1393D5177B67B600EBE426 /* Session.m */; };
+		CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */; };
 		D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D2007F177793CB00C94B0D /* UIKit.framework */; };
 		D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20083177793CB00C94B0D /* CoreGraphics.framework */; };
@@ -60,12 +61,13 @@
 		CB1318F71778E8B000E8AFD1 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
 		CB1318F91778EB8600E8AFD1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		CB1318FA1778EB8600E8AFD1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
-		CB1318FC1778EEF200E8AFD1 /* LoginCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginCredentials.h; path = ../../../../iOS/top_this/top_this/LoginCredentials.h; sourceTree = "<group>"; };
-		CB1318FD1778EEF200E8AFD1 /* LoginCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginCredentials.m; path = ../../../../iOS/top_this/top_this/LoginCredentials.m; sourceTree = "<group>"; };
-		CB1318FF1778F54E00E8AFD1 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = ../../../../iOS/top_this/top_this/Session.h; sourceTree = "<group>"; };
-		CB1319001778F54E00E8AFD1 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = ../../../../iOS/top_this/top_this/Session.m; sourceTree = "<group>"; };
 		CB131902177B382900E8AFD1 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		CB131903177B382900E8AFD1 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		CB1393D2177B67B600EBE426 /* LoginCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCredentials.h; sourceTree = "<group>"; };
+		CB1393D3177B67B600EBE426 /* LoginCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCredentials.m; sourceTree = "<group>"; };
+		CB1393D4177B67B600EBE426 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		CB1393D5177B67B600EBE426 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
 		D8D2007C177793CB00C94B0D /* vocab_builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vocab_builder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D2007F177793CB00C94B0D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8D20081177793CB00C94B0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -198,6 +200,7 @@
 				D8D2008E177793CB00C94B0D /* AppDelegate.h */,
 				D8D2008F177793CB00C94B0D /* AppDelegate.m */,
 				D8D20097177793CC00C94B0D /* MainStoryboard.storyboard */,
+				CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */,
 				D8D20086177793CB00C94B0D /* Supporting Files */,
 			);
 			path = vocab_builder;
@@ -239,10 +242,10 @@
 		D8D200BD1777A24E00C94B0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CB1318FF1778F54E00E8AFD1 /* Session.h */,
-				CB1319001778F54E00E8AFD1 /* Session.m */,
-				CB1318FC1778EEF200E8AFD1 /* LoginCredentials.h */,
-				CB1318FD1778EEF200E8AFD1 /* LoginCredentials.m */,
+				CB1393D2177B67B600EBE426 /* LoginCredentials.h */,
+				CB1393D3177B67B600EBE426 /* LoginCredentials.m */,
+				CB1393D4177B67B600EBE426 /* Session.h */,
+				CB1393D5177B67B600EBE426 /* Session.m */,
 				D8D200BA1777A24400C94B0D /* Entry.h */,
 				D8D200BB1777A24400C94B0D /* Entry.m */,
 				D8D200CA1778981C00C94B0D /* Definition.h */,
@@ -408,9 +411,10 @@
 				CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */,
 				CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */,
 				CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */,
-				CB1318FE1778EEF200E8AFD1 /* LoginCredentials.m in Sources */,
-				CB1319011778F54E00E8AFD1 /* Session.m in Sources */,
 				CB131904177B382900E8AFD1 /* Word.m in Sources */,
+				CB1393D6177B67B600EBE426 /* LoginCredentials.m in Sources */,
+				CB1393D7177B67B600EBE426 /* Session.m in Sources */,
+				CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

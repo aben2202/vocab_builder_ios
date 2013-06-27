@@ -34,6 +34,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.globals = [Global getInstance];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -58,32 +59,55 @@
 }
 
 - (IBAction)signInButtonClicked:(id)sender {
+    [SVProgressHUD show];
     LoginCredentials *credentials = [[LoginCredentials alloc] init];
     credentials.email = self.emailTextField.text;
     credentials.password = self.passwordTextField.text;
     
-    [[VocabBuilderObjectManager sharedManager] signInWithCredentials:credentials withSuccess:^(User *user) {
-        <#code#>
+    [[VocabBuilderObjectManager managerWithBaseURL:self.globals.vbBaseURL] signInWithCredentials:credentials withSuccess:^(Session *session) {
+        NSLog(@"Successfully logged in!");
+        self.globals.currentUser = session.current_user;
+        NSString *auth_token = session.auth_token;
+        [self.credentialStore setAuthToken:auth_token];
+        [SVProgressHUD showSuccessWithStatus:@"Success"];
+        [[VocabBuilderObjectManager managerWithBaseURL:self.globals.vbBaseURL].HTTPClient setDefaultHeader:@"Auth_token" value:[self.credentialStore authToken]];
+        [self performSegueWithIdentifier:@"toMainApp" sender:self];
+        [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
-        <#code#>
+        NSLog(@"ERROR: %@", error);
+        [SVProgressHUD showErrorWithStatus:@"Unable to login."];
+
     }];
-    
 }
 
 -(void)setCurrentUser{
     [SVProgressHUD showWithStatus:@"Signing in..."];
-    [[VocabBuilderObjectManager sharedManager] getObjectsAtPath:@"users" parameters:@{@"auth_token":[self.credentialStore authToken]} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    [[VocabBuilderObjectManager managerWithBaseURL:self.globals.vbBaseURL] getObjectsAtPath:@"users" parameters:@{@"auth_token":[self.credentialStore authToken]} success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         NSLog(@"Successfully retrieved current user!");
         User *newUser = mappingResult.array[0];
         self.globals.currentUser = newUser;
-        [[VocabBuilderObjectManager sharedManager].HTTPClient setDefaultHeader:@"Auth_token" value:[self.credentialStore authToken]];
+        [[VocabBuilderObjectManager managerWithBaseURL:self.globals.vbBaseURL].HTTPClient setDefaultHeader:@"Auth_token" value:[self.credentialStore authToken]];
         [self performSegueWithIdentifier:@"toMainApp" sender:self];
         [SVProgressHUD showSuccessWithStatus:@"Successfully logged in!"];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"ERROR: %@", error);
         NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
-        [SVProgressHUD showErrorWithStatus:@"Unable to auto login."];
+        [SVProgressHUD showErrorWithStatus:@"Unable to login."];
     }];
+}
+
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqualToString:@"toMainApp"]) {
+        if ([self.credentialStore isLoggedIn]) {
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    else{
+        return TRUE;
+    }
 }
 
 @end

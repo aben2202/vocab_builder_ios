@@ -11,12 +11,14 @@
 
 @implementation VocabBuilderObjectManager
 
--(void)signInWithCredentials:(LoginCredentials *)credentials withSuccess:(void (^)(User *))success failure:(void (^)(NSError *))failure{
-    NSString *path = @"/login";
+-(void)signInWithCredentials:(LoginCredentials *)credentials withSuccess:(void (^)(Session *))success failure:(void (^)(NSError *))failure{
+    NSString *path = @"login";
+    NSDictionary *params = @{@"credentials[email]": credentials.email,
+                             @"credentials[password]": credentials.password};
     
-    [self postObject:credentials path:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        User *user = [mappingResult firstObject];
-        if (success) success(user);
+    [self postObject:credentials path:path parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        Session *session = [mappingResult firstObject];
+        if (success) success(session);
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         if (failure) {
             failure(error);

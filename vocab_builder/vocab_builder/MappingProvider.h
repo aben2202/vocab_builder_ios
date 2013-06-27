@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
+#import "Global.h"
 
 @interface MappingProvider : NSObject
 
++ (RKObjectMapping *)sessionMapping;
++ (RKObjectMapping *)loginRequestMapping;
 + (RKObjectMapping *)userMapping;
 + (RKObjectMapping *)vocabBuilderWordMapping;
+
 + (RKObjectMapping *)merriamWebsterWordMapping;
 + (RKObjectMapping *)entryMapping;
 + (RKObjectMapping *)definitionMapping;

@@ -10,7 +10,9 @@
 
 @interface User : NSObject
 
+@property (strong, nonatomic) NSNumber *userId;
 @property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSMutableArray *words;
 @property (strong, nonatomic) NSMutableArray *currentWords;
 @property (strong, nonatomic) NSMutableArray *finishedWords;
 
