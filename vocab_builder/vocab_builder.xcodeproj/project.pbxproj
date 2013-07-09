@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		91F8B8D0334D453BA3865D0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E59390E5C6F4F75BC7AB10A /* libPods.a */; };
-		CB1318F11778DAFE00E8AFD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F01778DAFE00E8AFD1 /* LoginViewController.m */; };
-		CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */; };
 		CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F71778E8B000E8AFD1 /* CredentialStore.m */; };
 		CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FA1778EB8600E8AFD1 /* Global.m */; };
-		CB131904177B382900E8AFD1 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB131903177B382900E8AFD1 /* Word.m */; };
-		CB1393D6177B67B600EBE426 /* LoginCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1393D3177B67B600EBE426 /* LoginCredentials.m */; };
-		CB1393D7177B67B600EBE426 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1393D5177B67B600EBE426 /* Session.m */; };
 		CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */; };
+		D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD10CD178B11AE0036B0AA /* CoreData.framework */; };
+		D8BD1153178B244A0036B0AA /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1152178B244A0036B0AA /* Entry.m */; };
+		D8BD1156178B244B0036B0AA /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1155178B244B0036B0AA /* Word.m */; };
 		D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D2007F177793CB00C94B0D /* UIKit.framework */; };
 		D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20083177793CB00C94B0D /* CoreGraphics.framework */; };
@@ -26,18 +24,24 @@
 		D8D20094177793CC00C94B0D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D20093177793CC00C94B0D /* Default@2x.png */; };
 		D8D20096177793CC00C94B0D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8D20095177793CC00C94B0D /* Default-568h@2x.png */; };
 		D8D20099177793CC00C94B0D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D20097177793CC00C94B0D /* MainStoryboard.storyboard */; };
-		D8D2009C177793CC00C94B0D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D2009B177793CC00C94B0D /* HomeViewController.m */; };
 		D8D200A4177793CC00C94B0D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D200A3177793CC00C94B0D /* SenTestingKit.framework */; };
 		D8D200A5177793CC00C94B0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D2007F177793CB00C94B0D /* UIKit.framework */; };
 		D8D200A6177793CC00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D200AE177793CC00C94B0D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8D200AC177793CC00C94B0D /* InfoPlist.strings */; };
 		D8D200B1177793CC00C94B0D /* vocab_builderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200B0177793CC00C94B0D /* vocab_builderTests.m */; };
-		D8D200BC1777A24400C94B0D /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BB1777A24400C94B0D /* Entry.m */; };
 		D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200BF1777BB7A00C94B0D /* MappingProvider.m */; };
-		D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */; };
-		D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */; };
-		D8D200C9177885D800C94B0D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C8177885D800C94B0D /* User.m */; };
-		D8D200CC1778981D00C94B0D /* Definition.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200CB1778981D00C94B0D /* Definition.m */; };
+		D8D200C61777CB8B00C94B0D /* DictionaryObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200C51777CB8B00C94B0D /* DictionaryObjectManager.m */; };
+		D8D200D11785D2C500C94B0D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D200D01785D2C500C94B0D /* SystemConfiguration.framework */; };
+		D8D200D31785D2D000C94B0D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D200D21785D2D000C94B0D /* MobileCoreServices.framework */; };
+		D8D200D81785D40800C94B0D /* InTheWorksTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200D71785D40800C94B0D /* InTheWorksTableCell.m */; };
+		D8D200DB1785D42100C94B0D /* DoneAndDoneTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200DA1785D42100C94B0D /* DoneAndDoneTableCell.m */; };
+		D8D200DE1787217900C94B0D /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200DD1787217900C94B0D /* HomeTableViewController.m */; };
+		D8D200E11787263900C94B0D /* SearchBarTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200E01787263900C94B0D /* SearchBarTableCell.m */; };
+		D8D200E71787337400C94B0D /* DefinitionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200E61787337400C94B0D /* DefinitionTableViewController.m */; };
+		D8D200EA1787361500C94B0D /* TextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200E91787361500C94B0D /* TextViewTableCell.m */; };
+		D8D200ED1787420D00C94B0D /* ReviewSessionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200EC1787420C00C94B0D /* ReviewSessionTableCell.m */; };
+		D8D200F31787499A00C94B0D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200F21787499A00C94B0D /* SettingsTableViewController.m */; };
+		D8D200F6178A67F900C94B0D /* VocabBuilderDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200F5178A67F800C94B0D /* VocabBuilderDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,21 +57,16 @@
 /* Begin PBXFileReference section */
 		7774DF15F0A84CF1866C62F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		7E59390E5C6F4F75BC7AB10A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB1318EF1778DAFE00E8AFD1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		CB1318F01778DAFE00E8AFD1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		CB1318F21778DB1300E8AFD1 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		CB1318F61778E8B000E8AFD1 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
 		CB1318F71778E8B000E8AFD1 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
 		CB1318F91778EB8600E8AFD1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		CB1318FA1778EB8600E8AFD1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
-		CB131902177B382900E8AFD1 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
-		CB131903177B382900E8AFD1 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
-		CB1393D2177B67B600EBE426 /* LoginCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginCredentials.h; sourceTree = "<group>"; };
-		CB1393D3177B67B600EBE426 /* LoginCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginCredentials.m; sourceTree = "<group>"; };
-		CB1393D4177B67B600EBE426 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
-		CB1393D5177B67B600EBE426 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
+		D8BD10CD178B11AE0036B0AA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D8BD1151178B244A0036B0AA /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		D8BD1152178B244A0036B0AA /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		D8BD1154178B244B0036B0AA /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		D8BD1155178B244B0036B0AA /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		D8D2007C177793CB00C94B0D /* vocab_builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vocab_builder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D2007F177793CB00C94B0D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8D20081177793CB00C94B0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,26 +81,36 @@
 		D8D20093177793CC00C94B0D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D8D20095177793CC00C94B0D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D8D20098177793CC00C94B0D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		D8D2009A177793CC00C94B0D /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		D8D2009B177793CC00C94B0D /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D8D200A2177793CC00C94B0D /* vocab_builderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vocab_builderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D200A3177793CC00C94B0D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		D8D200AB177793CC00C94B0D /* vocab_builderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "vocab_builderTests-Info.plist"; sourceTree = "<group>"; };
 		D8D200AD177793CC00C94B0D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8D200AF177793CC00C94B0D /* vocab_builderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vocab_builderTests.h; sourceTree = "<group>"; };
 		D8D200B0177793CC00C94B0D /* vocab_builderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vocab_builderTests.m; sourceTree = "<group>"; };
-		D8D200BA1777A24400C94B0D /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
-		D8D200BB1777A24400C94B0D /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		D8D200BE1777BB7A00C94B0D /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
 		D8D200BF1777BB7A00C94B0D /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
-		D8D200C11777BDDC00C94B0D /* VocabBuilderObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabBuilderObjectManager.h; sourceTree = "<group>"; };
-		D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabBuilderObjectManager.m; sourceTree = "<group>"; };
-		D8D200C41777CB8B00C94B0D /* MerriamWebsterObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerriamWebsterObjectManager.h; sourceTree = "<group>"; };
-		D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerriamWebsterObjectManager.m; sourceTree = "<group>"; };
-		D8D200C7177885D800C94B0D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D8D200C8177885D800C94B0D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		D8D200CA1778981C00C94B0D /* Definition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
-		D8D200CB1778981D00C94B0D /* Definition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Definition.m; sourceTree = "<group>"; };
+		D8D200C41777CB8B00C94B0D /* DictionaryObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryObjectManager.h; sourceTree = "<group>"; };
+		D8D200C51777CB8B00C94B0D /* DictionaryObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryObjectManager.m; sourceTree = "<group>"; };
+		D8D200D01785D2C500C94B0D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D8D200D21785D2D000C94B0D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D8D200D61785D40800C94B0D /* InTheWorksTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InTheWorksTableCell.h; sourceTree = "<group>"; };
+		D8D200D71785D40800C94B0D /* InTheWorksTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InTheWorksTableCell.m; sourceTree = "<group>"; };
+		D8D200D91785D42100C94B0D /* DoneAndDoneTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneAndDoneTableCell.h; sourceTree = "<group>"; };
+		D8D200DA1785D42100C94B0D /* DoneAndDoneTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneAndDoneTableCell.m; sourceTree = "<group>"; };
+		D8D200DC1787217900C94B0D /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		D8D200DD1787217900C94B0D /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
+		D8D200DF1787263900C94B0D /* SearchBarTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarTableCell.h; sourceTree = "<group>"; };
+		D8D200E01787263900C94B0D /* SearchBarTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarTableCell.m; sourceTree = "<group>"; };
+		D8D200E51787337400C94B0D /* DefinitionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionTableViewController.h; sourceTree = "<group>"; };
+		D8D200E61787337400C94B0D /* DefinitionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionTableViewController.m; sourceTree = "<group>"; };
+		D8D200E81787361400C94B0D /* TextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableCell.h; sourceTree = "<group>"; };
+		D8D200E91787361500C94B0D /* TextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableCell.m; sourceTree = "<group>"; };
+		D8D200EB1787420C00C94B0D /* ReviewSessionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSessionTableCell.h; sourceTree = "<group>"; };
+		D8D200EC1787420C00C94B0D /* ReviewSessionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSessionTableCell.m; sourceTree = "<group>"; };
+		D8D200F11787499A00C94B0D /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		D8D200F21787499A00C94B0D /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		D8D200F4178A67F800C94B0D /* VocabBuilderDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabBuilderDataModel.h; sourceTree = "<group>"; };
+		D8D200F5178A67F800C94B0D /* VocabBuilderDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabBuilderDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */,
+				D8D200D31785D2D000C94B0D /* MobileCoreServices.framework in Frameworks */,
+				D8D200D11785D2C500C94B0D /* SystemConfiguration.framework in Frameworks */,
 				D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */,
 				D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */,
 				D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */,
@@ -132,12 +144,12 @@
 		CB1318EE1778DAD900E8AFD1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D8D2009A177793CC00C94B0D /* HomeViewController.h */,
-				D8D2009B177793CC00C94B0D /* HomeViewController.m */,
-				CB1318EF1778DAFE00E8AFD1 /* LoginViewController.h */,
-				CB1318F01778DAFE00E8AFD1 /* LoginViewController.m */,
-				CB1318F21778DB1300E8AFD1 /* RegisterViewController.h */,
-				CB1318F31778DB1300E8AFD1 /* RegisterViewController.m */,
+				D8D200DC1787217900C94B0D /* HomeTableViewController.h */,
+				D8D200DD1787217900C94B0D /* HomeTableViewController.m */,
+				D8D200E51787337400C94B0D /* DefinitionTableViewController.h */,
+				D8D200E61787337400C94B0D /* DefinitionTableViewController.m */,
+				D8D200F11787499A00C94B0D /* SettingsTableViewController.h */,
+				D8D200F21787499A00C94B0D /* SettingsTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -147,10 +159,8 @@
 			children = (
 				D8D200BE1777BB7A00C94B0D /* MappingProvider.h */,
 				D8D200BF1777BB7A00C94B0D /* MappingProvider.m */,
-				D8D200C11777BDDC00C94B0D /* VocabBuilderObjectManager.h */,
-				D8D200C21777BDDC00C94B0D /* VocabBuilderObjectManager.m */,
-				D8D200C41777CB8B00C94B0D /* MerriamWebsterObjectManager.h */,
-				D8D200C51777CB8B00C94B0D /* MerriamWebsterObjectManager.m */,
+				D8D200C41777CB8B00C94B0D /* DictionaryObjectManager.h */,
+				D8D200C51777CB8B00C94B0D /* DictionaryObjectManager.m */,
 				CB1318F61778E8B000E8AFD1 /* CredentialStore.h */,
 				CB1318F71778E8B000E8AFD1 /* CredentialStore.m */,
 				CB1318F91778EB8600E8AFD1 /* Global.h */,
@@ -182,6 +192,9 @@
 		D8D2007E177793CB00C94B0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8BD10CD178B11AE0036B0AA /* CoreData.framework */,
+				D8D200D21785D2D000C94B0D /* MobileCoreServices.framework */,
+				D8D200D01785D2C500C94B0D /* SystemConfiguration.framework */,
 				D8D2007F177793CB00C94B0D /* UIKit.framework */,
 				D8D20081177793CB00C94B0D /* Foundation.framework */,
 				D8D20083177793CB00C94B0D /* CoreGraphics.framework */,
@@ -194,13 +207,14 @@
 		D8D20085177793CB00C94B0D /* vocab_builder */ = {
 			isa = PBXGroup;
 			children = (
+				D8D200F7178A68A100C94B0D /* CoreData */,
+				D8D200D41785D3D000C94B0D /* Views */,
 				CB1318F51778E88600E8AFD1 /* Helpers */,
 				CB1318EE1778DAD900E8AFD1 /* Controllers */,
 				D8D200BD1777A24E00C94B0D /* Models */,
 				D8D2008E177793CB00C94B0D /* AppDelegate.h */,
 				D8D2008F177793CB00C94B0D /* AppDelegate.m */,
 				D8D20097177793CC00C94B0D /* MainStoryboard.storyboard */,
-				CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */,
 				D8D20086177793CB00C94B0D /* Supporting Files */,
 			);
 			path = vocab_builder;
@@ -242,20 +256,47 @@
 		D8D200BD1777A24E00C94B0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CB1393D2177B67B600EBE426 /* LoginCredentials.h */,
-				CB1393D3177B67B600EBE426 /* LoginCredentials.m */,
-				CB1393D4177B67B600EBE426 /* Session.h */,
-				CB1393D5177B67B600EBE426 /* Session.m */,
-				D8D200BA1777A24400C94B0D /* Entry.h */,
-				D8D200BB1777A24400C94B0D /* Entry.m */,
-				D8D200CA1778981C00C94B0D /* Definition.h */,
-				D8D200CB1778981D00C94B0D /* Definition.m */,
-				D8D200C7177885D800C94B0D /* User.h */,
-				D8D200C8177885D800C94B0D /* User.m */,
-				CB131902177B382900E8AFD1 /* Word.h */,
-				CB131903177B382900E8AFD1 /* Word.m */,
+				D8BD1154178B244B0036B0AA /* Word.h */,
+				D8BD1155178B244B0036B0AA /* Word.m */,
+				D8BD1151178B244A0036B0AA /* Entry.h */,
+				D8BD1152178B244A0036B0AA /* Entry.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D8D200D41785D3D000C94B0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8D200D51785D3DB00C94B0D /* Table Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D8D200D51785D3DB00C94B0D /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8D200D61785D40800C94B0D /* InTheWorksTableCell.h */,
+				D8D200D71785D40800C94B0D /* InTheWorksTableCell.m */,
+				D8D200D91785D42100C94B0D /* DoneAndDoneTableCell.h */,
+				D8D200DA1785D42100C94B0D /* DoneAndDoneTableCell.m */,
+				D8D200DF1787263900C94B0D /* SearchBarTableCell.h */,
+				D8D200E01787263900C94B0D /* SearchBarTableCell.m */,
+				D8D200E81787361400C94B0D /* TextViewTableCell.h */,
+				D8D200E91787361500C94B0D /* TextViewTableCell.m */,
+				D8D200EB1787420C00C94B0D /* ReviewSessionTableCell.h */,
+				D8D200EC1787420C00C94B0D /* ReviewSessionTableCell.m */,
+			);
+			name = "Table Cells";
+			sourceTree = "<group>";
+		};
+		D8D200F7178A68A100C94B0D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				D8D200F4178A67F800C94B0D /* VocabBuilderDataModel.h */,
+				D8D200F5178A67F800C94B0D /* VocabBuilderDataModel.m */,
+				CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,21 +441,22 @@
 			files = (
 				D8D2008C177793CB00C94B0D /* main.m in Sources */,
 				D8D20090177793CB00C94B0D /* AppDelegate.m in Sources */,
-				D8D2009C177793CC00C94B0D /* HomeViewController.m in Sources */,
-				D8D200BC1777A24400C94B0D /* Entry.m in Sources */,
 				D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */,
-				D8D200C31777BDDC00C94B0D /* VocabBuilderObjectManager.m in Sources */,
-				D8D200C61777CB8B00C94B0D /* MerriamWebsterObjectManager.m in Sources */,
-				D8D200C9177885D800C94B0D /* User.m in Sources */,
-				D8D200CC1778981D00C94B0D /* Definition.m in Sources */,
-				CB1318F11778DAFE00E8AFD1 /* LoginViewController.m in Sources */,
-				CB1318F41778DB1300E8AFD1 /* RegisterViewController.m in Sources */,
+				D8D200C61777CB8B00C94B0D /* DictionaryObjectManager.m in Sources */,
 				CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */,
 				CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */,
-				CB131904177B382900E8AFD1 /* Word.m in Sources */,
-				CB1393D6177B67B600EBE426 /* LoginCredentials.m in Sources */,
-				CB1393D7177B67B600EBE426 /* Session.m in Sources */,
 				CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */,
+				D8D200D81785D40800C94B0D /* InTheWorksTableCell.m in Sources */,
+				D8D200DB1785D42100C94B0D /* DoneAndDoneTableCell.m in Sources */,
+				D8D200DE1787217900C94B0D /* HomeTableViewController.m in Sources */,
+				D8D200E11787263900C94B0D /* SearchBarTableCell.m in Sources */,
+				D8D200E71787337400C94B0D /* DefinitionTableViewController.m in Sources */,
+				D8D200EA1787361500C94B0D /* TextViewTableCell.m in Sources */,
+				D8D200ED1787420D00C94B0D /* ReviewSessionTableCell.m in Sources */,
+				D8D200F31787499A00C94B0D /* SettingsTableViewController.m in Sources */,
+				D8D200F6178A67F900C94B0D /* VocabBuilderDataModel.m in Sources */,
+				D8BD1153178B244A0036B0AA /* Entry.m in Sources */,
+				D8BD1156178B244B0036B0AA /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

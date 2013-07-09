@@ -1,15 +1,15 @@
 //
 //  AppDelegate.m
-//  vocab_builder
+//  VocabBuilder
 //
-//  Created by andebenson on 6/23/13.
+//  Created by andebenson on 7/8/13.
 //  Copyright (c) 2013 andebenson. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "DictionaryObjectManager.h"
-#import "MappingProvider.h"
+#import "Global.h"
 #import "VocabBuilderDataModel.h"
+#import "MappingProvider.h"
 
 @implementation AppDelegate
 
@@ -19,6 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UIStoryboard *mainstoryBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *mainViewController = [mainstoryBoard instantiateInitialViewController];
+    self.window.rootViewController = mainViewController;
+    [self.window makeKeyAndVisible];
+    
     // Override point for customization after application launch.
     
     self.dictionaryObjectManager = [DictionaryObjectManager managerWithBaseURL:[Global getInstance].dictionaryBaseURL];
@@ -28,8 +35,10 @@
     
     [MappingProvider setupResponseAndRequestDescriptors];
     return YES;
+    
+    return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -54,21 +63,21 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Saves changes in the application's managed object context before the application terminates.
+    [self saveContext];
 }
 
-// Core Data Stuff
 - (void)saveContext
 {
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+             // Replace this implementation with code to handle the error appropriately.
+             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        }
+        } 
     }
 }
 
@@ -118,7 +127,7 @@
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -140,7 +149,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }
+    }    
     
     return _persistentStoreCoordinator;
 }
@@ -152,7 +161,5 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
-
-
 
 @end
