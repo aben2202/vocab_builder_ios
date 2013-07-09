@@ -1,16 +1,17 @@
 //
-//  HomeViewController.h
+//  HomeTableViewController.h
 //  vocab_builder
 //
-//  Created by andebenson on 6/23/13.
+//  Created by andebenson on 7/5/13.
 //  Copyright (c) 2013 andebenson. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "Word.h"
 
-@interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HomeTableViewController : UITableViewController <UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) Word *searchedWord;
 
 @property (strong, nonatomic) NSMutableArray* wordsCurrent;
 @property (strong, nonatomic) NSMutableArray* wordsFinished;

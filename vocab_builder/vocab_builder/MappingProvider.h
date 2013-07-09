@@ -12,14 +12,13 @@
 
 @interface MappingProvider : NSObject
 
-+ (RKObjectMapping *)sessionMapping;
-+ (RKObjectMapping *)loginRequestMapping;
-+ (RKObjectMapping *)userMapping;
-+ (RKObjectMapping *)vocabBuilderWordMapping;
+//+ (RKObjectMapping *)sessionMapping;
+//+ (RKObjectMapping *)loginRequestMapping;
+//+ (RKObjectMapping *)userMapping;
+//+ (RKObjectMapping *)vocabBuilderWordMapping;
 
-+ (RKObjectMapping *)merriamWebsterWordMapping;
-+ (RKObjectMapping *)entryMapping;
-+ (RKObjectMapping *)definitionMapping;
++ (RKEntityMapping *)entryMapping;
+
 
 + (void)setupResponseAndRequestDescriptors;
 

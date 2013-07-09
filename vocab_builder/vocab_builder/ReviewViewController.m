@@ -1,18 +1,18 @@
 //
-//  RegisterViewController.m
+//  ReviewViewController.m
 //  vocab_builder
 //
-//  Created by Andrew Benson on 6/24/13.
+//  Created by andebenson on 7/9/13.
 //  Copyright (c) 2013 andebenson. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "ReviewViewController.h"
 
-@interface RegisterViewController ()
+@interface ReviewViewController ()
 
 @end
 
-@implementation RegisterViewController
+@implementation ReviewViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,4 +35,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)yesButtonClicked:(id)sender {
+}
+
+- (IBAction)noButtonClicked:(id)sender {
+}
 @end

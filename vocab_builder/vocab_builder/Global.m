@@ -10,22 +10,23 @@
 
 @implementation Global
 
-@synthesize vbBaseURL = _vbBaseURL;
-@synthesize mwBaseURL = _mwBaseURL;
-@synthesize currentUser = _currentUser;
+@synthesize dictionaryBaseURL = _dictionaryBaseURL;
 
 -(id)init{
     self = [super init];
+    NSArray *reviewSessionValues = @[@true, @true, @true, @true, @true, @true, @true, @true, @true];
+    NSArray *reviewSessionKeys = @[@"15min", @"1hour", @"6hours", @"1day", @"3days", @"1week", @"2weeks", @"1month", @"2months"];
+    self.reviewSessions = [NSDictionary dictionaryWithObjects:reviewSessionValues forKeys:reviewSessionKeys];
     return self;
 }
 
--(NSURL *)vbBaseURL{
-    return [NSURL URLWithString:@"http://localhost:3000/api/v1"];
-    //return [NSURL URLWithString:@"http://vocab-builder.herokuapp.com"];
-}
+//-(NSURL *)vbBaseURL{
+//    return [NSURL URLWithString:@"http://localhost:3000/api/v1"];
+//    //return [NSURL URLWithString:@"http://vocab-builder.herokuapp.com"];
+//}
 
--(NSURL *)mwBaseURL{
-    return [NSURL URLWithString:@"http://www.dictionaryapi.com/api/v1/references/collegiate/xml"];
+-(NSURL *)dictionaryBaseURL{
+    return [NSURL URLWithString:@"http://api.wordnik.com/v4/word.json/"];
 }
 
 static Global *instance =nil;

@@ -12,10 +12,10 @@
 
 @interface Global : NSObject
 
-@property(nonatomic,retain)NSURL *vbBaseURL;
-@property(nonatomic,retain)NSURL *mwBaseURL;
+@property(nonatomic,retain)NSURL *dictionaryBaseURL;
 
-@property(nonatomic, retain)User *currentUser;
+@property (nonatomic, retain) NSDictionary *reviewSessions;
+
 
 +(Global*)getInstance;
 
