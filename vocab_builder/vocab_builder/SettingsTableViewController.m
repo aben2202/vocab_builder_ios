@@ -7,6 +7,8 @@
 //
 
 #import "SettingsTableViewController.h"
+#import "ReviewSession.h"
+#import "ReviewSessionTableCell.h"
 
 @interface SettingsTableViewController ()
 
@@ -26,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.reviewSessions = [NSMutableArray array];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -34,11 +37,88 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self loadReviewSessions];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)loadReviewSessions{
+    [self.reviewSessions removeAllObjects];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"ReviewSession" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"minutes" ascending:YES];
+    [request setSortDescriptors:@[sortDesc]];
+    
+    NSError *error;
+    NSMutableArray *sessions = [NSMutableArray arrayWithArray:[context executeFetchRequest:request error:&error]];
+    
+    //if this is the first time they load the app, the sessions will be blank.
+    //  in this case we will create all the sessions now
+    if(sessions.count == 0){
+        self.reviewSessions = [self createInitialReviewSessions];
+    }
+    else{
+        //save the fetched sessions to the TVC session property
+        for(ReviewSession *session in sessions){
+            [self.reviewSessions addObject:session];
+        }
+    }
+}
+
+-(NSMutableArray *)createInitialReviewSessions{
+    NSMutableArray *sessions = [NSMutableArray array];
+    NSArray *sessionStrings = @[@"15 minutes",
+                                @"1 hour",
+                                @"6 hours",
+                                @"1 day",
+                                @"3 days",
+                                @"1 week",
+                                @"2 weeks",
+                                @"1 month",
+                                @"2 months"];
+    NSInteger day = 60*24;
+    NSArray *sessionMinutes = @[@15,
+                                @60,
+                                @(60*6),
+                                @(day),
+                                @(day*3),
+                                @(day*7),
+                                @(day*14),
+                                @(day*30),
+                                @(day*61)];
+    
+    for (int i = 0; i < sessionStrings.count; i++){
+        ReviewSession *newSession = [NSEntityDescription insertNewObjectForEntityForName:@"ReviewSession" inManagedObjectContext:[self managedObjectContext]];
+        newSession.enabled = @true;
+        newSession.timeName = [sessionStrings objectAtIndex:i];
+        newSession.minutes = [sessionMinutes objectAtIndex:i];
+        [sessions addObject:newSession];
+    }
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+    return sessions;
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 
 #pragma mark - Table view data source
 
@@ -54,52 +134,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"ReviewSessionTableCell";
+    ReviewSessionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    ReviewSession *theSession = [self.reviewSessions objectAtIndex:indexPath.row];
+    cell.reviewTimeLabel.text = theSession.timeName;
+    cell.sessionSwitch.tag = indexPath.row;
+    cell.sessionSwitch.on = [theSession.enabled boolValue];
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -114,4 +159,15 @@
      */
 }
 
+- (IBAction)updateSession:(id)sender {
+    // this method gets called when a session.enabled status changes
+    UISwitch *theSwitch = sender;
+    
+    // first figure out which session to update
+    ReviewSession *sessionToUpdate = [self.reviewSessions objectAtIndex:theSwitch.tag];
+    sessionToUpdate.enabled = [NSNumber numberWithBool:theSwitch.on];
+    
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+}
 @end

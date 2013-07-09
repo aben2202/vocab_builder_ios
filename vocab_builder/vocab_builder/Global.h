@@ -14,7 +14,8 @@
 
 @property(nonatomic,retain)NSURL *dictionaryBaseURL;
 
-@property(nonatomic, retain)User *currentUser;
+@property (nonatomic, retain) NSDictionary *reviewSessions;
+
 
 +(Global*)getInstance;
 

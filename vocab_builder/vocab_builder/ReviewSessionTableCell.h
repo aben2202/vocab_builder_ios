@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ReviewSessionTableCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *reviewTimeLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *sessionSwitch;
 

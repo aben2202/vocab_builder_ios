@@ -11,6 +11,7 @@
 		CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F71778E8B000E8AFD1 /* CredentialStore.m */; };
 		CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FA1778EB8600E8AFD1 /* Global.m */; };
 		CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */; };
+		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
 		D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD10CD178B11AE0036B0AA /* CoreData.framework */; };
 		D8BD1153178B244A0036B0AA /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1152178B244A0036B0AA /* Entry.m */; };
 		D8BD1156178B244B0036B0AA /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1155178B244B0036B0AA /* Word.m */; };
@@ -62,6 +63,8 @@
 		CB1318F91778EB8600E8AFD1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		CB1318FA1778EB8600E8AFD1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
+		D84AEE8C178C56F300ED135E /* ReviewSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSession.h; sourceTree = "<group>"; };
+		D84AEE8D178C56F300ED135E /* ReviewSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSession.m; sourceTree = "<group>"; };
 		D8BD10CD178B11AE0036B0AA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8BD1151178B244A0036B0AA /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		D8BD1152178B244A0036B0AA /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 		D8D200BD1777A24E00C94B0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D84AEE8C178C56F300ED135E /* ReviewSession.h */,
+				D84AEE8D178C56F300ED135E /* ReviewSession.m */,
 				D8BD1154178B244B0036B0AA /* Word.h */,
 				D8BD1155178B244B0036B0AA /* Word.m */,
 				D8BD1151178B244A0036B0AA /* Entry.h */,
@@ -457,6 +462,7 @@
 				D8D200F6178A67F900C94B0D /* VocabBuilderDataModel.m in Sources */,
 				D8BD1153178B244A0036B0AA /* Entry.m in Sources */,
 				D8BD1156178B244B0036B0AA /* Word.m in Sources */,
+				D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

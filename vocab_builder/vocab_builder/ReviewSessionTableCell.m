@@ -7,6 +7,7 @@
 //
 
 #import "ReviewSessionTableCell.h"
+#import "ReviewSession.h"
 
 @implementation ReviewSessionTableCell
 

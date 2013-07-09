@@ -35,20 +35,29 @@
     operation.managedObjectContext = store.persistentStoreManagedObjectContext;
     
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        Word *theWord = [NSEntityDescription insertNewObjectForEntityForName:@"Word" inManagedObjectContext:store.persistentStoreManagedObjectContext];
-        theWord.reviewCycleStart = [NSDate date];
-        theWord.previousReview = @"start";
-        theWord.entries = mappingResult.set;
-        theWord.theWord = wordString;
-    
-        //save the context
-        NSError *error;
-        [store.persistentStoreManagedObjectContext save:&error];
+        // if there was at least 1 result sent back, save the word.  else, ask for another word
+        if (mappingResult.count > 0) {
+            Word *theWord = [NSEntityDescription insertNewObjectForEntityForName:@"Word" inManagedObjectContext:store.persistentStoreManagedObjectContext];
+            theWord.reviewCycleStart = [NSDate date];
+            theWord.previousReview = @"start";
+            theWord.entries = mappingResult.set;
+            theWord.theWord = wordString;
         
-        //[self addSynonymsToWord:theWord withSuccess:success failure:failure];
-        //[self addAntonymsToWord:theWord withSuccess:success failure:failure];
+            //save the context
+            NSError *error;
+            [store.persistentStoreManagedObjectContext save:&error];
+            
+            //[self addSynonymsToWord:theWord withSuccess:success failure:failure];
+            //[self addAntonymsToWord:theWord withSuccess:success failure:failure];
+            
+            if (success) success(theWord);
+        }
         
-        if (success) success(theWord);
+        // word was not found.  ask to try another word
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Word Not Found" message:@"The searched word could not be found.  Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
 
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         if (failure) failure(error);

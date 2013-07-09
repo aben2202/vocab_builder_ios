@@ -10,4 +10,8 @@
 
 @interface SettingsTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *reviewSessions;
+
+- (IBAction)updateSession:(id)sender;
+
 @end

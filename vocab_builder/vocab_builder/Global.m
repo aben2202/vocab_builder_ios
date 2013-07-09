@@ -11,10 +11,12 @@
 @implementation Global
 
 @synthesize dictionaryBaseURL = _dictionaryBaseURL;
-@synthesize currentUser = _currentUser;
 
 -(id)init{
     self = [super init];
+    NSArray *reviewSessionValues = @[@true, @true, @true, @true, @true, @true, @true, @true, @true];
+    NSArray *reviewSessionKeys = @[@"15min", @"1hour", @"6hours", @"1day", @"3days", @"1week", @"2weeks", @"1month", @"2months"];
+    self.reviewSessions = [NSDictionary dictionaryWithObjects:reviewSessionValues forKeys:reviewSessionKeys];
     return self;
 }
 

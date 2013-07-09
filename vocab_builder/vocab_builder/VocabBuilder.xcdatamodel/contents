@@ -31,6 +31,11 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="relatedWords" inverseEntity="Entry" syncable="YES"/>
     </entity>
+    <entity name="ReviewSession" representedClassName="ReviewSession" syncable="YES">
+        <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="TextPron" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="textProns" inverseEntity="Entry" syncable="YES"/>
@@ -46,12 +51,13 @@
         <relationship name="synonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="synonyms" inverseEntity="Word" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Citation" positionX="-1658" positionY="-270" width="128" height="73"/>
         <element name="Entry" positionX="-1838" positionY="-603" width="128" height="238"/>
+        <element name="ExampleUse" positionX="-1640" positionY="-549" width="128" height="73"/>
+        <element name="Label" positionX="-1649" positionY="-358" width="128" height="73"/>
+        <element name="RelatedWord" positionX="-1649" positionY="-454" width="128" height="73"/>
         <element name="TextPron" positionX="-1674" positionY="-645" width="128" height="73"/>
         <element name="Word" positionX="-2009" positionY="-603" width="128" height="163"/>
-        <element name="ExampleUse" positionX="-1640" positionY="-549" width="128" height="73"/>
-        <element name="RelatedWord" positionX="-1649" positionY="-454" width="128" height="73"/>
-        <element name="Label" positionX="-1649" positionY="-358" width="128" height="73"/>
-        <element name="Citation" positionX="-1658" positionY="-270" width="128" height="73"/>
+        <element name="ReviewSession" positionX="-2007" positionY="-342" width="128" height="88"/>
     </elements>
 </model>

@@ -156,7 +156,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="eKu-5g-7Cw">
-                        <barButtonItem key="rightBarButtonItem" title="settings" id="dy3-ZW-1BC">
+                        <barButtonItem key="rightBarButtonItem" title="reviews" id="dy3-ZW-1BC">
                             <connections>
                                 <segue destination="IcF-AN-7IT" kind="push" id="ptZ-uj-9JA"/>
                             </connections>
@@ -170,7 +170,7 @@
             </objects>
             <point key="canvasLocation" x="909" y="148"/>
         </scene>
-        <!--Settings Table View Controller - Settings-->
+        <!--Settings Table View Controller - Reviews-->
         <scene sceneID="nC7-5x-rKt">
             <objects>
                 <tableViewController id="IcF-AN-7IT" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -179,14 +179,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="15minTableCell" id="tng-Kf-kdi" customClass="ReviewSessionTableCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReviewSessionTableCell" id="tng-Kf-kdi" customClass="ReviewSessionTableCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLx-oa-i9h"/>
+                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RLx-oa-i9h">
+                                            <connections>
+                                                <action selector="updateSession:" destination="IcF-AN-7IT" eventType="valueChanged" id="Bm1-TN-T8H"/>
+                                            </connections>
+                                        </switch>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="15 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blv-sY-Wdn">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -206,229 +210,13 @@
                                     <outlet property="sessionSwitch" destination="RLx-oa-i9h" id="KAj-g3-KAN"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="1hourTableCell" id="6ip-SO-yBi" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XwG-OD-24z"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j78-TS-HdM">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="XwG-OD-24z" secondAttribute="trailing" constant="20" type="default" id="M7J-BJ-HFn"/>
-                                    <constraint firstItem="XwG-OD-24z" firstAttribute="top" secondItem="6ip-SO-yBi" secondAttribute="top" constant="8" id="V5V-bX-1Vd"/>
-                                    <constraint firstItem="j78-TS-HdM" firstAttribute="leading" secondItem="6ip-SO-yBi" secondAttribute="leading" constant="20" type="default" id="ZQV-Cd-Pfc"/>
-                                    <constraint firstItem="j78-TS-HdM" firstAttribute="centerY" secondItem="XwG-OD-24z" secondAttribute="centerY" type="default" id="xia-Ib-XZF"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="j78-TS-HdM" id="QHa-kh-ZIT"/>
-                                    <outlet property="sessionSwitch" destination="XwG-OD-24z" id="Ddb-X1-0po"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="6hourTableCell" id="wnt-pS-hcL" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-XC-1ha"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="6 hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMj-Mm-JoY">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="g7j-XC-1ha" firstAttribute="top" secondItem="wnt-pS-hcL" secondAttribute="top" constant="8" id="ExO-rJ-Tc6"/>
-                                    <constraint firstAttribute="trailing" secondItem="g7j-XC-1ha" secondAttribute="trailing" constant="20" type="default" id="VNN-rJ-wEN"/>
-                                    <constraint firstItem="TMj-Mm-JoY" firstAttribute="leading" secondItem="wnt-pS-hcL" secondAttribute="leading" constant="20" type="default" id="YDN-x8-70J"/>
-                                    <constraint firstItem="TMj-Mm-JoY" firstAttribute="centerY" secondItem="g7j-XC-1ha" secondAttribute="centerY" type="default" id="t6W-P1-GqY"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="TMj-Mm-JoY" id="EYq-vE-VBw"/>
-                                    <outlet property="sessionSwitch" destination="g7j-XC-1ha" id="Nzg-a1-zd0"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="1dayTableCell" id="gUH-ml-BSB" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="154" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZk-ig-JRW"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5Y-dL-ehY">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="U5Y-dL-ehY" firstAttribute="leading" secondItem="gUH-ml-BSB" secondAttribute="leading" constant="20" type="default" id="X4T-FG-u9t"/>
-                                    <constraint firstAttribute="trailing" secondItem="RZk-ig-JRW" secondAttribute="trailing" constant="20" type="default" id="gMf-d3-Z2h"/>
-                                    <constraint firstItem="RZk-ig-JRW" firstAttribute="top" secondItem="gUH-ml-BSB" secondAttribute="top" constant="8" id="tlt-Cx-E2K"/>
-                                    <constraint firstItem="U5Y-dL-ehY" firstAttribute="centerY" secondItem="RZk-ig-JRW" secondAttribute="centerY" type="default" id="wdk-c0-Cau"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="U5Y-dL-ehY" id="q9X-Gt-jv5"/>
-                                    <outlet property="sessionSwitch" destination="RZk-ig-JRW" id="RbW-Zt-eTx"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="3daysTableCell" id="PeS-P2-TYr" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="198" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Op-lT-aYn"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3 days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLH-Tr-Raf">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="dLH-Tr-Raf" firstAttribute="leading" secondItem="PeS-P2-TYr" secondAttribute="leading" constant="20" type="default" id="4iq-fY-U6c"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Op-lT-aYn" secondAttribute="trailing" constant="20" type="default" id="Gi8-7H-IqD"/>
-                                    <constraint firstItem="dLH-Tr-Raf" firstAttribute="centerY" secondItem="5Op-lT-aYn" secondAttribute="centerY" type="default" id="pmP-HB-V7I"/>
-                                    <constraint firstItem="5Op-lT-aYn" firstAttribute="top" secondItem="PeS-P2-TYr" secondAttribute="top" constant="8" id="qOd-ua-z85"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="dLH-Tr-Raf" id="MMr-2e-Adc"/>
-                                    <outlet property="sessionSwitch" destination="5Op-lT-aYn" id="7bx-ww-Rse"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="1weekTableCell" id="cJj-8t-YgU" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="242" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgh-mX-pVC"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbs-uE-2xd">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="bgh-mX-pVC" secondAttribute="trailing" constant="20" type="default" id="NnY-kC-BGC"/>
-                                    <constraint firstItem="Hbs-uE-2xd" firstAttribute="centerY" secondItem="bgh-mX-pVC" secondAttribute="centerY" type="default" id="WXg-15-zeX"/>
-                                    <constraint firstItem="bgh-mX-pVC" firstAttribute="top" secondItem="cJj-8t-YgU" secondAttribute="top" constant="8" id="bPu-KR-4my"/>
-                                    <constraint firstItem="Hbs-uE-2xd" firstAttribute="leading" secondItem="cJj-8t-YgU" secondAttribute="leading" constant="20" type="default" id="zOO-ZW-A6T"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="Hbs-uE-2xd" id="S7J-fJ-gNC"/>
-                                    <outlet property="sessionSwitch" destination="bgh-mX-pVC" id="Tlc-Ig-43p"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="2weeksTableCell" id="QHp-Rf-kpm" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="286" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Oh-eM-HMB"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2 weeks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlG-sz-QZ3">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="JlG-sz-QZ3" firstAttribute="centerY" secondItem="4Oh-eM-HMB" secondAttribute="centerY" type="default" id="Nk4-Wo-3Zb"/>
-                                    <constraint firstItem="JlG-sz-QZ3" firstAttribute="leading" secondItem="QHp-Rf-kpm" secondAttribute="leading" constant="20" type="default" id="RhF-Cb-LCr"/>
-                                    <constraint firstItem="4Oh-eM-HMB" firstAttribute="top" secondItem="QHp-Rf-kpm" secondAttribute="top" constant="8" id="S1B-dU-zal"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Oh-eM-HMB" secondAttribute="trailing" constant="20" type="default" id="fSs-6U-Xsi"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="JlG-sz-QZ3" id="qBT-1u-uCG"/>
-                                    <outlet property="sessionSwitch" destination="4Oh-eM-HMB" id="m4K-Cf-m8I"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="1monthTableCell" id="ZXB-9O-AhO" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="330" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mHU-FT-2mq"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1 month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHg-kl-yTg">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="pHg-kl-yTg" firstAttribute="leading" secondItem="ZXB-9O-AhO" secondAttribute="leading" constant="20" type="default" id="Aaa-sC-cfG"/>
-                                    <constraint firstItem="pHg-kl-yTg" firstAttribute="centerY" secondItem="mHU-FT-2mq" secondAttribute="centerY" type="default" id="PZE-Xj-7do"/>
-                                    <constraint firstAttribute="trailing" secondItem="mHU-FT-2mq" secondAttribute="trailing" constant="20" type="default" id="U1F-tQ-1lN"/>
-                                    <constraint firstItem="mHU-FT-2mq" firstAttribute="top" secondItem="ZXB-9O-AhO" secondAttribute="top" constant="8" id="yMj-bU-0hc"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="pHg-kl-yTg" id="jSD-mg-SB6"/>
-                                    <outlet property="sessionSwitch" destination="mHU-FT-2mq" id="4uQ-gY-kEe"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="2monthsTableCell" id="PGT-8U-ZQA" customClass="ReviewSessionTableCell">
-                                <rect key="frame" x="0.0" y="374" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CmP-hg-tM0"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2 months" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUU-yG-Lzy">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="AUU-yG-Lzy" firstAttribute="leading" secondItem="PGT-8U-ZQA" secondAttribute="leading" constant="20" type="default" id="QJb-8s-xfj"/>
-                                    <constraint firstAttribute="trailing" secondItem="CmP-hg-tM0" secondAttribute="trailing" constant="20" type="default" id="QmG-A9-sox"/>
-                                    <constraint firstItem="CmP-hg-tM0" firstAttribute="top" secondItem="PGT-8U-ZQA" secondAttribute="top" constant="8" id="frp-A4-aRJ"/>
-                                    <constraint firstItem="AUU-yG-Lzy" firstAttribute="centerY" secondItem="CmP-hg-tM0" secondAttribute="centerY" type="default" id="njG-JS-RfK"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="reviewTimeLabel" destination="AUU-yG-Lzy" id="kPK-O1-dZx"/>
-                                    <outlet property="sessionSwitch" destination="CmP-hg-tM0" id="18V-Kg-FiC"/>
-                                </connections>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="IcF-AN-7IT" id="nfv-ff-4Fr"/>
                             <outlet property="delegate" destination="IcF-AN-7IT" id="FD7-nz-tfp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="WaH-aE-bFF"/>
+                    <navigationItem key="navigationItem" title="Reviews" id="WaH-aE-bFF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPz-N5-3pg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -580,6 +368,9 @@
         </class>
         <class className="SettingsTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="updateSession:"/>
+            </relationships>
         </class>
         <class className="TextViewTableCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TextViewTableCell.h"/>
