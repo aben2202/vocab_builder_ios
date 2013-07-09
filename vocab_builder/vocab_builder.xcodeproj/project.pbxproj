@@ -12,6 +12,7 @@
 		CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FA1778EB8600E8AFD1 /* Global.m */; };
 		CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */; };
 		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
+		D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE90178C8CDA00ED135E /* ReviewViewController.m */; };
 		D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD10CD178B11AE0036B0AA /* CoreData.framework */; };
 		D8BD1153178B244A0036B0AA /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1152178B244A0036B0AA /* Entry.m */; };
 		D8BD1156178B244B0036B0AA /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1155178B244B0036B0AA /* Word.m */; };
@@ -65,6 +66,8 @@
 		CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
 		D84AEE8C178C56F300ED135E /* ReviewSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSession.h; sourceTree = "<group>"; };
 		D84AEE8D178C56F300ED135E /* ReviewSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSession.m; sourceTree = "<group>"; };
+		D84AEE8F178C8CDA00ED135E /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
+		D84AEE90178C8CDA00ED135E /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		D8BD10CD178B11AE0036B0AA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8BD1151178B244A0036B0AA /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		D8BD1152178B244A0036B0AA /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				D8D200E61787337400C94B0D /* DefinitionTableViewController.m */,
 				D8D200F11787499A00C94B0D /* SettingsTableViewController.h */,
 				D8D200F21787499A00C94B0D /* SettingsTableViewController.m */,
+				D84AEE8F178C8CDA00ED135E /* ReviewViewController.h */,
+				D84AEE90178C8CDA00ED135E /* ReviewViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				D8BD1153178B244A0036B0AA /* Entry.m in Sources */,
 				D8BD1156178B244B0036B0AA /* Word.m in Sources */,
 				D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */,
+				D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
