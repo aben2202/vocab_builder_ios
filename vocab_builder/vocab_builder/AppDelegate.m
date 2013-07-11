@@ -12,6 +12,9 @@
 #import "VocabBuilderDataModel.h"
 #import "ReviewViewController.h"
 #import "Global.h"
+#import "HomeTableViewController.h"
+#import "SettingsTableViewController.h"
+#import "DefinitionTableViewController.h"
 
 @implementation AppDelegate
 
@@ -154,8 +157,23 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-    UIAlertView *reviewAlert = [[UIAlertView alloc] initWithTitle:@"Review Time" message:notification.alertBody delegate:[self.navController visibleViewController]  cancelButtonTitle:@"Let's Review" otherButtonTitles:nil];
-    [reviewAlert show];
+    // if they are already on the review screen, just do a refresh
+    if ([self.navController.visibleViewController isKindOfClass:[ReviewViewController class]]) {
+        ReviewViewController *currentReviewViewController = (ReviewViewController *)self.navController.visibleViewController;
+        [currentReviewViewController refresh];
+    }
+    else if ([self.navController.visibleViewController isKindOfClass:[HomeTableViewController class]]){
+        HomeTableViewController *currentController = (HomeTableViewController *)self.navController.visibleViewController;
+        [currentController performSegueWithIdentifier:@"reviewSegue" sender:self];
+    }
+    else if ([self.navController.visibleViewController isKindOfClass:[DefinitionTableViewController class]]){
+        DefinitionTableViewController *currentController = (DefinitionTableViewController *)self.navController.visibleViewController;
+        [currentController performSegueWithIdentifier:@"reviewSegue" sender:self];
+    }
+    else if ([self.navController.visibleViewController isKindOfClass:[SettingsTableViewController class]]){
+        SettingsTableViewController *currentController = (SettingsTableViewController *)self.navController.visibleViewController;
+        [currentController performSegueWithIdentifier:@"reviewSegue" sender:self];
+    }
 }
 
 #pragma mark - Application's Documents directory

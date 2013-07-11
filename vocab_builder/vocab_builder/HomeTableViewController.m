@@ -20,6 +20,8 @@
 
 @interface HomeTableViewController ()
 
+@property (strong, nonatomic) Word *wordToDelete;
+
 @end
 
 @implementation HomeTableViewController
@@ -208,12 +210,12 @@
 {
     if (indexPath.section == 1) {
         // user clicked on 'in the works' word
-        InTheWorksTableCell *cellClickedOn = [self.tableView cellForRowAtIndexPath:indexPath];
+        InTheWorksTableCell *cellClickedOn = (InTheWorksTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [self performSegueWithIdentifier:@"showDefinition" sender:cellClickedOn];
     }
     else if (indexPath.section == 2) {
         // user clicked on 'done and done' word
-        DoneAndDoneTableCell *cellClickedOn = [self.tableView cellForRowAtIndexPath:indexPath];
+        DoneAndDoneTableCell *cellClickedOn = (DoneAndDoneTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [self performSegueWithIdentifier:@"showDefinition" sender:cellClickedOn];
     }
 }
@@ -229,6 +231,16 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     //if we are deleting a row, remove the word from the database
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        if (indexPath.section == 1) {  //we are deleting a 'in the works' word
+            self.wordToDelete = [self.wordsCurrent objectAtIndex:indexPath.row];
+        }
+        else if (indexPath.section == 2){ // we are deleting a 'done and done' word
+            self.wordToDelete = [self.wordsFinished objectAtIndex:indexPath.row];
+        }
+        UIAlertView *verifyDelete = [[UIAlertView alloc] initWithTitle:@"Delete Word?" message:[NSString stringWithFormat:@"Are you sure you want to delete the word '%@' and all its review data?", self.wordToDelete.theWord] delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+        [verifyDelete show];
+    }
 }
 
 #pragma mark - Search bar delegate
@@ -275,7 +287,7 @@
             
         } failure:^(NSError *error) {
             // failure code goes here
-            NSLog(error.localizedDescription);
+            NSLog(@"%@", error.localizedDescription);
         }];
     }
 }
@@ -286,6 +298,17 @@
         if (buttonIndex == 0) {
             [[Global getInstance] setReviewWords];
             [self performSegueWithIdentifier:@"reviewSegue" sender:self];
+        }
+    }
+    else if ([alertView.title isEqualToString:@"Delete Word?"]){
+        if (buttonIndex == 1) { // user clicked 'YES' to confirm deletion of the word
+            NSManagedObjectContext *context = [self managedObjectContext];
+            [context deleteObject:self.wordToDelete];
+            NSError *error;
+            [context save:&error];
+            [[Global getInstance] updateNotifications];
+            [self fetchData];
+            [self.tableView reloadData];
         }
     }
 }

@@ -11,6 +11,7 @@
 #import "ReviewSession.h"
 #import "Word.h"
 #import "VocabBuilderDataModel.h"
+#import "Global.h"
 
 
 @implementation Word
@@ -71,6 +72,7 @@
     }
     else{ //they did not know the definition so we reset the cycle
         [self resetReviewCycle];
+        [[Global getInstance] updateNotifications];
     }
     
     if (self.nextReviewSession == nil) {

@@ -9,6 +9,7 @@
 #import "ReviewViewController.h"
 #import "ReviewSession.h"
 #import "Global.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface ReviewViewController ()
 
@@ -29,11 +30,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self refresh];
+}
+
+-(void)refresh{
+    [[Global getInstance] setReviewWords];
     self.wordsToReview = [Global getInstance].wordsThatNeedToBeReviewed;
-    
-    for (Word * word in self.wordsToReview) {
-        NSLog(@"Word to review = %@", word.theWord);
-    }
     [self reviewWordWithIndex:0];
 }
 
@@ -64,6 +66,7 @@
     [wordToUpdate updateAfterCompletedReviewWithAnswer:YES];
     NSError *errorMSG;
     [[self managedObjectContext] save:&errorMSG];
+    [SVProgressHUD showSuccessWithStatus:@"Nice Work!"];
     [self performNextReview];
 }
 
@@ -72,6 +75,7 @@
     [wordToUpdate updateAfterCompletedReviewWithAnswer:NO];
     NSError *errorMSG;
     [[self managedObjectContext] save:&errorMSG];
+    [SVProgressHUD showErrorWithStatus:@"You'll get it next time!"];
     [self performNextReview];
 }
 
@@ -98,5 +102,13 @@
     }
     return context;
 }
+
+#pragma mark - alert view delegate
+
+//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+//    if ([alertView.title isEqualToString:@"Reset Word"]) {
+//        [self performNextReview];
+//    }
+//}
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Word.h"
 
-@interface ReviewViewController : UIViewController
+@interface ReviewViewController : UIViewController <UIAlertViewDelegate>
 
 @property (weak, nonatomic) NSArray *wordsToReview;
 @property (weak, nonatomic) NSNumber *currentWordIndex;
@@ -22,5 +22,6 @@
 
 - (IBAction)yesButtonClicked:(id)sender;
 - (IBAction)noButtonClicked:(id)sender;
+- (void)refresh;
 
 @end

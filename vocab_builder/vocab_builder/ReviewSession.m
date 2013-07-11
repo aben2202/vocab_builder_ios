@@ -30,7 +30,7 @@
 
 -(ReviewSession *)getNextReviewSession{
     if (self != nil) {
-        NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+        NSArray *reviewSessions = (NSArray *)[[VocabBuilderDataModel sharedDataModel] reviewSessions];
         for (int i = 0; i < reviewSessions.count; i++) {
             ReviewSession *currentIterRS = [reviewSessions objectAtIndex:i];
             if ([currentIterRS isGreaterThan:self]) {
@@ -46,7 +46,7 @@
 
 -(ReviewSession *)getNextEnabledReviewSession{
     if (self != nil) {
-        NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+        NSArray *reviewSessions = (NSArray *)[[VocabBuilderDataModel sharedDataModel] reviewSessions];
         for (int i = 0; i < reviewSessions.count; i++) {
             ReviewSession *currentIterRS = [reviewSessions objectAtIndex:i];
             if ([currentIterRS isGreaterThan:self] && ([currentIterRS.enabled boolValue])) {
@@ -61,14 +61,14 @@
 }
 
 +(ReviewSession *)getFirstReviewSession{
-    NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+    NSArray *reviewSessions = (NSArray *)[[VocabBuilderDataModel sharedDataModel] reviewSessions];
     
     // index '0' actually marks the start session, so we use '1' instead
     return [reviewSessions objectAtIndex:1];
 }
 
 +(ReviewSession *)getFirstEnabledReviewSession{
-    NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+    NSArray *reviewSessions = (NSArray *)[[VocabBuilderDataModel sharedDataModel] reviewSessions];
     
     for (int i = 1; i < reviewSessions.count; i++) {
         ReviewSession *currentIterRS = [reviewSessions objectAtIndex:i];
@@ -81,7 +81,7 @@
 }
 
 +(ReviewSession *)getStartReviewSession{
-    NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+    NSArray *reviewSessions = (NSArray *)[[VocabBuilderDataModel sharedDataModel] reviewSessions];
     
     return [reviewSessions objectAtIndex:0];
 
@@ -89,7 +89,7 @@
 
 +(NSInteger)numberOfEnabledSessions{
     NSInteger numberToReturn = 0;
-    NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+    NSArray *reviewSessions = (NSArray *)[[VocabBuilderDataModel sharedDataModel] reviewSessions];
     
     // we don't start at 0, because 0 is the 'start' session
     for (int i = 1; i < reviewSessions.count; i++) {
