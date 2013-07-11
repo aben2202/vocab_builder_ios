@@ -9,6 +9,7 @@
 #import "DefinitionTableViewController.h"
 #import "TextViewTableCell.h"
 #import "Entry.h"
+#import "Global.h"
 
 @interface DefinitionTableViewController ()
 
@@ -30,7 +31,19 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     self.title = self.theWord.theWord;
+    
+    [self checkForReviews];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewWillAppear:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)viewDidLoad
 {
@@ -47,6 +60,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)checkForReviews{
+    if ([[Global getInstance] wordsNeedToBeReviewed]) {
+        [self performSegueWithIdentifier:@"reviewSegue" sender:self];
+    }
+}
+
+
+-(NSString *)createDefinitionString:(NSSet *)entries{
+    NSMutableArray *entriesArray = [NSMutableArray arrayWithArray:[entries allObjects]];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"text" ascending:YES];
+    NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
+    NSString *theText = @"";
+    
+    //first go through all the entries and find the different parts of speech
+    for (Entry *entry in sortedEntries) {
+        theText = [theText stringByAppendingString:[NSString stringWithFormat:@"- %@\n\n", entry.text]];
+    }
+    
+    return theText;
 }
 
 #pragma mark - Table view data source
@@ -92,12 +126,7 @@
     // Configure the cell...
     if (indexPath.section == 0) {
         //create the definition text
-        NSString *defText = @"";
-        for (Entry *currentEntry in self.theWord.entries) {
-            NSString *stringToAppend = [NSString stringWithFormat:@"- %@ \n\n", currentEntry.text];
-            defText = [defText stringByAppendingString:stringToAppend];
-        }
-        cell.theTextView.text = defText;
+        cell.theTextView.text = [self createDefinitionString:self.theWord.entries];
     
     }
     else if (indexPath.section == 1){
@@ -107,6 +136,8 @@
     else if (indexPath.section == 2){
         // create the antonyms text
     }
+    
+    cell.theTextView.editable = false;
 
     
     return cell;
@@ -133,5 +164,16 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+#pragma mark - Alert View Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Review Time"]) { // it's a review alert
+        if (buttonIndex == 0) {
+            [[Global getInstance] setReviewWords];
+            [self performSegueWithIdentifier:@"reviewSegue" sender:self];
+        }
+    }
+}
+
 
 @end

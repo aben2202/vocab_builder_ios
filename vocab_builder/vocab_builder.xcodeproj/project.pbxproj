@@ -8,14 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		91F8B8D0334D453BA3865D0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E59390E5C6F4F75BC7AB10A /* libPods.a */; };
-		CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318F71778E8B000E8AFD1 /* CredentialStore.m */; };
 		CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1318FA1778EB8600E8AFD1 /* Global.m */; };
 		CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */; };
+		CB27C6DD178F39B100D83E13 /* green-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB27C6DC178F39B100D83E13 /* green-button.png */; };
+		CB9C830D178C9A09000774CE /* no_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB9C830B178C9A09000774CE /* no_button.png */; };
+		CB9C830E178C9A09000774CE /* yes_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB9C830C178C9A09000774CE /* yes_button.png */; };
+		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
+		CB9C831B178DDD3E000774CE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C831A178DDD3E000774CE /* Word.m */; };
 		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
 		D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE90178C8CDA00ED135E /* ReviewViewController.m */; };
 		D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD10CD178B11AE0036B0AA /* CoreData.framework */; };
 		D8BD1153178B244A0036B0AA /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1152178B244A0036B0AA /* Entry.m */; };
-		D8BD1156178B244B0036B0AA /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BD1155178B244B0036B0AA /* Word.m */; };
 		D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D2007F177793CB00C94B0D /* UIKit.framework */; };
 		D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20081177793CB00C94B0D /* Foundation.framework */; };
 		D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D20083177793CB00C94B0D /* CoreGraphics.framework */; };
@@ -59,11 +62,16 @@
 /* Begin PBXFileReference section */
 		7774DF15F0A84CF1866C62F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		7E59390E5C6F4F75BC7AB10A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB1318F61778E8B000E8AFD1 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
-		CB1318F71778E8B000E8AFD1 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
 		CB1318F91778EB8600E8AFD1 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		CB1318FA1778EB8600E8AFD1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
+		CB27C6DC178F39B100D83E13 /* green-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-button.png"; sourceTree = "<group>"; };
+		CB9C830B178C9A09000774CE /* no_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_button.png; sourceTree = "<group>"; };
+		CB9C830C178C9A09000774CE /* yes_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes_button.png; sourceTree = "<group>"; };
+		CB9C830F178CAB62000774CE /* ReviewNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNotification.h; sourceTree = "<group>"; };
+		CB9C8310178CAB62000774CE /* ReviewNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNotification.m; sourceTree = "<group>"; };
+		CB9C8319178DDD3E000774CE /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		CB9C831A178DDD3E000774CE /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		D84AEE8C178C56F300ED135E /* ReviewSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSession.h; sourceTree = "<group>"; };
 		D84AEE8D178C56F300ED135E /* ReviewSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSession.m; sourceTree = "<group>"; };
 		D84AEE8F178C8CDA00ED135E /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
@@ -71,8 +79,6 @@
 		D8BD10CD178B11AE0036B0AA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8BD1151178B244A0036B0AA /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		D8BD1152178B244A0036B0AA /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
-		D8BD1154178B244B0036B0AA /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
-		D8BD1155178B244B0036B0AA /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		D8D2007C177793CB00C94B0D /* vocab_builder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vocab_builder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D2007F177793CB00C94B0D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D8D20081177793CB00C94B0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -169,12 +175,20 @@
 				D8D200BF1777BB7A00C94B0D /* MappingProvider.m */,
 				D8D200C41777CB8B00C94B0D /* DictionaryObjectManager.h */,
 				D8D200C51777CB8B00C94B0D /* DictionaryObjectManager.m */,
-				CB1318F61778E8B000E8AFD1 /* CredentialStore.h */,
-				CB1318F71778E8B000E8AFD1 /* CredentialStore.m */,
 				CB1318F91778EB8600E8AFD1 /* Global.h */,
 				CB1318FA1778EB8600E8AFD1 /* Global.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		CB9C830A178C99E4000774CE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CB27C6DC178F39B100D83E13 /* green-button.png */,
+				CB9C830B178C9A09000774CE /* no_button.png */,
+				CB9C830C178C9A09000774CE /* yes_button.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		D8D20073177793CB00C94B0D = {
@@ -266,10 +280,12 @@
 			children = (
 				D84AEE8C178C56F300ED135E /* ReviewSession.h */,
 				D84AEE8D178C56F300ED135E /* ReviewSession.m */,
-				D8BD1154178B244B0036B0AA /* Word.h */,
-				D8BD1155178B244B0036B0AA /* Word.m */,
+				CB9C8319178DDD3E000774CE /* Word.h */,
+				CB9C831A178DDD3E000774CE /* Word.m */,
 				D8BD1151178B244A0036B0AA /* Entry.h */,
 				D8BD1152178B244A0036B0AA /* Entry.m */,
+				CB9C830F178CAB62000774CE /* ReviewNotification.h */,
+				CB9C8310178CAB62000774CE /* ReviewNotification.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -277,6 +293,7 @@
 		D8D200D41785D3D000C94B0D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C830A178C99E4000774CE /* Images */,
 				D8D200D51785D3DB00C94B0D /* Table Cells */,
 			);
 			name = Views;
@@ -387,6 +404,9 @@
 				D8D20094177793CC00C94B0D /* Default@2x.png in Resources */,
 				D8D20096177793CC00C94B0D /* Default-568h@2x.png in Resources */,
 				D8D20099177793CC00C94B0D /* MainStoryboard.storyboard in Resources */,
+				CB9C830D178C9A09000774CE /* no_button.png in Resources */,
+				CB9C830E178C9A09000774CE /* yes_button.png in Resources */,
+				CB27C6DD178F39B100D83E13 /* green-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +473,6 @@
 				D8D20090177793CB00C94B0D /* AppDelegate.m in Sources */,
 				D8D200C01777BB7A00C94B0D /* MappingProvider.m in Sources */,
 				D8D200C61777CB8B00C94B0D /* DictionaryObjectManager.m in Sources */,
-				CB1318F81778E8B000E8AFD1 /* CredentialStore.m in Sources */,
 				CB1318FB1778EB8600E8AFD1 /* Global.m in Sources */,
 				CB139408177BA5EA00EBE426 /* VocabBuilder.xcdatamodel in Sources */,
 				D8D200D81785D40800C94B0D /* InTheWorksTableCell.m in Sources */,
@@ -466,9 +485,10 @@
 				D8D200F31787499A00C94B0D /* SettingsTableViewController.m in Sources */,
 				D8D200F6178A67F900C94B0D /* VocabBuilderDataModel.m in Sources */,
 				D8BD1153178B244A0036B0AA /* Entry.m in Sources */,
-				D8BD1156178B244B0036B0AA /* Word.m in Sources */,
 				D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */,
 				D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */,
+				CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */,
+				CB9C831B178DDD3E000774CE /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

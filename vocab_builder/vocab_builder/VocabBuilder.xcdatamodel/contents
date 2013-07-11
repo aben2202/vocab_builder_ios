@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Citation" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="citations" inverseEntity="Entry" syncable="YES"/>
@@ -33,8 +33,10 @@
     </entity>
     <entity name="ReviewSession" representedClassName="ReviewSession" syncable="YES">
         <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minutes" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="timeName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="wordAsNext" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="nextReviewSession" inverseEntity="Word" syncable="YES"/>
+        <relationship name="wordAsPrevious" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="previousReviewSession" inverseEntity="Word" syncable="YES"/>
     </entity>
     <entity name="TextPron" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,12 +44,14 @@
     </entity>
     <entity name="Word" representedClassName="Word" syncable="YES">
         <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="nextReview" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="previousReview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nextReviewDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="previousReviewDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="reviewCycleStart" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="theWord" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="antonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="antonyms" inverseEntity="Word" syncable="YES"/>
         <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="wordRel" inverseEntity="Entry" syncable="YES"/>
+        <relationship name="nextReviewSession" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ReviewSession" inverseName="wordAsNext" inverseEntity="ReviewSession" syncable="YES"/>
+        <relationship name="previousReviewSession" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ReviewSession" inverseName="wordAsPrevious" inverseEntity="ReviewSession" syncable="YES"/>
         <relationship name="synonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="synonyms" inverseEntity="Word" syncable="YES"/>
     </entity>
     <elements>
@@ -56,8 +60,8 @@
         <element name="ExampleUse" positionX="-1640" positionY="-549" width="128" height="73"/>
         <element name="Label" positionX="-1649" positionY="-358" width="128" height="73"/>
         <element name="RelatedWord" positionX="-1649" positionY="-454" width="128" height="73"/>
+        <element name="ReviewSession" positionX="-2007" positionY="-342" width="128" height="120"/>
         <element name="TextPron" positionX="-1674" positionY="-645" width="128" height="73"/>
-        <element name="Word" positionX="-2009" positionY="-603" width="128" height="163"/>
-        <element name="ReviewSession" positionX="-2007" positionY="-342" width="128" height="88"/>
+        <element name="Word" positionX="-2009" positionY="-603" width="128" height="195"/>
     </elements>
 </model>

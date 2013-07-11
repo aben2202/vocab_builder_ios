@@ -21,7 +21,11 @@
 //                             @"useCanonical": @"true",
 //                             @"includeTags": @"false"};
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wordnik.com/v4/word.json/%@/definitions?limit=10&includeRelated=false&sourceDictionaries=ahd&useCanonical=true&includeTags=false", wordString]];
+    //since making the api call creates a new thread, we need to set up an operation with its own managed object context (persistentStoreManagedObjectContext).  That is why we do not just use the normal context from 'VocabBuilderDataModel'
+    
+    NSString *sourceDictionary = @"century";
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wordnik.com/v4/word.json/%@/definitions?limit=10&includeRelated=false&sourceDictionaries=%@&useCanonical=true&includeTags=false", wordString, sourceDictionary]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"e26ee69293d80e03b50040ada590aa0cc5a53f23105b45377" forHTTPHeaderField:@"api_key"];
@@ -38,8 +42,8 @@
         // if there was at least 1 result sent back, save the word.  else, ask for another word
         if (mappingResult.count > 0) {
             Word *theWord = [NSEntityDescription insertNewObjectForEntityForName:@"Word" inManagedObjectContext:store.persistentStoreManagedObjectContext];
-            theWord.reviewCycleStart = [NSDate date];
-            theWord.previousReview = @"start";
+        
+            theWord.reviewCycleStart = [NSDate date];            
             theWord.entries = mappingResult.set;
             theWord.theWord = wordString;
         

@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Word.h"
 
-@interface HomeTableViewController : UITableViewController <UISearchBarDelegate>
+@interface HomeTableViewController : UITableViewController <UISearchBarDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) Word *searchedWord;
 
 @property (strong, nonatomic) NSMutableArray* wordsCurrent;
 @property (strong, nonatomic) NSMutableArray* wordsFinished;
+
+- (IBAction)restartButtonClicked:(id)sender;
 
 @end

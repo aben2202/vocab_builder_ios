@@ -9,6 +9,9 @@
 #import "SettingsTableViewController.h"
 #import "ReviewSession.h"
 #import "ReviewSessionTableCell.h"
+#import "Word.h"
+#import "VocabBuilderDataModel.h"
+#import "Global.h"
 
 @interface SettingsTableViewController ()
 
@@ -38,7 +41,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self loadReviewSessions];
+    self.reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
     [self.tableView reloadData];
 }
 
@@ -46,67 +49,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)loadReviewSessions{
-    [self.reviewSessions removeAllObjects];
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"ReviewSession" inManagedObjectContext:context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDesc];
-    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"minutes" ascending:YES];
-    [request setSortDescriptors:@[sortDesc]];
-    
-    NSError *error;
-    NSMutableArray *sessions = [NSMutableArray arrayWithArray:[context executeFetchRequest:request error:&error]];
-    
-    //if this is the first time they load the app, the sessions will be blank.
-    //  in this case we will create all the sessions now
-    if(sessions.count == 0){
-        self.reviewSessions = [self createInitialReviewSessions];
-    }
-    else{
-        //save the fetched sessions to the TVC session property
-        for(ReviewSession *session in sessions){
-            [self.reviewSessions addObject:session];
-        }
-    }
-}
-
--(NSMutableArray *)createInitialReviewSessions{
-    NSMutableArray *sessions = [NSMutableArray array];
-    NSArray *sessionStrings = @[@"15 minutes",
-                                @"1 hour",
-                                @"6 hours",
-                                @"1 day",
-                                @"3 days",
-                                @"1 week",
-                                @"2 weeks",
-                                @"1 month",
-                                @"2 months"];
-    NSInteger day = 60*24;
-    NSArray *sessionMinutes = @[@15,
-                                @60,
-                                @(60*6),
-                                @(day),
-                                @(day*3),
-                                @(day*7),
-                                @(day*14),
-                                @(day*30),
-                                @(day*61)];
-    
-    for (int i = 0; i < sessionStrings.count; i++){
-        ReviewSession *newSession = [NSEntityDescription insertNewObjectForEntityForName:@"ReviewSession" inManagedObjectContext:[self managedObjectContext]];
-        newSession.enabled = @true;
-        newSession.timeName = [sessionStrings objectAtIndex:i];
-        newSession.minutes = [sessionMinutes objectAtIndex:i];
-        [sessions addObject:newSession];
-    }
-    NSError *error;
-    [[self managedObjectContext] save:&error];
-    return sessions;
 }
 
 - (NSManagedObjectContext *)managedObjectContext
@@ -118,6 +60,32 @@
     }
     return context;
 }
+
+- (IBAction)updateSession:(id)sender {
+    // this method gets called when a session.enabled status changes
+    UISwitch *theSwitch = sender;
+    
+    // first figure out which session to update
+    ReviewSession *sessionToUpdate = [self.reviewSessions objectAtIndex:theSwitch.tag];
+    //sessionToUpdate.enabled = [NSNumber numberWithBool:theSwitch.on];
+    [sessionToUpdate setValue:[NSNumber numberWithBool:theSwitch.on] forKey:@"enabled"];
+    
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+    
+    // update next reviews and notifications
+    [self updateNextReviews];
+    [[Global getInstance] updateNotifications];
+}
+
+-(void)updateNextReviews{
+    //NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+    
+    for (Word *word in [[VocabBuilderDataModel sharedDataModel] words]) {
+        [word updateNextReviewSession];
+    }
+}
+
 
 
 #pragma mark - Table view data source
@@ -138,9 +106,9 @@
     ReviewSessionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    ReviewSession *theSession = [self.reviewSessions objectAtIndex:indexPath.row];
+    ReviewSession *theSession = [self.reviewSessions objectAtIndex:indexPath.row + 1];
     cell.reviewTimeLabel.text = theSession.timeName;
-    cell.sessionSwitch.tag = indexPath.row;
+    cell.sessionSwitch.tag = indexPath.row + 1; //we add 1 since we are not displaying the 'start' session in the table
     cell.sessionSwitch.on = [theSession.enabled boolValue];
     
     return cell;
@@ -159,15 +127,15 @@
      */
 }
 
-- (IBAction)updateSession:(id)sender {
-    // this method gets called when a session.enabled status changes
-    UISwitch *theSwitch = sender;
-    
-    // first figure out which session to update
-    ReviewSession *sessionToUpdate = [self.reviewSessions objectAtIndex:theSwitch.tag];
-    sessionToUpdate.enabled = [NSNumber numberWithBool:theSwitch.on];
-    
-    NSError *error;
-    [[self managedObjectContext] save:&error];
+#pragma mark - Alert View Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Review Time"]) { // it's a review alert
+        if (buttonIndex == 0) {
+            [[Global getInstance] setReviewWords];
+            [self performSegueWithIdentifier:@"reviewSegue" sender:self];
+        }
+    }
 }
+
+
 @end

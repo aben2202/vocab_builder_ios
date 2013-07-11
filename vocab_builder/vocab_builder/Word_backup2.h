@@ -9,20 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Entry, ReviewSession, Word;
+@class Entry, Word;
 
 @interface Word : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * finished;
+@property (nonatomic, retain) NSDate * nextReviewDate;
+@property (nonatomic, retain) NSString * previousReviewString;
 @property (nonatomic, retain) NSDate * reviewCycleStart;
 @property (nonatomic, retain) NSString * theWord;
 @property (nonatomic, retain) NSDate * previousReviewDate;
-@property (nonatomic, retain) NSDate * nextReviewDate;
+@property (nonatomic, retain) NSString * nextReviewString;
 @property (nonatomic, retain) NSSet *antonyms;
 @property (nonatomic, retain) NSSet *entries;
 @property (nonatomic, retain) NSSet *synonyms;
-@property (nonatomic, retain) ReviewSession *previousReviewSession;
-@property (nonatomic, retain) ReviewSession *nextReviewSession;
 @end
 
 @interface Word (CoreDataGeneratedAccessors)
@@ -41,11 +41,5 @@
 - (void)removeSynonymsObject:(Word *)value;
 - (void)addSynonyms:(NSSet *)values;
 - (void)removeSynonyms:(NSSet *)values;
-
-- (void)updateNextReviewSession;
-- (void)updateAfterCompletedReviewWithAnswer:(BOOL)answer;
-- (void)resetReviewCycle;
-- (NSNumber *)reviewProgress;
-- (void)setNextReviewForMostRecentEnabledReview;
 
 @end

@@ -12,6 +12,8 @@
 @interface VocabBuilderDataModel : NSObject
 
 @property (nonatomic, strong) RKManagedObjectStore *objectStore;
+@property (strong, nonatomic) NSSet *words;
+@property (strong, nonatomic) NSSet *reviewSessions;
 
 + (id)sharedDataModel;
 -(void)setup;

@@ -15,11 +15,15 @@
 @property(nonatomic,retain)NSURL *dictionaryBaseURL;
 
 @property (nonatomic, retain) NSDictionary *reviewSessions;
+@property (strong, nonatomic) NSMutableArray *wordsThatNeedToBeReviewed;
 
 
 +(Global*)getInstance;
 
 //generic functions for use in all classes
 +(NSString *)getTimeAgoInHumanReadable:(NSDate *)previous_time;
+-(void)updateNotifications;
+-(BOOL)wordsNeedToBeReviewed;
+-(void)setReviewWords;
 
 @end

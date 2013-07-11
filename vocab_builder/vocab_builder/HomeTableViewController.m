@@ -12,8 +12,11 @@
 #import "SearchBarTableCell.h"
 #import "DictionaryObjectManager.h"
 #import "DefinitionTableViewController.h"
-#import "AppDelegate.h"
 #import "Entry.h"
+#import "ReviewSession.h"
+#import "VocabBuilderDataModel.h"
+#import "ReviewViewController.h"
+#import "Global.h"
 
 @interface HomeTableViewController ()
 
@@ -36,6 +39,17 @@
     //load the managed objects from the database
     [self fetchData];
     [self.tableView reloadData];
+    
+    [self checkForReviews];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(viewWillAppear:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad
@@ -50,6 +64,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+-(void)checkForReviews{
+    if ([[Global getInstance] wordsNeedToBeReviewed]) {
+        [self performSegueWithIdentifier:@"reviewSegue" sender:self];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -85,21 +106,11 @@
 -(void)fetchData{
     [self.wordsCurrent removeAllObjects];
     [self.wordsFinished removeAllObjects];
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Word"
-                inManagedObjectContext:context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDesc];
-    
-    NSError *error;
-    NSArray *words = [context executeFetchRequest:request error:&error];
     
     // create word objects from managed objects retrieved
-    for (Word *currentWord in words) {
+    for (Word *currentWord in [[VocabBuilderDataModel sharedDataModel] words]) {
         // add word to correct array
-        if (currentWord.finished == false) {
+        if ([currentWord.finished boolValue] == false) {
             [self.wordsCurrent addObject:currentWord];
         }
         else {
@@ -158,6 +169,9 @@
         // Configure the cell...
         cell.theWord = [self.wordsCurrent objectAtIndex:indexPath.row];
         cell.theWordLabel.text = cell.theWord.theWord;
+        cell.reviewProgressBar.progress = [[cell.theWord reviewProgress] floatValue];
+        NSInteger percentageLabelNumber = ([[cell.theWord reviewProgress] floatValue] * 100);
+        cell.reviewPercentageLabel.text = [NSString stringWithFormat:@"%d%%", percentageLabelNumber];
     
         return cell;
     }
@@ -168,6 +182,7 @@
         // Configure the cell...
         cell.theWord = [self.wordsFinished objectAtIndex:indexPath.row];
         cell.theWordLabel.text = cell.theWord.theWord;
+        cell.reviewAgainButton.tag = indexPath.row;
         
         return cell;
     }
@@ -252,6 +267,9 @@
         [[DictionaryObjectManager sharedManager] getWord:wordString withSuccess:^(Word *word) {
             self.searchedWord = word;
             
+            // set alerts for new word
+            [[Global getInstance] updateNotifications];
+            
             // show definition view for searched word
             [self performSegueWithIdentifier:@"showDefinition" sender:searchBar];
             
@@ -262,4 +280,29 @@
     }
 }
 
+#pragma mark - Alert View Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Review Time"]) { // it's a review alert
+        if (buttonIndex == 0) {
+            [[Global getInstance] setReviewWords];
+            [self performSegueWithIdentifier:@"reviewSegue" sender:self];
+        }
+    }
+}
+
+- (IBAction)restartButtonClicked:(id)sender {
+    UIButton *restartButton = sender;
+    Word *wordToRestart = [self.wordsFinished objectAtIndex:restartButton.tag];
+    NSLog(@"WordToRestart nextReviewSession = %@", wordToRestart.nextReviewSession.timeName);
+    [wordToRestart resetReviewCycle];
+    NSLog(@"WordToRestart nextReviewSession = %@", wordToRestart.nextReviewSession.timeName);
+    [[Global getInstance] updateNotifications];
+
+    
+    NSError *errorMSG;
+    [[self managedObjectContext] save:&errorMSG];
+    
+    [self fetchData];
+    [self.tableView reloadData];
+}
 @end

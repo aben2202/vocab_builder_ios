@@ -10,6 +10,8 @@
 #import "DictionaryObjectManager.h"
 #import "MappingProvider.h"
 #import "VocabBuilderDataModel.h"
+#import "ReviewViewController.h"
+#import "Global.h"
 
 @implementation AppDelegate
 
@@ -27,6 +29,12 @@
     [[VocabBuilderDataModel sharedDataModel] setup];
     
     [MappingProvider setupResponseAndRequestDescriptors];
+    
+    [Global getInstance].wordsThatNeedToBeReviewed = [NSMutableArray array];
+    
+    self.navController = (UINavigationController *)self.window.rootViewController;
+        
+    //check to see if they have any outstanding reviews
     return YES;
 }
 							
@@ -143,6 +151,11 @@
     }
     
     return _persistentStoreCoordinator;
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    UIAlertView *reviewAlert = [[UIAlertView alloc] initWithTitle:@"Review Time" message:notification.alertBody delegate:[self.navController visibleViewController]  cancelButtonTitle:@"Let's Review" otherButtonTitles:nil];
+    [reviewAlert show];
 }
 
 #pragma mark - Application's Documents directory
