@@ -174,6 +174,16 @@
         cell.reviewProgressBar.progress = [[cell.theWord reviewProgress] floatValue];
         NSInteger percentageLabelNumber = ([[cell.theWord reviewProgress] floatValue] * 100);
         cell.reviewPercentageLabel.text = [NSString stringWithFormat:@"%d%%", percentageLabelNumber];
+        
+        NSLocale *locale = [NSLocale currentLocale];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MM/dd/yy" options:0 locale:locale];
+        NSString *timeFormat = [NSDateFormatter dateFormatFromTemplate:@"hh/mm/ss" options:0 locale:locale];
+        [formatter setDateFormat:dateFormat];
+        [formatter setLocale:locale];
+        cell.nextReviewDateLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
+        [formatter setDateFormat:timeFormat];
+        cell.nextReviewTimeLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
     
         return cell;
     }
@@ -319,12 +329,12 @@
     NSLog(@"WordToRestart nextReviewSession = %@", wordToRestart.nextReviewSession.timeName);
     [wordToRestart resetReviewCycle];
     NSLog(@"WordToRestart nextReviewSession = %@", wordToRestart.nextReviewSession.timeName);
-    [[Global getInstance] updateNotifications];
 
     
     NSError *errorMSG;
     [[self managedObjectContext] save:&errorMSG];
     
+    [[Global getInstance] updateNotifications];
     [self fetchData];
     [self.tableView reloadData];
 }

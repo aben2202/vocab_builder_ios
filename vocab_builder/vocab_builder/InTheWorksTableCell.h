@@ -16,5 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIProgressView *reviewProgressBar;
 @property (weak, nonatomic) IBOutlet UILabel *reviewPercentageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nextReviewDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nextReviewTimeLabel;
 
 @end
