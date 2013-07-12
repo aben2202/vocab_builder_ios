@@ -70,6 +70,8 @@ static VocabBuilderDataModel *instance = nil;
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"theWord" ascending:YES];
+    [request setSortDescriptors:@[sortDesc]];
     
     NSError *error;
     NSArray *words = [context executeFetchRequest:request error:&error];

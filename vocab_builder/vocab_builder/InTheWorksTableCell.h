@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewPercentageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextReviewDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextReviewTimeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *letterImageView;
 
 @end

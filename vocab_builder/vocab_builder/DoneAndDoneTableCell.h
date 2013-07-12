@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *theWordLabel;
 @property (weak, nonatomic) IBOutlet UIButton *reviewAgainButton;
 - (IBAction)reviewAgainButtonClicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *letterImageView;
 
 @end

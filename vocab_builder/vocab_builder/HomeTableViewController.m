@@ -17,6 +17,7 @@
 #import "VocabBuilderDataModel.h"
 #import "ReviewViewController.h"
 #import "Global.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface HomeTableViewController ()
 
@@ -132,6 +133,10 @@
     return context;
 }
 
+-(NSString *)getFirstLetter:(NSString *)theWord{
+    return [[theWord substringToIndex:1] uppercaseString];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -170,7 +175,7 @@
         
         // Configure the cell...
         cell.theWord = [self.wordsCurrent objectAtIndex:indexPath.row];
-        cell.theWordLabel.text = cell.theWord.theWord;
+        cell.theWordLabel.text = [cell.theWord.theWord lowercaseString];
         cell.reviewProgressBar.progress = [[cell.theWord reviewProgress] floatValue];
         NSInteger percentageLabelNumber = ([[cell.theWord reviewProgress] floatValue] * 100);
         cell.reviewPercentageLabel.text = [NSString stringWithFormat:@"%d%%", percentageLabelNumber];
@@ -184,6 +189,13 @@
         cell.nextReviewDateLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
         [formatter setDateFormat:timeFormat];
         cell.nextReviewTimeLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
+        NSString *firstLetter = [self getFirstLetter:cell.theWord.theWord];
+        UIImage *letterImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", firstLetter]];
+        [cell.letterImageView setImage:letterImage];
+        
+        // used while debugging
+        [cell.nextReviewDateLabel setHidden:YES];
+        [cell.nextReviewTimeLabel setHidden:YES];
     
         return cell;
     }
@@ -193,8 +205,11 @@
         
         // Configure the cell...
         cell.theWord = [self.wordsFinished objectAtIndex:indexPath.row];
-        cell.theWordLabel.text = cell.theWord.theWord;
+        cell.theWordLabel.text = [cell.theWord.theWord lowercaseString];
         cell.reviewAgainButton.tag = indexPath.row;
+        NSString *firstLetter = [self getFirstLetter:cell.theWord.theWord];
+        UIImage *letterImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", firstLetter]];
+        [cell.letterImageView setImage:letterImage];
         
         return cell;
     }
@@ -337,5 +352,6 @@
     [[Global getInstance] updateNotifications];
     [self fetchData];
     [self.tableView reloadData];
+    [SVProgressHUD showSuccessWithStatus:@"Word Review Will Restart"];
 }
 @end
