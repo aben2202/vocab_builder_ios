@@ -12,6 +12,7 @@
 #import "Word.h"
 #import "VocabBuilderDataModel.h"
 #import "Global.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 
 @implementation Word
@@ -78,6 +79,7 @@
     if (self.nextReviewSession == nil) {
         self.finished = [NSNumber numberWithBool:true];
         self.nextReviewDate = nil;
+        [SVProgressHUD showSuccessWithStatus:@"Congrats!  You finished this word!"];
     }
 }
 
@@ -97,7 +99,13 @@
     self.nextReviewSession = [ReviewSession getFirstEnabledReviewSession];
     NSTimeInterval interval = 60 * [[self.nextReviewSession minutes] integerValue];
     self.nextReviewDate = [self.reviewCycleStart dateByAddingTimeInterval:interval];
-    self.finished = [NSNumber numberWithBool:false];
+    if (self.nextReviewSession != nil) {
+        self.finished = [NSNumber numberWithBool:false];
+    }
+    else{
+        self.finished = [NSNumber numberWithBool:true];
+    }
+    
 }
 
 
@@ -140,11 +148,17 @@
     while (true) {
         NSDate *now = [NSDate date];
         ReviewSession *theFollowingNextReview = [self.nextReviewSession getNextEnabledReviewSession];
-        NSTimeInterval interval = 60 * [theFollowingNextReview.minutes doubleValue];
-        NSDate *theFollowingNextReviewDate = [self.reviewCycleStart dateByAddingTimeInterval:interval];
-        
-        if ([theFollowingNextReviewDate compare:now] == NSOrderedAscending) {
-            self.nextReviewSession = theFollowingNextReview;
+        if (theFollowingNextReview != nil) {
+            NSTimeInterval interval = 60 * [theFollowingNextReview.minutes doubleValue];
+            NSDate *theFollowingNextReviewDate = [self.reviewCycleStart dateByAddingTimeInterval:interval];
+            
+            if ([theFollowingNextReviewDate compare:now] == NSOrderedAscending) {
+                self.nextReviewSession = theFollowingNextReview;
+            }
+            else{
+                break;
+            }
+
         }
         else{
             break;

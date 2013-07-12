@@ -7,13 +7,26 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "vocab_builder/ReviewViewController.m"
-         timestampString = "395278220.566181"
+         filePath = "vocab_builder/Word.m"
+         timestampString = "395285500.019733"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
-         landmarkName = "-refresh"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "-resetReviewCycle"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "vocab_builder/Word.m"
+         timestampString = "395285500.019733"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
+         landmarkName = "-resetReviewCycle"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

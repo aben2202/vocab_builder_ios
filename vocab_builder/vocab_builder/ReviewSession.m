@@ -72,7 +72,7 @@
     
     for (int i = 1; i < reviewSessions.count; i++) {
         ReviewSession *currentIterRS = [reviewSessions objectAtIndex:i];
-        if (currentIterRS.enabled) {
+        if ([currentIterRS.enabled boolValue]) {
             return currentIterRS;
         }
     }

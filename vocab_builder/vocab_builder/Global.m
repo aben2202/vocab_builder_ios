@@ -90,6 +90,7 @@ static Global *instance =nil;
 
 -(void)updateNotifications{
     // first erase all current notifications
+    NSLog(@"updating local notifications");
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     NSMutableArray *localNotifications = [NSMutableArray array];
     
