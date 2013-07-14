@@ -83,12 +83,14 @@
     // check for another review
     if ([self.currentWordIndex integerValue] < self.wordsToReview.count - 1){
         [self reviewWordWithIndex:([self.currentWordIndex integerValue] +1)];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - 1;
     }
     else{
         // save the context and dismiss view controller
         NSError *error;
         [[self managedObjectContext] save:&error];
         [self dismissViewControllerAnimated:YES completion:nil];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     }
 
 }
