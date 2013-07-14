@@ -77,7 +77,9 @@
     
     //first go through all the entries and find the different parts of speech
     for (Entry *entry in sortedEntries) {
-        theText = [theText stringByAppendingString:[NSString stringWithFormat:@"- %@\n\n", entry.text]];
+        if (![[entry.text substringToIndex:8] isEqualToString:@"<strong>"]) {
+            theText = [theText stringByAppendingString:[NSString stringWithFormat:@"- %@\n\n", entry.text]];
+        }
     }
     
     return theText;

@@ -41,6 +41,9 @@
 		CB14AA371790553F00B040EF /* no_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA351790553F00B040EF /* no_button.png */; };
 		CB14AA381790553F00B040EF /* yes_button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA361790553F00B040EF /* yes_button.png */; };
 		CB14AA3A1790574800B040EF /* restart_arrows.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA391790574800B040EF /* restart_arrows.png */; };
+		CB14AA3C17933F6000B040EF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA3B17933F6000B040EF /* Default.png */; };
+		CB14AA3E1793400800B040EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA3D1793400800B040EF /* Default-568h@2x.png */; };
+		CB14AA40179341DC00B040EF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA3F179341DC00B040EF /* Default@2x.png */; };
 		CB27C6DD178F39B100D83E13 /* green-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB27C6DC178F39B100D83E13 /* green-button.png */; };
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
 		CB9C831B178DDD3E000774CE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C831A178DDD3E000774CE /* Word.m */; };
@@ -125,6 +128,9 @@
 		CB14AA351790553F00B040EF /* no_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = no_button.png; path = "../../../../../Graphics/yes no buttons 2/no_button.png"; sourceTree = "<group>"; };
 		CB14AA361790553F00B040EF /* yes_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yes_button.png; path = "../../../../../Graphics/yes no buttons 2/yes_button.png"; sourceTree = "<group>"; };
 		CB14AA391790574800B040EF /* restart_arrows.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = restart_arrows.png; path = ../../../../../Graphics/restart/restart_arrows.png; sourceTree = "<group>"; };
+		CB14AA3B17933F6000B040EF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CB14AA3D1793400800B040EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CB14AA3F179341DC00B040EF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CB27C6DC178F39B100D83E13 /* green-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-button.png"; sourceTree = "<group>"; };
 		CB9C830F178CAB62000774CE /* ReviewNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNotification.h; sourceTree = "<group>"; };
 		CB9C8310178CAB62000774CE /* ReviewNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNotification.m; sourceTree = "<group>"; };
@@ -279,6 +285,9 @@
 		D8D20073177793CB00C94B0D = {
 			isa = PBXGroup;
 			children = (
+				CB14AA3F179341DC00B040EF /* Default@2x.png */,
+				CB14AA3D1793400800B040EF /* Default-568h@2x.png */,
+				CB14AA3B17933F6000B040EF /* Default.png */,
 				CB14A9FF179043AD00B040EF /* VocabBuilderIcon@2x.png */,
 				CB14A9FD179042D400B040EF /* VocabBuilderIcon.png */,
 				D8D20085177793CB00C94B0D /* vocab_builder */,
@@ -523,6 +532,9 @@
 				CB14AA371790553F00B040EF /* no_button.png in Resources */,
 				CB14AA381790553F00B040EF /* yes_button.png in Resources */,
 				CB14AA3A1790574800B040EF /* restart_arrows.png in Resources */,
+				CB14AA3C17933F6000B040EF /* Default.png in Resources */,
+				CB14AA3E1793400800B040EF /* Default-568h@2x.png in Resources */,
+				CB14AA40179341DC00B040EF /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

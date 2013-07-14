@@ -114,6 +114,15 @@
     return cell;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return @"Review Sessions";
+        case 1:
+            return @"Do not disturb";
+    }
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
