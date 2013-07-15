@@ -23,9 +23,9 @@
     
     //since making the api call creates a new thread, we need to set up an operation with its own managed object context (persistentStoreManagedObjectContext).  That is why we do not just use the normal context from 'VocabBuilderDataModel'
     
-    NSString *sourceDictionary = @"century,ahd";
+    NSString *sourceDictionary = @"all";
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wordnik.com/v4/word.json/%@/definitions?limit=10&includeRelated=false&sourceDictionaries=%@&useCanonical=true&includeTags=false", wordString, sourceDictionary]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wordnik.com/v4/word.json/%@/definitions?limit=100&includeRelated=false&sourceDictionaries=%@&useCanonical=true&includeTags=false", wordString, sourceDictionary]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"e26ee69293d80e03b50040ada590aa0cc5a53f23105b45377" forHTTPHeaderField:@"api_key"];

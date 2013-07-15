@@ -14,7 +14,7 @@
 #import "Global.h"
 #import "HomeTableViewController.h"
 #import "SettingsTableViewController.h"
-#import "DefinitionTableViewController.h"
+#import "DefinitionViewController.h"
 
 @implementation AppDelegate
 
@@ -166,8 +166,8 @@
         HomeTableViewController *currentController = (HomeTableViewController *)self.navController.visibleViewController;
         [currentController performSegueWithIdentifier:@"reviewSegue" sender:self];
     }
-    else if ([self.navController.visibleViewController isKindOfClass:[DefinitionTableViewController class]]){
-        DefinitionTableViewController *currentController = (DefinitionTableViewController *)self.navController.visibleViewController;
+    else if ([self.navController.visibleViewController isKindOfClass:[DefinitionViewController class]]){
+        DefinitionViewController *currentController = (DefinitionViewController *)self.navController.visibleViewController;
         [currentController performSegueWithIdentifier:@"reviewSegue" sender:self];
     }
     else if ([self.navController.visibleViewController isKindOfClass:[SettingsTableViewController class]]){

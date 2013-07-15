@@ -12,6 +12,8 @@
 #import "Word.h"
 #import "VocabBuilderDataModel.h"
 #import "Global.h"
+#import "DictionaryTableCell.h"
+#import "Dictionary.h"
 
 @interface SettingsTableViewController ()
 
@@ -32,6 +34,7 @@
 {
     [super viewDidLoad];
     self.reviewSessions = [NSMutableArray array];
+    self.dictionaries = [NSMutableArray array];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,6 +45,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
+    self.dictionaries = [[VocabBuilderDataModel sharedDataModel] dictionaries];
     [self.tableView reloadData];
 }
 
@@ -78,6 +82,15 @@
     [[Global getInstance] updateNotifications];
 }
 
+- (IBAction)updateDictionaries:(id)sender {
+    UISwitch *theSwitch = sender;
+    Dictionary *dictToUpdate = [self.dictionaries objectAtIndex:theSwitch.tag];
+    [dictToUpdate setValue:[NSNumber numberWithBool:theSwitch.on] forKey:@"enabled"];
+    
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+}
+
 -(void)updateNextReviews{
     //NSArray *reviewSessions = [[VocabBuilderDataModel sharedDataModel] reviewSessions];
     
@@ -92,26 +105,47 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 9;
+    switch (section) {
+        case 0:
+            return 9;
+        case 1:
+            return 5;
+        default:
+            return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ReviewSessionTableCell";
-    ReviewSessionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    ReviewSession *theSession = [self.reviewSessions objectAtIndex:indexPath.row + 1];
-    cell.reviewTimeLabel.text = theSession.timeName;
-    cell.sessionSwitch.tag = indexPath.row + 1; //we add 1 since we are not displaying the 'start' session in the table
-    cell.sessionSwitch.on = [theSession.enabled boolValue];
-    
-    return cell;
+    if (indexPath.section == 0) {
+        NSString *cellIdentifier = @"ReviewSessionTableCell";
+        ReviewSessionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        // Configure the cell...
+        ReviewSession *theSession = [self.reviewSessions objectAtIndex:indexPath.row + 1];
+        cell.reviewTimeLabel.text = theSession.timeName;
+        cell.sessionSwitch.tag = indexPath.row + 1; //we add 1 since we are not displaying the 'start' session in the table
+        cell.sessionSwitch.on = [theSession.enabled boolValue];
+        
+        return cell;
+    }
+    else if (indexPath.section == 1){
+        NSString *cellIdentifier = @"DictionaryTableCell";
+        DictionaryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        // Configure the cell...
+        Dictionary *theDict = [self.dictionaries objectAtIndex:indexPath.row];
+        cell.dictionaryNameLabel.text = theDict.humanString;
+        cell.dictionarySwitch.tag = indexPath.row; 
+        cell.dictionarySwitch.on = [theDict.enabled boolValue];
+        
+        return cell;
+    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -119,7 +153,9 @@
         case 0:
             return @"Review Sessions";
         case 1:
-            return @"Do not disturb";
+            return @"Dictionaries";
+        default:
+            return @"";
     }
 }
 

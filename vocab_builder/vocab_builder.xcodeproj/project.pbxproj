@@ -45,6 +45,9 @@
 		CB14AA3E1793400800B040EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA3D1793400800B040EF /* Default-568h@2x.png */; };
 		CB14AA40179341DC00B040EF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB14AA3F179341DC00B040EF /* Default@2x.png */; };
 		CB27C6DD178F39B100D83E13 /* green-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB27C6DC178F39B100D83E13 /* green-button.png */; };
+		CB41592B1794526D003926A9 /* DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592A1794526D003926A9 /* DefinitionViewController.m */; };
+		CB41592E17945B68003926A9 /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592D17945B68003926A9 /* Dictionary.m */; };
+		CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41593017945CBA003926A9 /* DictionaryTableCell.m */; };
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
 		CB9C831B178DDD3E000774CE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C831A178DDD3E000774CE /* Word.m */; };
 		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
@@ -71,7 +74,6 @@
 		D8D200DB1785D42100C94B0D /* DoneAndDoneTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200DA1785D42100C94B0D /* DoneAndDoneTableCell.m */; };
 		D8D200DE1787217900C94B0D /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200DD1787217900C94B0D /* HomeTableViewController.m */; };
 		D8D200E11787263900C94B0D /* SearchBarTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200E01787263900C94B0D /* SearchBarTableCell.m */; };
-		D8D200E71787337400C94B0D /* DefinitionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200E61787337400C94B0D /* DefinitionTableViewController.m */; };
 		D8D200EA1787361500C94B0D /* TextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200E91787361500C94B0D /* TextViewTableCell.m */; };
 		D8D200ED1787420D00C94B0D /* ReviewSessionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200EC1787420C00C94B0D /* ReviewSessionTableCell.m */; };
 		D8D200F31787499A00C94B0D /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D200F21787499A00C94B0D /* SettingsTableViewController.m */; };
@@ -129,6 +131,12 @@
 		CB14AA3D1793400800B040EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CB14AA3F179341DC00B040EF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CB27C6DC178F39B100D83E13 /* green-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-button.png"; sourceTree = "<group>"; };
+		CB4159291794526D003926A9 /* DefinitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionViewController.h; sourceTree = "<group>"; };
+		CB41592A1794526D003926A9 /* DefinitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionViewController.m; sourceTree = "<group>"; };
+		CB41592C17945B68003926A9 /* Dictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dictionary.h; sourceTree = "<group>"; };
+		CB41592D17945B68003926A9 /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
+		CB41592F17945CBA003926A9 /* DictionaryTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableCell.h; sourceTree = "<group>"; };
+		CB41593017945CBA003926A9 /* DictionaryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableCell.m; sourceTree = "<group>"; };
 		CB9C830F178CAB62000774CE /* ReviewNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNotification.h; sourceTree = "<group>"; };
 		CB9C8310178CAB62000774CE /* ReviewNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNotification.m; sourceTree = "<group>"; };
 		CB9C8319178DDD3E000774CE /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
@@ -174,8 +182,6 @@
 		D8D200DD1787217900C94B0D /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		D8D200DF1787263900C94B0D /* SearchBarTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBarTableCell.h; sourceTree = "<group>"; };
 		D8D200E01787263900C94B0D /* SearchBarTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBarTableCell.m; sourceTree = "<group>"; };
-		D8D200E51787337400C94B0D /* DefinitionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionTableViewController.h; sourceTree = "<group>"; };
-		D8D200E61787337400C94B0D /* DefinitionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionTableViewController.m; sourceTree = "<group>"; };
 		D8D200E81787361400C94B0D /* TextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewTableCell.h; sourceTree = "<group>"; };
 		D8D200E91787361500C94B0D /* TextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewTableCell.m; sourceTree = "<group>"; };
 		D8D200EB1787420C00C94B0D /* ReviewSessionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSessionTableCell.h; sourceTree = "<group>"; };
@@ -219,12 +225,12 @@
 			children = (
 				D8D200DC1787217900C94B0D /* HomeTableViewController.h */,
 				D8D200DD1787217900C94B0D /* HomeTableViewController.m */,
-				D8D200E51787337400C94B0D /* DefinitionTableViewController.h */,
-				D8D200E61787337400C94B0D /* DefinitionTableViewController.m */,
 				D8D200F11787499A00C94B0D /* SettingsTableViewController.h */,
 				D8D200F21787499A00C94B0D /* SettingsTableViewController.m */,
 				D84AEE8F178C8CDA00ED135E /* ReviewViewController.h */,
 				D84AEE90178C8CDA00ED135E /* ReviewViewController.m */,
+				CB4159291794526D003926A9 /* DefinitionViewController.h */,
+				CB41592A1794526D003926A9 /* DefinitionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -405,6 +411,8 @@
 				D8D200E91787361500C94B0D /* TextViewTableCell.m */,
 				D8D200EB1787420C00C94B0D /* ReviewSessionTableCell.h */,
 				D8D200EC1787420C00C94B0D /* ReviewSessionTableCell.m */,
+				CB41592F17945CBA003926A9 /* DictionaryTableCell.h */,
+				CB41593017945CBA003926A9 /* DictionaryTableCell.m */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -415,6 +423,8 @@
 				D8D200F4178A67F800C94B0D /* VocabBuilderDataModel.h */,
 				D8D200F5178A67F800C94B0D /* VocabBuilderDataModel.m */,
 				CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */,
+				CB41592C17945B68003926A9 /* Dictionary.h */,
+				CB41592D17945B68003926A9 /* Dictionary.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -601,7 +611,6 @@
 				D8D200DB1785D42100C94B0D /* DoneAndDoneTableCell.m in Sources */,
 				D8D200DE1787217900C94B0D /* HomeTableViewController.m in Sources */,
 				D8D200E11787263900C94B0D /* SearchBarTableCell.m in Sources */,
-				D8D200E71787337400C94B0D /* DefinitionTableViewController.m in Sources */,
 				D8D200EA1787361500C94B0D /* TextViewTableCell.m in Sources */,
 				D8D200ED1787420D00C94B0D /* ReviewSessionTableCell.m in Sources */,
 				D8D200F31787499A00C94B0D /* SettingsTableViewController.m in Sources */,
@@ -611,6 +620,9 @@
 				D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */,
 				CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */,
 				CB9C831B178DDD3E000774CE /* Word.m in Sources */,
+				CB41592B1794526D003926A9 /* DefinitionViewController.m in Sources */,
+				CB41592E17945B68003926A9 /* Dictionary.m in Sources */,
+				CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

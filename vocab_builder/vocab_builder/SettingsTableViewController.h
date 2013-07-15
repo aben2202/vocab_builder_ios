@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsTableViewController : UITableViewController
+@interface SettingsTableViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *reviewSessions;
+@property (strong, nonatomic) NSMutableArray *dictionaries;
 
 - (IBAction)updateSession:(id)sender;
+- (IBAction)updateDictionaries:(id)sender;
 
 @end

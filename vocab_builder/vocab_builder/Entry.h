@@ -14,11 +14,14 @@
 @interface Entry : NSManagedObject
 
 @property (nonatomic, retain) NSString * attributionText;
+@property (nonatomic, retain) NSString * attributionUrl;
 @property (nonatomic, retain) NSString * text;
+@property (nonatomic, retain) NSString * extendedText;
 @property (nonatomic, retain) NSString * partOfSpeech;
 @property (nonatomic, retain) NSString * sourceDictionary;
 @property (nonatomic, retain) NSString * word;
 @property (nonatomic, retain) NSString * sequence;
+@property (nonatomic, retain) NSString * seqString;
 @property (nonatomic, retain) NSNumber * score;
 @property (nonatomic, retain) NSSet *textProns;
 @property (nonatomic, retain) Word *wordRel;

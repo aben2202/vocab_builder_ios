@@ -14,6 +14,7 @@
 @property (nonatomic, strong) RKManagedObjectStore *objectStore;
 @property (strong, nonatomic) NSSet *words;
 @property (strong, nonatomic) NSSet *reviewSessions;
+@property (strong, nonatomic) NSSet *dictionaries;
 
 + (id)sharedDataModel;
 -(void)setup;

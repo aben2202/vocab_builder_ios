@@ -11,7 +11,7 @@
 #import "DoneAndDoneTableCell.h"
 #import "SearchBarTableCell.h"
 #import "DictionaryObjectManager.h"
-#import "DefinitionTableViewController.h"
+#import "DefinitionViewController.h"
 #import "Entry.h"
 #import "ReviewSession.h"
 #import "VocabBuilderDataModel.h"
@@ -83,22 +83,22 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"showDefinition"]) {
-        DefinitionTableViewController *defTVC = [segue destinationViewController];
+        DefinitionViewController *defVC = [segue destinationViewController];
         if ([sender isKindOfClass:[UISearchBar class]]) {
             //user searched for a word
-            defTVC.theWord = self.searchedWord;
+            defVC.theWord = self.searchedWord;
         }
         else if ([sender isKindOfClass:[InTheWorksTableCell class]]){
             //user clicked on a 'in the works' word
             InTheWorksTableCell *theSender = sender;
-            defTVC.theWord = theSender.theWord;
+            defVC.theWord = theSender.theWord;
         }
         else if ([sender isKindOfClass:[DoneAndDoneTableCell class]]){
             // user clicked on a 'done and done' word
             DoneAndDoneTableCell *theSender = sender;
-            defTVC.theWord = theSender.theWord;
+            defVC.theWord = theSender.theWord;
         }
-        defTVC.title = defTVC.theWord.theWord;
+        defVC.title = defVC.theWord.theWord;
     }
 }
 

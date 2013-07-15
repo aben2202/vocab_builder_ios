@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "ReviewSession.h"
 #import "Word.h"
+#import "Dictionary.h"
 
 static VocabBuilderDataModel *instance = nil;
 
@@ -90,6 +91,30 @@ static VocabBuilderDataModel *instance = nil;
     return words;
 }
 
+-(NSArray *)dictionaries{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Dictionary"
+                                                  inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"humanString" ascending:YES];
+    [request setSortDescriptors:@[sortDesc]];
+    
+    
+    NSError *error;
+    NSArray *dictionaries = [context executeFetchRequest:request error:&error];
+    
+    //if this is the first time they load the app, the dictionaries will be blank.
+    //  in this case we will create all the dictionaries
+    if(dictionaries.count == 0){
+        dictionaries = [self createInitialDictionaries];
+    }
+    
+    return dictionaries;
+}
+
 -(NSArray *)reviewSessions{
     NSManagedObjectContext *context = [self managedObjectContext];
     
@@ -141,28 +166,6 @@ static VocabBuilderDataModel *instance = nil;
                                 @(day*14),
                                 @(day*30),
                                 @(day*61)];
-//    NSArray *sessionStrings = @[@"start",
-//                                @"1 minute",
-//                                @"2 minutes",
-//                                @"6 hours",
-//                                @"1 day",
-//                                @"3 days",
-//                                @"1 week",
-//                                @"2 weeks",
-//                                @"1 month",
-//                                @"2 months"];
-//    NSInteger day = 60*24;
-//    NSArray *sessionMinutes = @[@0,
-//                                @1,
-//                                @2,
-//                                @(60*6),
-//                                @(day),
-//                                @(day*3),
-//                                @(day*7),
-//                                @(day*14),
-//                                @(day*30),
-//                                @(day*61)];
-
     
     for (int i = 0; i < sessionStrings.count; i++){
         ReviewSession *newSession = [NSEntityDescription insertNewObjectForEntityForName:@"ReviewSession" inManagedObjectContext:[self managedObjectContext]];
@@ -174,7 +177,33 @@ static VocabBuilderDataModel *instance = nil;
     NSError *error;
     [[self managedObjectContext] save:&error];
     //[[self.objectStore mainQueueManagedObjectContext] save:&error];
-    return [NSArray arrayWithArray:sessions];
+    return sessions;
+}
+
+-(NSArray *)createInitialDictionaries{
+    NSMutableArray *dictionaries = [NSMutableArray array];
+    NSArray *humanStrings = @[@"American Heritage",
+                              @"Century",
+                              @"Wiktionary",
+                              @"GCIDE",
+                              @"Wordnet"];
+    NSArray *wordnikStrings = @[@"ahd-legacy",
+                                @"century",
+                                @"wiktionary",
+                                @"gcide",
+                                @"wordnet"];
+    
+    for (int i = 0; i < humanStrings.count; i++) {
+        Dictionary *newDict = [NSEntityDescription insertNewObjectForEntityForName:@"Dictionary" inManagedObjectContext:[self managedObjectContext]];
+        newDict.enabled = [NSNumber numberWithBool:true];
+        newDict.humanString = [humanStrings objectAtIndex:i];
+        newDict.wordnikString = [wordnikStrings objectAtIndex:i];
+        [dictionaries addObject:newDict];
+    }
+    
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+    return dictionaries;
 }
 
 

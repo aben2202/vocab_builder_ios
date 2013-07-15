@@ -107,7 +107,8 @@ static Global *instance =nil;
                 newNotification.fireDate = [word.reviewCycleStart dateByAddingTimeInterval:interval];
                 newNotification.alertAction = @"Review Session";
                 newNotification.alertBody = [NSString stringWithFormat:@"It is time to review the word '%@'.", word.theWord];
-                newNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+                //newNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+                newNotification.applicationIconBadgeNumber = 1;
                 newNotification.soundName = UILocalNotificationDefaultSoundName;
                 [localNotifications addObject:newNotification];
             }

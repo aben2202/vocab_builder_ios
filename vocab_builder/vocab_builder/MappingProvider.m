@@ -64,19 +64,59 @@
 
 +(RKEntityMapping *)entryMapping{
     RKEntityMapping *entryMapping = [RKEntityMapping mappingForEntityForName:@"Entry" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
-    [entryMapping addAttributeMappingsFromArray:@[@"textProns",
-                                                  @"sourceDictionary",
-                                                  @"exampleUses",
-                                                  @"relatedWords",
-                                                  @"labels",
-                                                  @"citations",
+    [entryMapping addAttributeMappingsFromArray:@[@"sourceDictionary",
                                                   @"word",
                                                   @"text",
                                                   @"sequence",
                                                   @"score",
                                                   @"partOfSpeech",
-                                                  @"attributionText"]];
+                                                  @"attributionText",
+                                                  @"attributionUrl",
+                                                  @"seqString",
+                                                  @"extendedText"]];
+    [entryMapping addRelationshipMappingWithSourceKeyPath:@"labels" mapping:[self labelMapping]];
+    [entryMapping addRelationshipMappingWithSourceKeyPath:@"citations" mapping:[self citationMapping]];
+    [entryMapping addRelationshipMappingWithSourceKeyPath:@"relatedWords" mapping:[self relatedWordMapping]];
+    [entryMapping addRelationshipMappingWithSourceKeyPath:@"exampleUses" mapping:[self exampleUseMapping]];
+    [entryMapping addRelationshipMappingWithSourceKeyPath:@"notes" mapping:[self noteMapping]];
+    [entryMapping addRelationshipMappingWithSourceKeyPath:@"textProns" mapping:[self textPronMapping]];
     return entryMapping;
+}
+
++(RKEntityMapping *)labelMapping{
+    RKEntityMapping *labelMapping = [RKEntityMapping mappingForEntityForName:@"Label" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [labelMapping addAttributeMappingsFromArray:@[@"type", @"text"]];
+    return labelMapping;
+}
+
++(RKEntityMapping *)citationMapping{
+    RKEntityMapping *citationMapping = [RKEntityMapping mappingForEntityForName:@"Citation" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [citationMapping addAttributeMappingsFromArray:@[@"cite", @"source"]];
+    return citationMapping;
+}
+
++(RKEntityMapping *)relatedWordMapping{
+    RKEntityMapping *relatedWordMapping = [RKEntityMapping mappingForEntityForName:@"RelatedWord" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [relatedWordMapping addAttributeMappingsFromArray:@[@"words", @"relationshipType"]];
+    return relatedWordMapping;
+}
+
++(RKEntityMapping *)exampleUseMapping{
+    RKEntityMapping *exampleUseMapping = [RKEntityMapping mappingForEntityForName:@"Label" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [exampleUseMapping addAttributeMappingsFromArray:@[@"text"]];
+    return exampleUseMapping;
+}
+
++(RKEntityMapping *)noteMapping{
+    RKEntityMapping *noteMapping = [RKEntityMapping mappingForEntityForName:@"Note" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [noteMapping addAttributeMappingsFromArray:@[@"noteType", @"appliesTo", @"value", @"pos"]];
+    return noteMapping;
+}
+
++(RKEntityMapping *)textPronMapping{
+    RKEntityMapping *textPronMapping = [RKEntityMapping mappingForEntityForName:@"TextPron" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [textPronMapping addAttributeMappingsFromArray:@[@"type", @"text"]];
+    return textPronMapping;
 }
 
 +(RKEntityMapping *)relatedWordsResponse{

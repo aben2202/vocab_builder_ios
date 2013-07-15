@@ -16,8 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *theWordLabel;
 @property (weak, nonatomic) IBOutlet UIButton *yesButton;
 @property (weak, nonatomic) IBOutlet UIButton *noButton;
-@property (weak, nonatomic) IBOutlet UILabel *reviewNumber;
-@property (weak, nonatomic) IBOutlet UILabel *reviewNumberTotal;
+@property (weak, nonatomic) IBOutlet UILabel *reviewNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewSessionNameLabel;
 
 - (IBAction)yesButtonClicked:(id)sender;

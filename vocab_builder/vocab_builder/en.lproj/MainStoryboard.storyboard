@@ -230,8 +230,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="ZrN-F3-2G5" kind="push" identifier="showDefinition" id="E3I-F7-WsO"/>
                         <segue destination="g7U-d4-eqU" kind="modal" identifier="reviewSegue" id="BNg-t4-shq"/>
+                        <segue destination="d8p-re-0UB" kind="push" identifier="showDefinition" id="xoi-Rd-yqn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4s-sE-R0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,6 +276,37 @@
                                 <connections>
                                     <outlet property="reviewTimeLabel" destination="blv-sY-Wdn" id="5R9-mr-MQw"/>
                                     <outlet property="sessionSwitch" destination="RLx-oa-i9h" id="KAj-g3-KAN"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DictionaryTableCell" rowHeight="36" id="hlh-bb-oev" customClass="DictionaryTableCell">
+                                <rect key="frame" x="0.0" y="58" width="320" height="36"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjr-B4-sWD">
+                                            <connections>
+                                                <action selector="updateDictionaries:" destination="IcF-AN-7IT" eventType="valueChanged" id="oeJ-pH-gAD"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="American Heritage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZC-h4-xXt">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="5ZC-h4-xXt" firstAttribute="centerY" secondItem="pjr-B4-sWD" secondAttribute="centerY" type="default" id="DdO-Rf-96l"/>
+                                    <constraint firstItem="pjr-B4-sWD" firstAttribute="top" secondItem="hlh-bb-oev" secondAttribute="top" constant="4" id="JmA-pE-Fo3"/>
+                                    <constraint firstAttribute="trailing" secondItem="pjr-B4-sWD" secondAttribute="trailing" constant="20" type="default" id="WW1-LU-VhV"/>
+                                    <constraint firstItem="5ZC-h4-xXt" firstAttribute="leading" secondItem="hlh-bb-oev" secondAttribute="leading" constant="20" type="default" id="vMU-Qc-7HR"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dictionaryNameLabel" destination="5ZC-h4-xXt" id="DU6-Nm-xrv"/>
+                                    <outlet property="dictionarySwitch" destination="pjr-B4-sWD" id="5WS-jp-xbh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -376,25 +407,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ga-QR-H9E">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10 of 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ga-QR-H9E">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="jZr-Lh-FLP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="of" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLy-15-b2u">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="SmV-mm-YjG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5G-NF-CIe">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="cAX-vd-3or"/>
+                                    <constraint firstAttribute="width" constant="52" id="Yel-Bl-Z0M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -424,24 +439,18 @@
                             <constraint firstItem="Ra5-iA-ksl" firstAttribute="baseline" secondItem="7Ga-QR-H9E" secondAttribute="baseline" type="default" id="11J-qJ-vZ6"/>
                             <constraint firstItem="Bd3-Vv-QVz" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" type="default" id="1u4-76-UJK"/>
                             <constraint firstItem="Ra5-iA-ksl" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="110" id="5Z7-BK-Lrz"/>
-                            <constraint firstItem="oLy-15-b2u" firstAttribute="baseline" secondItem="b5G-NF-CIe" secondAttribute="baseline" type="default" id="5bz-pN-n8x"/>
                             <constraint firstItem="m8g-lU-Fbe" firstAttribute="trailing" secondItem="kqf-p6-UNa" secondAttribute="trailing" type="default" id="6WK-x3-OPZ"/>
-                            <constraint firstItem="b5G-NF-CIe" firstAttribute="centerX" secondItem="DUE-aK-1FK" secondAttribute="centerX" type="default" id="7uk-JK-wgY"/>
                             <constraint firstItem="T4J-lM-CIg" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="AhO-l9-M55"/>
                             <constraint firstItem="Bd3-Vv-QVz" firstAttribute="top" secondItem="VBR-uh-daA" secondAttribute="top" constant="59" id="D5L-HU-t9w"/>
                             <constraint firstAttribute="trailing" secondItem="pu3-b0-PJG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="DCo-mI-DpI"/>
-                            <constraint firstAttribute="trailing" secondItem="oLy-15-b2u" secondAttribute="trailing" constant="127" id="GFQ-Ei-N1y"/>
                             <constraint firstItem="7Ga-QR-H9E" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="159" id="HFY-ET-A3K"/>
                             <constraint firstItem="Bd3-Vv-QVz" firstAttribute="trailing" secondItem="VBR-uh-daA" secondAttribute="trailing" type="default" id="JX1-hL-aMV"/>
                             <constraint firstItem="DUE-aK-1FK" firstAttribute="baseline" secondItem="kqf-p6-UNa" secondAttribute="baseline" type="default" id="KWB-p7-cug"/>
                             <constraint firstItem="7Ga-QR-H9E" firstAttribute="top" secondItem="Ra5-iA-ksl" secondAttribute="top" type="default" id="RgN-wr-DGk"/>
                             <constraint firstItem="T4J-lM-CIg" firstAttribute="top" secondItem="VBR-uh-daA" secondAttribute="top" constant="176" id="Sof-2L-H9l"/>
-                            <constraint firstItem="7Ga-QR-H9E" firstAttribute="top" secondItem="oLy-15-b2u" secondAttribute="top" type="default" id="TCd-jQ-Wq0"/>
                             <constraint firstItem="m8g-lU-Fbe" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="40" id="Ugc-YW-xYu"/>
                             <constraint firstItem="20g-2Q-agh" firstAttribute="top" secondItem="pu3-b0-PJG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VNd-BR-Q1Z"/>
                             <constraint firstItem="m8g-lU-Fbe" firstAttribute="bottom" secondItem="20g-2Q-agh" secondAttribute="bottom" type="default" id="VhZ-yD-ayf"/>
-                            <constraint firstItem="oLy-15-b2u" firstAttribute="baseline" secondItem="7Ga-QR-H9E" secondAttribute="baseline" type="default" id="Zz2-YO-jHX"/>
-                            <constraint firstItem="oLy-15-b2u" firstAttribute="top" secondItem="b5G-NF-CIe" secondAttribute="top" type="default" id="fZt-50-vOv"/>
                             <constraint firstAttribute="bottom" secondItem="W60-5d-uzr" secondAttribute="bottom" constant="37" id="fhx-Zw-3gK"/>
                             <constraint firstAttribute="bottom" secondItem="kqf-p6-UNa" secondAttribute="bottom" constant="57" id="lGM-XN-qUG"/>
                             <constraint firstItem="m8g-lU-Fbe" firstAttribute="top" secondItem="pu3-b0-PJG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="udO-Nx-9ks"/>
@@ -457,8 +466,7 @@
                     <navigationItem key="navigationItem" id="6uX-K1-F3k"/>
                     <connections>
                         <outlet property="noButton" destination="20g-2Q-agh" id="lvq-X3-fR1"/>
-                        <outlet property="reviewNumber" destination="7Ga-QR-H9E" id="Wt5-pf-LSE"/>
-                        <outlet property="reviewNumberTotal" destination="b5G-NF-CIe" id="uJO-bG-uHj"/>
+                        <outlet property="reviewNumberLabel" destination="7Ga-QR-H9E" id="6ho-kM-660"/>
                         <outlet property="reviewSessionNameLabel" destination="DUE-aK-1FK" id="eYY-Qi-gz0"/>
                         <outlet property="theWordLabel" destination="Bd3-Vv-QVz" id="Y6m-qR-tMG"/>
                         <outlet property="yesButton" destination="m8g-lU-Fbe" id="ExP-UX-guV"/>
@@ -468,57 +476,35 @@
             </objects>
             <point key="canvasLocation" x="1627" y="-428"/>
         </scene>
-        <!--Definition Table View Controller - The Word-->
-        <scene sceneID="Kzo-vk-wZG">
+        <!--Definition View Controller - the word-->
+        <scene sceneID="AOX-Pt-apO">
             <objects>
-                <tableViewController id="ZrN-F3-2G5" customClass="DefinitionTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Suw-s2-VJ7">
+                <viewController id="d8p-re-0UB" customClass="DefinitionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6je-6p-JkU">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DefinitionTableCell" rowHeight="397" id="kRq-qQ-hUY" customClass="TextViewTableCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="397"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="396"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biU-Fy-Zzi">
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="biU-Fy-Zzi" firstAttribute="trailing" secondItem="kRq-qQ-hUY" secondAttribute="trailing" type="default" id="7cZ-cq-aDw"/>
-                                    <constraint firstItem="biU-Fy-Zzi" firstAttribute="leading" secondItem="kRq-qQ-hUY" secondAttribute="leading" type="default" id="8jf-zL-ETL"/>
-                                    <constraint firstItem="biU-Fy-Zzi" firstAttribute="centerY" secondItem="kRq-qQ-hUY" secondAttribute="centerY" type="default" id="eiQ-g1-bG8"/>
-                                    <constraint firstItem="biU-Fy-Zzi" firstAttribute="top" secondItem="kRq-qQ-hUY" secondAttribute="top" type="default" id="zgG-RQ-TH4"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="theTextView" destination="biU-Fy-Zzi" id="RZQ-3E-ZmL"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="ZrN-F3-2G5" id="eud-rM-H9s"/>
-                            <outlet property="delegate" destination="ZrN-F3-2G5" id="hrN-rp-hHC"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="The Word" id="ZDO-ib-pUL"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8f-5N-FpH">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x8f-5N-FpH" firstAttribute="trailing" secondItem="6je-6p-JkU" secondAttribute="trailing" type="default" id="6wj-gp-SYP"/>
+                            <constraint firstItem="x8f-5N-FpH" firstAttribute="top" secondItem="6je-6p-JkU" secondAttribute="top" type="default" id="QCw-Iq-Gt1"/>
+                            <constraint firstItem="x8f-5N-FpH" firstAttribute="leading" secondItem="6je-6p-JkU" secondAttribute="leading" type="default" id="dfD-ns-1c3"/>
+                            <constraint firstItem="x8f-5N-FpH" firstAttribute="bottom" secondItem="6je-6p-JkU" secondAttribute="bottom" type="default" id="kZj-hk-zs9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="the word" id="9ki-1w-WGO"/>
                     <connections>
-                        <segue destination="g7U-d4-eqU" kind="modal" identifier="reviewSegue" id="ee3-eK-JPg"/>
+                        <outlet property="webView" destination="x8f-5N-FpH" id="6U9-0U-cm0"/>
+                        <segue destination="g7U-d4-eqU" kind="modal" identifier="reviewSegue" id="SaO-rz-dB5"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KpY-xS-ukh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1b-Yx-KKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1366" y="160"/>
+            <point key="canvasLocation" x="1461" y="182"/>
         </scene>
     </scenes>
     <resources>
@@ -527,8 +513,18 @@
         <image name="yes_button.png" width="100" height="100"/>
     </resources>
     <classes>
-        <class className="DefinitionTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DefinitionTableViewController.h"/>
+        <class className="DefinitionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DefinitionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="DictionaryTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DictionaryTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dictionaryNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dictionarySwitch" candidateClass="UISwitch"/>
+            </relationships>
         </class>
         <class className="DoneAndDoneTableCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DoneAndDoneTableCell.h"/>
@@ -572,8 +568,7 @@
                 <relationship kind="action" name="noButtonClicked:"/>
                 <relationship kind="action" name="yesButtonClicked:"/>
                 <relationship kind="outlet" name="noButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="reviewNumber" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="reviewNumberTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="reviewNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="reviewSessionNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="theWordLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="yesButton" candidateClass="UIButton"/>
@@ -588,14 +583,8 @@
         <class className="SettingsTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="updateDictionaries:"/>
                 <relationship kind="action" name="updateSession:"/>
-            </relationships>
-        </class>
-        <class className="TextViewTableCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextViewTableCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="sourceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="theTextView" candidateClass="UITextView"/>
             </relationships>
         </class>
     </classes>
@@ -605,6 +594,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BNg-t4-shq"/>
+        <segue reference="mPg-yo-hov"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,11 +13,14 @@
 @implementation Entry
 
 @dynamic attributionText;
+@dynamic attributionUrl;
 @dynamic text;
+@dynamic extendedText;
 @dynamic partOfSpeech;
 @dynamic sourceDictionary;
 @dynamic word;
 @dynamic sequence;
+@dynamic seqString;
 @dynamic score;
 @dynamic textProns;
 @dynamic wordRel;

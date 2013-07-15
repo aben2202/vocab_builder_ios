@@ -10,6 +10,7 @@
 #import "TextViewTableCell.h"
 #import "Entry.h"
 #import "Global.h"
+#import "DefinitionTableCell.h"
 
 @interface DefinitionTableViewController ()
 
@@ -38,6 +39,7 @@
                                              selector:@selector(viewWillAppear:)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -69,22 +71,43 @@
 }
 
 
--(NSString *)createDefinitionString:(NSSet *)entries withDictionary:(NSString *)dictionaryName{
-    NSMutableArray *entriesArray = [NSMutableArray arrayWithArray:[entries allObjects]];
-    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"text" ascending:YES];
+-(NSString *)createDefinitionString:(Word *)word withDictionary:(NSString *)dictionaryName{
+    NSMutableArray *entriesArray = [NSMutableArray arrayWithArray:[word.entries allObjects]];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"sequence" ascending:YES];
     NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
-    NSString *theText = @"";
+    NSString *theText = @"<html><head><style>p.serif{font-family:'Times New Roman',Times,serif;} p.sansserif{font-family:Arial,Helvetica,sans-serif;}</style></head><body>";
     
     //first go through all the entries and find the different parts of speech
+//    for (Entry *entry in sortedEntries) {
+//        if (![[entry.text substringToIndex:8] isEqualToString:@"<strong>"] && entry.text != NULL && [dictionaryName isEqualToString:entry.sourceDictionary]) {
+//            theText = [theText stringByAppendingString:@"- "];
+//            if (![entry.partOfSpeech isEqualToString:@""] && entry.partOfSpeech != NULL) {
+//                theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@. ", entry.partOfSpeech]];
+//            }
+//            theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@\n\n", entry.text]];
+//        }
+//    }
+
+    
+    // first we list the attribution text
+    BOOL listedAttributionText = FALSE;
     for (Entry *entry in sortedEntries) {
-        if (![[entry.text substringToIndex:8] isEqualToString:@"<strong>"] && entry.text != NULL && [dictionaryName isEqualToString:entry.sourceDictionary]) {
+        if (entry.text != NULL && [dictionaryName isEqualToString:entry.sourceDictionary]) {
+            //add the dictionary attribution text if we have not already
+            if (listedAttributionText == FALSE) {
+                NSString *attrText = [NSString stringWithFormat:@"<p class='serif'><b>%@</b></p>", entry.attributionText];
+                theText = [theText stringByAppendingString:attrText];
+                listedAttributionText = TRUE;
+            }
             theText = [theText stringByAppendingString:@"- "];
             if (![entry.partOfSpeech isEqualToString:@""] && entry.partOfSpeech != NULL) {
-                theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@. ", entry.partOfSpeech]];
+                theText = [theText stringByAppendingString:[NSString stringWithFormat:@"<i>%@</i>. ", entry.partOfSpeech]];
             }
-            theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@\n\n", entry.text]];
+            theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@<br><br>", entry.text]];
         }
     }
+
+    theText = [theText stringByAppendingString:@"</p>"];
     
     return theText;
 }
@@ -125,22 +148,25 @@
         CellIdentifier = @"AHDTableCell";
     }
     
-    TextViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    //TextViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    DefinitionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     if (indexPath.section == 0) {
         //create the definition text
-        cell.theTextView.text = [self createDefinitionString:self.theWord.entries withDictionary:@"century"];
+        //cell.theTextView.text = [self createDefinitionString:self.theWord.entries withDictionary:@"century"];
+        
+        [cell.webView loadHTMLString:[self createDefinitionString:self.theWord withDictionary:@"century"] baseURL:nil];
     
     }
-    else if (indexPath.section == 1){
-        cell.theTextView.text = [self createDefinitionString:self.theWord.entries withDictionary:@"ahd-legacy"];
-    }
-    else if (indexPath.section == 2){
-        // create the antonyms text
-    }
-    
-    cell.theTextView.editable = false;
+//    else if (indexPath.section == 1){
+//        cell.theTextView.text = [self createDefinitionString:self.theWord.entries withDictionary:@"ahd-legacy"];
+//    }
+//    else if (indexPath.section == 2){
+//        // create the antonyms text
+//    }
+//    
+//    cell.theTextView.editable = false;
 
     
     return cell;
