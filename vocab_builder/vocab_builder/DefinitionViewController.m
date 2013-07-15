@@ -79,19 +79,6 @@
     NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
     NSString *theText = @"";
     
-    //first go through all the entries and find the different parts of speech
-    //    for (Entry *entry in sortedEntries) {
-    //        if (![[entry.text substringToIndex:8] isEqualToString:@"<strong>"] && entry.text != NULL && [dictionaryName isEqualToString:entry.sourceDictionary]) {
-    //            theText = [theText stringByAppendingString:@"- "];
-    //            if (![entry.partOfSpeech isEqualToString:@""] && entry.partOfSpeech != NULL) {
-    //                theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@. ", entry.partOfSpeech]];
-    //            }
-    //            theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@\n\n", entry.text]];
-    //        }
-    //    }
-    
-    
-    // first we list the attribution text
     BOOL listedAttributionText = FALSE;
     for (Entry *entry in sortedEntries) {
         NSLog(@"dictionaryName = %@", dictionaryName);
@@ -103,10 +90,13 @@
                 theText = [theText stringByAppendingString:attrText];
                 listedAttributionText = TRUE;
             }
+            //add the dash mark at the beginning of each entry
             theText = [theText stringByAppendingString:@"- "];
+            //add the part of speech first in italics
             if (![entry.partOfSpeech isEqualToString:@""] && entry.partOfSpeech != NULL) {
                 theText = [theText stringByAppendingString:[NSString stringWithFormat:@"<i>%@</i>. ", entry.partOfSpeech]];
             }
+            //add the entry text itself (the definition)
             theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@<br><br>", entry.text]];
         }
     }
