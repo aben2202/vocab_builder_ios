@@ -30,6 +30,11 @@
     <entity name="RelatedWord" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="relatedWords" inverseEntity="Entry" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RelatedWordsResponse" inverseName="words" inverseEntity="RelatedWordsResponse" syncable="YES"/>
+    </entity>
+    <entity name="RelatedWordsResponse" syncable="YES">
+        <attribute name="relationshipType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWord" inverseName="newRelationship" inverseEntity="RelatedWord" syncable="YES"/>
     </entity>
     <entity name="ReviewSession" representedClassName="ReviewSession" syncable="YES">
         <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -48,20 +53,21 @@
         <attribute name="previousReviewDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="reviewCycleStart" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="theWord" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="antonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="antonyms" inverseEntity="Word" syncable="YES"/>
+        <relationship name="antonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWordsResponse" syncable="YES"/>
         <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="wordRel" inverseEntity="Entry" syncable="YES"/>
         <relationship name="nextReviewSession" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ReviewSession" inverseName="wordAsNext" inverseEntity="ReviewSession" syncable="YES"/>
         <relationship name="previousReviewSession" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ReviewSession" inverseName="wordAsPrevious" inverseEntity="ReviewSession" syncable="YES"/>
-        <relationship name="synonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="synonyms" inverseEntity="Word" syncable="YES"/>
+        <relationship name="synonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWordsResponse" syncable="YES"/>
     </entity>
     <elements>
         <element name="Citation" positionX="-1658" positionY="-270" width="128" height="73"/>
         <element name="Entry" positionX="-1838" positionY="-603" width="128" height="238"/>
         <element name="ExampleUse" positionX="-1640" positionY="-549" width="128" height="73"/>
         <element name="Label" positionX="-1649" positionY="-358" width="128" height="73"/>
-        <element name="RelatedWord" positionX="-1649" positionY="-454" width="128" height="73"/>
+        <element name="RelatedWord" positionX="-1649" positionY="-454" width="128" height="90"/>
+        <element name="RelatedWordsResponse" positionX="-2223" positionY="-342" width="128" height="75"/>
         <element name="ReviewSession" positionX="-2007" positionY="-342" width="128" height="120"/>
         <element name="TextPron" positionX="-1674" positionY="-645" width="128" height="73"/>
-        <element name="Word" positionX="-2009" positionY="-603" width="128" height="195"/>
+        <element name="Word" positionX="-2070" positionY="-612" width="128" height="195"/>
     </elements>
 </model>

@@ -11,6 +11,6 @@
 @interface TextViewTableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UITextView *theTextView;
-
+@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 
 @end

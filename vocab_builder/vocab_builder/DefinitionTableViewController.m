@@ -69,7 +69,7 @@
 }
 
 
--(NSString *)createDefinitionString:(NSSet *)entries{
+-(NSString *)createDefinitionString:(NSSet *)entries withDictionary:(NSString *)dictionaryName{
     NSMutableArray *entriesArray = [NSMutableArray arrayWithArray:[entries allObjects]];
     NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"text" ascending:YES];
     NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
@@ -77,8 +77,12 @@
     
     //first go through all the entries and find the different parts of speech
     for (Entry *entry in sortedEntries) {
-        if (![[entry.text substringToIndex:8] isEqualToString:@"<strong>"]) {
-            theText = [theText stringByAppendingString:[NSString stringWithFormat:@"- %@\n\n", entry.text]];
+        if (![[entry.text substringToIndex:8] isEqualToString:@"<strong>"] && entry.text != NULL && [dictionaryName isEqualToString:entry.sourceDictionary]) {
+            theText = [theText stringByAppendingString:@"- "];
+            if (![entry.partOfSpeech isEqualToString:@""] && entry.partOfSpeech != NULL) {
+                theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@. ", entry.partOfSpeech]];
+            }
+            theText = [theText stringByAppendingString:[NSString stringWithFormat:@"%@\n\n", entry.text]];
         }
     }
     
@@ -90,11 +94,11 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return @"";
+            return @"Century Dictionary";
         case 1:
-            return @"Synonyms";
+            return @"American Heritage Dictionary";
         case 2:
-            return @"Antonyms";
+            return @"Synonyms";
         default:
             return @"";
     }
@@ -102,7 +106,8 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 1;
+    //return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -117,10 +122,7 @@
         CellIdentifier = @"DefinitionTableCell";
     }
     else if (indexPath.section == 1){
-        CellIdentifier = @"SynonymsTableCell";
-    }
-    else if (indexPath.section == 2){
-        CellIdentifier = @"AntonymsTableCell";
+        CellIdentifier = @"AHDTableCell";
     }
     
     TextViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -128,12 +130,11 @@
     // Configure the cell...
     if (indexPath.section == 0) {
         //create the definition text
-        cell.theTextView.text = [self createDefinitionString:self.theWord.entries];
+        cell.theTextView.text = [self createDefinitionString:self.theWord.entries withDictionary:@"century"];
     
     }
     else if (indexPath.section == 1){
-        // create the synonyms text
-        
+        cell.theTextView.text = [self createDefinitionString:self.theWord.entries withDictionary:@"ahd-legacy"];
     }
     else if (indexPath.section == 2){
         // create the antonyms text
@@ -147,12 +148,13 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 250;
+        return 500;
     }
     else {
         return 50;
     }
 }
+
 
 #pragma mark - Table view delegate
 

@@ -79,11 +79,20 @@
     return entryMapping;
 }
 
++(RKEntityMapping *)relatedWordsResponse{
+    RKEntityMapping *relatedWordsResponseMapping = [RKEntityMapping mappingForEntityForName:@"RelatedWordsResponse" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [relatedWordsResponseMapping addAttributeMappingsFromArray:@[@"words", @"relationshipType"]];
+    return relatedWordsResponseMapping;
+}
+
 +(void)setupResponseAndRequestDescriptors{
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     
     RKResponseDescriptor *definitionResponse = [RKResponseDescriptor responseDescriptorWithMapping:[self entryMapping] pathPattern:nil keyPath:nil statusCodes:statusCodeSet];
     [[DictionaryObjectManager sharedManager] addResponseDescriptor:definitionResponse];
+    
+    RKResponseDescriptor *relatedWordsResponse = [RKResponseDescriptor responseDescriptorWithMapping:[self relatedWordsResponse] pathPattern:nil keyPath:nil statusCodes:statusCodeSet];
+    [[DictionaryObjectManager sharedManager] addResponseDescriptor:relatedWordsResponse];
 }
 
 @end
