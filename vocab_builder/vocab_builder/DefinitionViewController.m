@@ -81,8 +81,6 @@
     
     BOOL listedAttributionText = FALSE;
     for (Entry *entry in sortedEntries) {
-        NSLog(@"dictionaryName = %@", dictionaryName);
-        NSLog(@"entry.sourceDictionary = %@", entry.sourceDictionary);
         if (entry.text != NULL && [dictionaryName isEqualToString:entry.sourceDictionary]) {
             //add the dictionary attribution text if we have not already
             if (listedAttributionText == FALSE) {

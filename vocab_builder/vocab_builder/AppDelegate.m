@@ -160,7 +160,7 @@
     // if they are already on the review screen, just do a refresh
     if ([self.navController.visibleViewController isKindOfClass:[ReviewViewController class]]) {
         ReviewViewController *currentReviewViewController = (ReviewViewController *)self.navController.visibleViewController;
-        [currentReviewViewController refresh];
+        //[currentReviewViewController refresh];
     }
     else if ([self.navController.visibleViewController isKindOfClass:[HomeTableViewController class]]){
         HomeTableViewController *currentController = (HomeTableViewController *)self.navController.visibleViewController;

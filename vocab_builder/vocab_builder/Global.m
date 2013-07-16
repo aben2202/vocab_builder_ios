@@ -130,7 +130,7 @@ static Global *instance =nil;
     }
     
     for (UILocalNotification *localNotif in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
-        NSLog(@"Local Notification scheduled for %@", localNotif.fireDate.description);
+        NSLog(@"Local Notification scheduled for %@ with badge number %d", localNotif.fireDate.description, localNotif.applicationIconBadgeNumber);
     }
     
     NSError *error;
