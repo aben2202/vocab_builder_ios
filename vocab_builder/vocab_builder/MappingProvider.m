@@ -102,7 +102,7 @@
 }
 
 +(RKEntityMapping *)exampleUseMapping{
-    RKEntityMapping *exampleUseMapping = [RKEntityMapping mappingForEntityForName:@"Label" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    RKEntityMapping *exampleUseMapping = [RKEntityMapping mappingForEntityForName:@"ExampleUse" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
     [exampleUseMapping addAttributeMappingsFromArray:@[@"text"]];
     return exampleUseMapping;
 }

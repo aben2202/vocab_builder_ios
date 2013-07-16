@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking 1
 
+// AdMob
+#define COCOAPODS_POD_AVAILABLE_AdMob
+#define COCOAPODS_VERSION_MAJOR_AdMob 6
+#define COCOAPODS_VERSION_MINOR_AdMob 4
+#define COCOAPODS_VERSION_PATCH_AdMob 2
+
 // NVSlideMenuController
 #define COCOAPODS_POD_AVAILABLE_NVSlideMenuController
 #define COCOAPODS_VERSION_MAJOR_NVSlideMenuController 1

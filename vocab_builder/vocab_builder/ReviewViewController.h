@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Word.h"
+#import <GADBannerView.h>
 
-@interface ReviewViewController : UIViewController <UIAlertViewDelegate>
+@class GADBannerView, GADRequest;
+
+@interface ReviewViewController : UIViewController <UIAlertViewDelegate, GADBannerViewDelegate>
 
 @property (weak, nonatomic) NSArray *wordsToReview;
 @property (weak, nonatomic) NSNumber *currentWordIndex;
@@ -18,11 +21,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *noButton;
 @property (weak, nonatomic) IBOutlet UILabel *reviewNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewSessionNameLabel;
+@property (strong, nonatomic) GADBannerView *bannerView;
 
 @property NSInteger thisReviewCountsAs;
 
 - (IBAction)yesButtonClicked:(id)sender;
 - (IBAction)noButtonClicked:(id)sender;
 - (void)refresh;
+- (GADRequest *)createRequest;
 
 @end

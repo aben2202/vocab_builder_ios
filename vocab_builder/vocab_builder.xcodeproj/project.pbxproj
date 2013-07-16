@@ -48,6 +48,8 @@
 		CB41592B1794526D003926A9 /* DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592A1794526D003926A9 /* DefinitionViewController.m */; };
 		CB41592E17945B68003926A9 /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592D17945B68003926A9 /* Dictionary.m */; };
 		CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41593017945CBA003926A9 /* DictionaryTableCell.m */; };
+		CB8FCB461795A91A004BB481 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB441795A91A004BB481 /* AudioToolbox.framework */; };
+		CB8FCB471795A91A004BB481 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB451795A91A004BB481 /* MessageUI.framework */; };
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
 		CB9C831B178DDD3E000774CE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C831A178DDD3E000774CE /* Word.m */; };
 		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
@@ -137,6 +139,8 @@
 		CB41592D17945B68003926A9 /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
 		CB41592F17945CBA003926A9 /* DictionaryTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableCell.h; sourceTree = "<group>"; };
 		CB41593017945CBA003926A9 /* DictionaryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableCell.m; sourceTree = "<group>"; };
+		CB8FCB441795A91A004BB481 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CB8FCB451795A91A004BB481 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CB9C830F178CAB62000774CE /* ReviewNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNotification.h; sourceTree = "<group>"; };
 		CB9C8310178CAB62000774CE /* ReviewNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNotification.m; sourceTree = "<group>"; };
 		CB9C8319178DDD3E000774CE /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
@@ -197,12 +201,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8FCB461795A91A004BB481 /* AudioToolbox.framework in Frameworks */,
+				CB8FCB471795A91A004BB481 /* MessageUI.framework in Frameworks */,
+				D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */,
+				D8D200D11785D2C500C94B0D /* SystemConfiguration.framework in Frameworks */,
 				D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */,
 				D8D200D31785D2D000C94B0D /* MobileCoreServices.framework in Frameworks */,
-				D8D200D11785D2C500C94B0D /* SystemConfiguration.framework in Frameworks */,
 				D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */,
 				D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */,
-				D8D20084177793CB00C94B0D /* CoreGraphics.framework in Frameworks */,
 				91F8B8D0334D453BA3865D0C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +319,8 @@
 		D8D2007E177793CB00C94B0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB8FCB441795A91A004BB481 /* AudioToolbox.framework */,
+				CB8FCB451795A91A004BB481 /* MessageUI.framework */,
 				D8BD10CD178B11AE0036B0AA /* CoreData.framework */,
 				D8D200D21785D2D000C94B0D /* MobileCoreServices.framework */,
 				D8D200D01785D2C500C94B0D /* SystemConfiguration.framework */,

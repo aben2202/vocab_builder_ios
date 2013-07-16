@@ -18,6 +18,7 @@
 @implementation ReviewViewController
 
 @synthesize thisReviewCountsAs = _thisReviewCountsAs;
+@synthesize bannerView = _bannerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +36,27 @@
     [self refresh];
 }
 
+-(void)setupAdmob{
+    self.bannerView = [[GADBannerView alloc] initWithFrame:CGRectMake(0.0,
+                                                                      self.view.frame.size.height,
+                                                                      GAD_SIZE_320x50.width,
+                                                                      GAD_SIZE_320x50.height)];
+    self.bannerView.adUnitID = @"a151e56e545b57b";
+    self.bannerView.delegate = self;
+    [self.bannerView setRootViewController:self];
+    [self.view addSubview:self.bannerView];
+    [self.bannerView loadRequest:[self createRequest]];
+}
+
+-(GADRequest *)createRequest{
+    GADRequest *request = [GADRequest request];
+    
+    //get test add (remove next line for production)
+    request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
+    
+    return request;
+}
+
 -(void)refresh{
     [[Global getInstance] setReviewWords];
     self.wordsToReview = [Global getInstance].wordsThatNeedToBeReviewed;
@@ -42,6 +64,7 @@
 }
 
 -(void)reviewWordWithIndex:(NSInteger)index{
+    [self setupAdmob];
     self.currentWordIndex = [NSNumber numberWithInteger:index];
     Word *wordToReview = [self.wordsToReview objectAtIndex:index];
     
@@ -110,6 +133,20 @@
     }
     return context;
 }
+
+#pragma mark - admob banner view delegate methods
+-(void)adViewDidReceiveAd:(GADBannerView *)view{
+    NSLog(@"Received ad");
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        view.frame = CGRectMake(0.0, self.view.frame.size.height - view.frame.size.height, view.frame.size.width, view.frame.size.height);
+    }];
+}
+
+-(void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error{
+    NSLog(@"Unable to load ad with error: %@", [error localizedDescription]);
+}
+
 
 #pragma mark - alert view delegate
 

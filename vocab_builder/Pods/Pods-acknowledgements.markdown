@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## AdMob
+
+Copyright 2009 - 2013 Google, Inc. All rights reserved.
+
 ## NVSlideMenuController
 
 Copyright 2012 Nicolas VERINAUD

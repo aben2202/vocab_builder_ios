@@ -1,4 +1,4 @@
 pod 'RestKit'
-pos 'SSKeychain'
+pod 'SSKeychain'
 pod 'SVProgressHUD'
 pod 'NVSlideMenuController'

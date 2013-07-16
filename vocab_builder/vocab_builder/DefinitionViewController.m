@@ -73,7 +73,6 @@
 
 
 -(NSString *)createDefinitionString:(Word *)word withDictionary:(NSString *)dictionaryName{
-    NSLog(@"Wordnik String: '%@'", dictionaryName);
     NSMutableArray *entriesArray = [NSMutableArray arrayWithArray:[word.entries allObjects]];
     NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"sequence" ascending:YES];
     NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
