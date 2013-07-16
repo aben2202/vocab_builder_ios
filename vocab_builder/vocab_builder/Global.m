@@ -107,18 +107,19 @@ static Global *instance =nil;
                 newNotification.fireDate = [word.reviewCycleStart dateByAddingTimeInterval:interval];
                 newNotification.alertAction = @"Review Session";
                 newNotification.alertBody = [NSString stringWithFormat:@"It is time to review the word '%@'.", word.theWord];
-                //newNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
-                newNotification.applicationIconBadgeNumber = 1;
                 newNotification.soundName = UILocalNotificationDefaultSoundName;
                 [localNotifications addObject:newNotification];
             }
         }
     }
     
+    NSInteger tempIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber;
     NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"fireDate" ascending:YES];
     NSArray *sortedNotifications = [localNotifications sortedArrayUsingDescriptors:@[sortDesc]];
     if (sortedNotifications.count < 65) {
         for (UILocalNotification *localNotif in sortedNotifications) {
+            tempIconBadgeNumber = tempIconBadgeNumber + 1;
+            localNotif.applicationIconBadgeNumber = tempIconBadgeNumber;
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
         }
     }

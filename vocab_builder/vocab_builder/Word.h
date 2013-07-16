@@ -46,6 +46,6 @@
 - (void)updateAfterCompletedReviewWithAnswer:(BOOL)answer;
 - (void)resetReviewCycle;
 - (NSNumber *)reviewProgress;
-- (void)setNextReviewForMostRecentEnabledReview;
+- (NSInteger)setNextReviewForMostRecentEnabledReview;
 
 @end

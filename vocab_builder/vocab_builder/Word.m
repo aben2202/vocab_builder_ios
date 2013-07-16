@@ -143,10 +143,13 @@
 //
 //   this method looks at the word's nextReviewSession and makes sure there are
 //       no more recent reviewSessions to now.  if there are, it sets its
-//       nextReviewSession to the more recent one.
+//       nextReviewSession to the more recent one.  it returns the number of
+//       reviews the current review should count as (if it moved forward one
+//       session, it will count as 2).
 ////////////////////////////////////////////////////////////////////////////////
 
--(void)setNextReviewForMostRecentEnabledReview{
+-(NSInteger)setNextReviewForMostRecentEnabledReview{
+    NSInteger numberToReturn = 1;
     while (true) {
         NSDate *now = [NSDate date];
         ReviewSession *theFollowingNextReview = [self.nextReviewSession getNextEnabledReviewSession];
@@ -156,6 +159,7 @@
             
             if ([theFollowingNextReviewDate compare:now] == NSOrderedAscending) {
                 self.nextReviewSession = theFollowingNextReview;
+                numberToReturn += 1;
             }
             else{
                 break;
@@ -166,6 +170,7 @@
             break;
         }
     }
+    return numberToReturn;
 }
 
 @end

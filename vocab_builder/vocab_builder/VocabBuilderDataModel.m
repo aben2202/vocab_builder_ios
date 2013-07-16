@@ -144,10 +144,33 @@ static VocabBuilderDataModel *instance = nil;
 }
 
 -(NSArray *)createInitialReviewSessions{
+//    NSMutableArray *sessions = [NSMutableArray array];
+//    NSArray *sessionStrings = @[@"start",
+//                                @"15 minutes",
+//                                @"1 hour",
+//                                @"6 hours",
+//                                @"1 day",
+//                                @"3 days",
+//                                @"1 week",
+//                                @"2 weeks",
+//                                @"1 month",
+//                                @"2 months"];
+//    NSInteger day = 60*24;
+//    NSArray *sessionMinutes = @[@0,
+//                                @15,
+//                                @60,
+//                                @(60*6),
+//                                @(day),
+//                                @(day*3),
+//                                @(day*7),
+//                                @(day*14),
+//                                @(day*30),
+//                                @(day*61)];
+
     NSMutableArray *sessions = [NSMutableArray array];
     NSArray *sessionStrings = @[@"start",
-                                @"15 minutes",
-                                @"1 hour",
+                                @"1 minute",
+                                @"2 minutes",
                                 @"6 hours",
                                 @"1 day",
                                 @"3 days",
@@ -157,8 +180,8 @@ static VocabBuilderDataModel *instance = nil;
                                 @"2 months"];
     NSInteger day = 60*24;
     NSArray *sessionMinutes = @[@0,
-                                @15,
-                                @60,
+                                @1,
+                                @2,
                                 @(60*6),
                                 @(day),
                                 @(day*3),

@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewSessionNameLabel;
 
+@property NSInteger thisReviewCountsAs;
+
 - (IBAction)yesButtonClicked:(id)sender;
 - (IBAction)noButtonClicked:(id)sender;
 - (void)refresh;

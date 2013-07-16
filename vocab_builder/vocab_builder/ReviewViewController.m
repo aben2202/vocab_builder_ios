@@ -17,6 +17,8 @@
 
 @implementation ReviewViewController
 
+@synthesize thisReviewCountsAs = _thisReviewCountsAs;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -45,7 +47,7 @@
     
     // first make sure the word we are reviewing has the nextReview set as the most recent enabled review in the past
     //   this will stop duplicates from occuring (two reviews right after one another when switching views).
-    [wordToReview setNextReviewForMostRecentEnabledReview];
+    self.thisReviewCountsAs = [wordToReview setNextReviewForMostRecentEnabledReview];
     
     self.title = [NSString stringWithFormat:@"Review %d of %d", index+1, self.wordsToReview.count];
     self.reviewNumberLabel.text = [NSString stringWithFormat:@"%d of %d", index + 1, self.wordsToReview.count];
@@ -81,8 +83,10 @@
 -(void)performNextReview{
     // check for another review
     if ([self.currentWordIndex integerValue] < self.wordsToReview.count - 1){
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - self.thisReviewCountsAs;
+        // we need to update the notfications beacuse the badge numbers will all need to be updated
+        [[Global getInstance] updateNotifications];
         [self reviewWordWithIndex:([self.currentWordIndex integerValue] +1)];
-        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - 1;
     }
     else{
         // save the context and dismiss view controller
@@ -90,6 +94,9 @@
         [[self managedObjectContext] save:&error];
         [self dismissViewControllerAnimated:YES completion:nil];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+        
+        // we need to update the notfications beacuse the badge numbers will all need to be updated
+        [[Global getInstance] updateNotifications];
     }
 
 }
