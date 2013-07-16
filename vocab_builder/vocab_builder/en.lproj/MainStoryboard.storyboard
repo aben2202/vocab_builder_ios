@@ -216,6 +216,41 @@
                                     <outlet property="theWordLabel" destination="vJF-zx-1Tc" id="qXG-Cf-bsg"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GetStartedTableCell" id="dxQ-dq-XcB">
+                                <rect key="frame" x="0.0" y="154" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You currently have no unfinished words." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlK-Y1-Il5">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="23" id="fVF-Eo-vJR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Get started by entering a word above." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwo-CE-nvX">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="23" id="06G-Rc-0N6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="dlK-Y1-Il5" firstAttribute="leading" secondItem="dxQ-dq-XcB" secondAttribute="leading" constant="20" type="default" id="1Do-7u-j1m"/>
+                                    <constraint firstItem="Gwo-CE-nvX" firstAttribute="top" secondItem="dxQ-dq-XcB" secondAttribute="top" constant="17" id="4jQ-Rv-Qsr"/>
+                                    <constraint firstAttribute="trailing" secondItem="dlK-Y1-Il5" secondAttribute="trailing" constant="20" type="default" id="6OS-QN-Sk6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gwo-CE-nvX" secondAttribute="trailing" constant="20" type="default" id="OKm-Nr-Z78"/>
+                                    <constraint firstItem="dlK-Y1-Il5" firstAttribute="top" secondItem="dxQ-dq-XcB" secondAttribute="top" type="default" id="tcx-5E-trK"/>
+                                    <constraint firstItem="Gwo-CE-nvX" firstAttribute="leading" secondItem="dxQ-dq-XcB" secondAttribute="leading" constant="20" type="default" id="uw9-Oi-2wL"/>
+                                </constraints>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="qpX-fM-w1e" id="nae-UJ-5zc"/>
@@ -594,6 +629,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="mPg-yo-hov"/>
+        <segue reference="BNg-t4-shq"/>
     </inferredMetricsTieBreakers>
 </document>

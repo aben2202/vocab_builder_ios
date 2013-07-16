@@ -52,7 +52,7 @@
     GADRequest *request = [GADRequest request];
     
     //get test add (remove next line for production)
-    request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
+    //request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
     
     return request;
 }

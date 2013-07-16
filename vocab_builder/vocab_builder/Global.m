@@ -159,6 +159,9 @@ static Global *instance =nil;
             [self.wordsThatNeedToBeReviewed addObject:currentWord];
         }
     }
+    if (self.wordsThatNeedToBeReviewed.count == 0) {
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    }
 }
 
 - (NSManagedObjectContext *)managedObjectContext

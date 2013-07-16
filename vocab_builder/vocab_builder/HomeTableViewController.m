@@ -152,7 +152,12 @@
         case 0:
             return 1;
         case 1: //"In the works" section
-            return self.wordsCurrent.count;
+            if ([self.wordsCurrent count] == 0) {
+                return 1;
+            }
+            else{
+                return self.wordsCurrent.count;
+            }
         case 2: //"Done and done" section
             return self.wordsFinished.count;
         default:
@@ -163,6 +168,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Getting started table cell if there are not current or finished words
     if (indexPath.section == 0) { // SearchBarTableCell
         static NSString *CellIdentifier = @"SearchBarTableCell";
         SearchBarTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -170,34 +176,41 @@
         return cell;
     }
     else if (indexPath.section == 1){ // InTheWorksTableCell
-        static NSString *CellIdentifier = @"InTheWorksTableCell";
-        InTheWorksTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if([self.wordsCurrent count] == 0 && [self.wordsFinished count] == 0){
+            static NSString *CellIdentifier = @"GetStartedTableCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            return cell;
+        }
+        else{
+            static NSString *CellIdentifier = @"InTheWorksTableCell";
+            InTheWorksTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            
+            // Configure the cell...
+            cell.theWord = [self.wordsCurrent objectAtIndex:indexPath.row];
+            cell.theWordLabel.text = [cell.theWord.theWord lowercaseString];
+            cell.reviewProgressBar.progress = [[cell.theWord reviewProgress] floatValue];
+            NSInteger percentageLabelNumber = ([[cell.theWord reviewProgress] floatValue] * 100);
+            cell.reviewPercentageLabel.text = [NSString stringWithFormat:@"%d%%", percentageLabelNumber];
+            
+            NSLocale *locale = [NSLocale currentLocale];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MM/dd/yy" options:0 locale:locale];
+            NSString *timeFormat = [NSDateFormatter dateFormatFromTemplate:@"hh/mm/ss" options:0 locale:locale];
+            [formatter setDateFormat:dateFormat];
+            [formatter setLocale:locale];
+            cell.nextReviewDateLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
+            [formatter setDateFormat:timeFormat];
+            cell.nextReviewTimeLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
+            NSString *firstLetter = [self getFirstLetter:cell.theWord.theWord];
+            UIImage *letterImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", firstLetter]];
+            [cell.letterImageView setImage:letterImage];
+            
+            // used while debugging
+            [cell.nextReviewDateLabel setHidden:YES];
+            [cell.nextReviewTimeLabel setHidden:YES];
         
-        // Configure the cell...
-        cell.theWord = [self.wordsCurrent objectAtIndex:indexPath.row];
-        cell.theWordLabel.text = [cell.theWord.theWord lowercaseString];
-        cell.reviewProgressBar.progress = [[cell.theWord reviewProgress] floatValue];
-        NSInteger percentageLabelNumber = ([[cell.theWord reviewProgress] floatValue] * 100);
-        cell.reviewPercentageLabel.text = [NSString stringWithFormat:@"%d%%", percentageLabelNumber];
-        
-        NSLocale *locale = [NSLocale currentLocale];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MM/dd/yy" options:0 locale:locale];
-        NSString *timeFormat = [NSDateFormatter dateFormatFromTemplate:@"hh/mm/ss" options:0 locale:locale];
-        [formatter setDateFormat:dateFormat];
-        [formatter setLocale:locale];
-        cell.nextReviewDateLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
-        [formatter setDateFormat:timeFormat];
-        cell.nextReviewTimeLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];
-        NSString *firstLetter = [self getFirstLetter:cell.theWord.theWord];
-        UIImage *letterImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", firstLetter]];
-        [cell.letterImageView setImage:letterImage];
-        
-        // used while debugging
-        [cell.nextReviewDateLabel setHidden:YES];
-        [cell.nextReviewTimeLabel setHidden:YES];
-    
-        return cell;
+            return cell;
+        }
     }
     else { // DoneAndDoneTableCell
         static NSString *CellIdentifier = @"DoneAndDoneTableCell";
