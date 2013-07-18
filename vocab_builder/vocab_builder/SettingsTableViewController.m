@@ -112,7 +112,8 @@
 {
     switch (section) {
         case 0:
-            return 9;
+            //subtract 1 for the 'start' session
+            return [[VocabBuilderDataModel sharedDataModel] reviewSessions].count - 1;
         case 1:
             return 5;
         default:

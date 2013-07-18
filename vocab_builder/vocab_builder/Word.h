@@ -47,5 +47,6 @@
 - (void)resetReviewCycle;
 - (NSNumber *)reviewProgress;
 - (NSInteger)setNextReviewForMostRecentEnabledReview;
+- (NSString *)htmlDefinitionString;
 
 @end

@@ -51,8 +51,11 @@
 -(GADRequest *)createRequest{
     GADRequest *request = [GADRequest request];
     
-    //get test add (remove next line for production)
-    //request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
+    //for test adds on my device
+    request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
+    
+    //for test adds on simulator
+    //request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
     
     return request;
 }
@@ -64,9 +67,11 @@
 }
 
 -(void)reviewWordWithIndex:(NSInteger)index{
-    [self setupAdmob];
     self.currentWordIndex = [NSNumber numberWithInteger:index];
+    [self setupAdmob];
+    [self setupInitialLayout];
     Word *wordToReview = [self.wordsToReview objectAtIndex:index];
+    
     
     // first make sure the word we are reviewing has the nextReview set as the most recent enabled review in the past
     //   this will stop duplicates from occuring (two reviews right after one another when switching views).
@@ -79,10 +84,34 @@
     self.theWordLabel.text = wordToReview.theWord;
 }
 
+-(void)setupInitialLayout{
+    self.definitionWebView.hidden = true;
+    self.showDefButton.hidden = false;
+    self.yesButton.hidden = true;
+    self.noButton.hidden = true;
+    self.wereYouCorrectLabel.hidden = true;
+    self.noWillRestartLabel.hidden = true;
+}
+
+-(void)setupDefinitionLayout{
+    self.definitionWebView.hidden = false;
+    self.showDefButton.hidden = true;
+    self.yesButton.hidden = false;
+    self.noButton.hidden = false;
+    self.wereYouCorrectLabel.hidden = false;
+    self.noWillRestartLabel.hidden = false;
+    Word *currentWord = [self.wordsToReview objectAtIndex:[self.currentWordIndex unsignedIntegerValue]];
+    [self.definitionWebView loadHTMLString:[currentWord htmlDefinitionString] baseURL:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showDefClicked:(id)sender {
+    [self setupDefinitionLayout];
 }
 
 - (IBAction)yesButtonClicked:(id)sender {

@@ -13,6 +13,7 @@
 #import "VocabBuilderDataModel.h"
 #import "Global.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "Dictionary.h"
 
 
 @implementation Word
@@ -172,5 +173,50 @@
     }
     return numberToReturn;
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+// - htmlDefinitionString
+//
+//   returns an html string to display the definition of this word in a webview
+////////////////////////////////////////////////////////////////////////////////
+
+-(NSString *)htmlDefinitionString{
+    NSString *htmlString = @"<html><head><style>p.serif{font-family:'Times New Roman',Times,serif;} p.sansserif{font-family:Arial,Helvetica,sans-serif;}</style></head><body>";
+    BOOL listedAttributionText = FALSE;
+    
+    for (Dictionary *dict in [[VocabBuilderDataModel sharedDataModel] dictionaries]) {
+        listedAttributionText = FALSE;
+        if ([dict.enabled boolValue]) {
+            NSMutableArray *entriesArray = [NSMutableArray arrayWithArray:[self.entries allObjects]];
+            NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"sequence" ascending:YES];
+            NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
+            
+            for (Entry *entry in sortedEntries) {
+                if (entry.text != NULL && [dict.wordnikString isEqualToString:entry.sourceDictionary]) {
+                    //add the dictionary attribution text if we have not already
+                    if (listedAttributionText == FALSE) {
+                        NSString *attrText = [NSString stringWithFormat:@"<h3><p class='serif'><b>%@</b></p></h3>", entry.attributionText];
+                        htmlString = [htmlString stringByAppendingString:attrText];
+                        listedAttributionText = TRUE;
+                    }
+                    //add the dash mark at the beginning of each entry
+                    htmlString = [htmlString stringByAppendingString:@"- "];
+                    //add the part of speech first in italics
+                    if (![entry.partOfSpeech isEqualToString:@""] && entry.partOfSpeech != NULL) {
+                        htmlString = [htmlString stringByAppendingString:[NSString stringWithFormat:@"<i>%@</i>. ", entry.partOfSpeech]];
+                    }
+                    //add the entry text itself (the definition)
+                    htmlString = [htmlString stringByAppendingString:[NSString stringWithFormat:@"%@<br><br>", entry.text]];
+                }
+            }
+        }
+    }
+
+    htmlString = [htmlString stringByAppendingString:@"</p></body>"];
+    
+    return htmlString;
+}
+
 
 @end

@@ -44,15 +44,7 @@
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
     
-    //load the webview string
-    NSString *webviewString = @"<html><head><style>p.serif{font-family:'Times New Roman',Times,serif;} p.sansserif{font-family:Arial,Helvetica,sans-serif;}</style></head><body>";
-    for (Dictionary *dict in [[VocabBuilderDataModel sharedDataModel] dictionaries]) {
-        if ([dict.enabled boolValue]) {
-            webviewString = [webviewString stringByAppendingString:[self createDefinitionString:self.theWord withDictionary:dict.wordnikString]];
-        }
-    }
-    
-    [self.webView loadHTMLString:webviewString baseURL:nil];
+    [self.webView loadHTMLString:[self.theWord htmlDefinitionString] baseURL:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

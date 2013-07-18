@@ -132,6 +132,7 @@ static VocabBuilderDataModel *instance = nil;
     
     //if this is the first time they load the app, the sessions will be blank.
     //  in this case we will create all the sessions
+    
     if(reviewSessions.count == 0){
         reviewSessions = [self createInitialReviewSessions];
     }
@@ -146,7 +147,8 @@ static VocabBuilderDataModel *instance = nil;
 -(NSArray *)createInitialReviewSessions{
     NSMutableArray *sessions = [NSMutableArray array];
     NSArray *sessionStrings = @[@"start",
-                                @"15 minutes",
+                                @"10 minutes",
+                                @"30 minutes",
                                 @"1 hour",
                                 @"6 hours",
                                 @"1 day",
@@ -157,7 +159,8 @@ static VocabBuilderDataModel *instance = nil;
                                 @"2 months"];
     NSInteger day = 60*24;
     NSArray *sessionMinutes = @[@0,
-                                @15,
+                                @10,
+                                @30,
                                 @60,
                                 @(60*6),
                                 @(day),
