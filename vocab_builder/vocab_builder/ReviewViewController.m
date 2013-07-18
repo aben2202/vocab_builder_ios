@@ -117,8 +117,8 @@
 - (IBAction)yesButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:YES];
-    NSError *errorMSG;
-    [[self managedObjectContext] save:&errorMSG];
+//    NSError *errorMSG;
+//    [[self managedObjectContext] save:&errorMSG];
     [SVProgressHUD showSuccessWithStatus:@"Nice Work!"];
     [self performNextReview];
 }
@@ -126,8 +126,8 @@
 - (IBAction)noButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:NO];
-    NSError *errorMSG;
-    [[self managedObjectContext] save:&errorMSG];
+//    NSError *errorMSG;
+//    [[self managedObjectContext] save:&errorMSG];
     [SVProgressHUD showErrorWithStatus:@"You'll get it next time!"];
     [self performNextReview];
 }
