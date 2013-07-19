@@ -82,6 +82,7 @@
     self.reviewSessionNameLabel.text = [NSString stringWithFormat:@"'%@'", wordToReview.nextReviewSession.timeName];
     
     self.theWordLabel.text = wordToReview.theWord;
+    [self.definitionWebView loadHTMLString:[wordToReview htmlDefinitionString] baseURL:nil];
 }
 
 -(void)setupInitialLayout{
@@ -100,8 +101,6 @@
     self.noButton.hidden = false;
     self.wereYouCorrectLabel.hidden = false;
     self.noWillRestartLabel.hidden = false;
-    Word *currentWord = [self.wordsToReview objectAtIndex:[self.currentWordIndex unsignedIntegerValue]];
-    [self.definitionWebView loadHTMLString:[currentWord htmlDefinitionString] baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning
