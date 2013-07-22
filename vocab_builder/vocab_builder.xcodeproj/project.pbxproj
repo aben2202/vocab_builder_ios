@@ -48,6 +48,7 @@
 		CB41592B1794526D003926A9 /* DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592A1794526D003926A9 /* DefinitionViewController.m */; };
 		CB41592E17945B68003926A9 /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592D17945B68003926A9 /* Dictionary.m */; };
 		CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41593017945CBA003926A9 /* DictionaryTableCell.m */; };
+		CB7A69D41798759B00E21185 /* showDefButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69D31798759B00E21185 /* showDefButton.png */; };
 		CB8FCB461795A91A004BB481 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB441795A91A004BB481 /* AudioToolbox.framework */; };
 		CB8FCB471795A91A004BB481 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB451795A91A004BB481 /* MessageUI.framework */; };
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
@@ -139,6 +140,7 @@
 		CB41592D17945B68003926A9 /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
 		CB41592F17945CBA003926A9 /* DictionaryTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableCell.h; sourceTree = "<group>"; };
 		CB41593017945CBA003926A9 /* DictionaryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableCell.m; sourceTree = "<group>"; };
+		CB7A69D31798759B00E21185 /* showDefButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = showDefButton.png; path = ../../../../../Graphics/showDefButton.png; sourceTree = "<group>"; };
 		CB8FCB441795A91A004BB481 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CB8FCB451795A91A004BB481 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CB9C830F178CAB62000774CE /* ReviewNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNotification.h; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		CB9C830A178C99E4000774CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CB7A69D31798759B00E21185 /* showDefButton.png */,
 				CB14AA3F179341DC00B040EF /* Default@2x.png */,
 				CB14AA3D1793400800B040EF /* Default-568h@2x.png */,
 				CB14AA3B17933F6000B040EF /* Default.png */,
@@ -547,6 +550,7 @@
 				CB14AA3C17933F6000B040EF /* Default.png in Resources */,
 				CB14AA3E1793400800B040EF /* Default-568h@2x.png in Resources */,
 				CB14AA40179341DC00B040EF /* Default@2x.png in Resources */,
+				CB7A69D41798759B00E21185 /* showDefButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *reviewNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reviewSessionNameLabel;
 @property (strong, nonatomic) GADBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet UIWebView *definitionWebView;
+@property (weak, nonatomic) IBOutlet UIButton *showDefButton;
+@property (weak, nonatomic) IBOutlet UILabel *wereYouCorrectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noWillRestartLabel;
 
 @property NSInteger thisReviewCountsAs;
 
@@ -29,5 +33,6 @@
 - (IBAction)noButtonClicked:(id)sender;
 - (void)refresh;
 - (GADRequest *)createRequest;
+- (IBAction)showDefClicked:(id)sender;
 
 @end

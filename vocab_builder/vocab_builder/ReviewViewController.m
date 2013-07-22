@@ -51,8 +51,11 @@
 -(GADRequest *)createRequest{
     GADRequest *request = [GADRequest request];
     
-    //get test add (remove next line for production)
-    //request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
+    //for test adds on my device
+    request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
+    
+    //for test adds on simulator
+    //request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
     
     return request;
 }
@@ -64,9 +67,11 @@
 }
 
 -(void)reviewWordWithIndex:(NSInteger)index{
-    [self setupAdmob];
     self.currentWordIndex = [NSNumber numberWithInteger:index];
+    [self setupAdmob];
+    [self setupInitialLayout];
     Word *wordToReview = [self.wordsToReview objectAtIndex:index];
+    
     
     // first make sure the word we are reviewing has the nextReview set as the most recent enabled review in the past
     //   this will stop duplicates from occuring (two reviews right after one another when switching views).
@@ -77,6 +82,25 @@
     self.reviewSessionNameLabel.text = [NSString stringWithFormat:@"'%@'", wordToReview.nextReviewSession.timeName];
     
     self.theWordLabel.text = wordToReview.theWord;
+    [self.definitionWebView loadHTMLString:[wordToReview htmlDefinitionString] baseURL:nil];
+}
+
+-(void)setupInitialLayout{
+    self.definitionWebView.hidden = true;
+    self.showDefButton.hidden = false;
+    self.yesButton.hidden = true;
+    self.noButton.hidden = true;
+    self.wereYouCorrectLabel.hidden = true;
+    self.noWillRestartLabel.hidden = true;
+}
+
+-(void)setupDefinitionLayout{
+    self.definitionWebView.hidden = false;
+    self.showDefButton.hidden = true;
+    self.yesButton.hidden = false;
+    self.noButton.hidden = false;
+    self.wereYouCorrectLabel.hidden = false;
+    self.noWillRestartLabel.hidden = false;
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,11 +109,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showDefClicked:(id)sender {
+    [self setupDefinitionLayout];
+}
+
 - (IBAction)yesButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:YES];
-    NSError *errorMSG;
-    [[self managedObjectContext] save:&errorMSG];
+//    NSError *errorMSG;
+//    [[self managedObjectContext] save:&errorMSG];
     [SVProgressHUD showSuccessWithStatus:@"Nice Work!"];
     [self performNextReview];
 }
@@ -97,8 +125,8 @@
 - (IBAction)noButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:NO];
-    NSError *errorMSG;
-    [[self managedObjectContext] save:&errorMSG];
+//    NSError *errorMSG;
+//    [[self managedObjectContext] save:&errorMSG];
     [SVProgressHUD showErrorWithStatus:@"You'll get it next time!"];
     [self performNextReview];
 }
