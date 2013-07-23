@@ -33,6 +33,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    //[self refresh];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     [self refresh];
 }
 
@@ -116,8 +120,6 @@
 - (IBAction)yesButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:YES];
-//    NSError *errorMSG;
-//    [[self managedObjectContext] save:&errorMSG];
     [SVProgressHUD showSuccessWithStatus:@"Nice Work!"];
     [self performNextReview];
 }
@@ -125,9 +127,8 @@
 - (IBAction)noButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:NO];
-//    NSError *errorMSG;
-//    [[self managedObjectContext] save:&errorMSG];
     [SVProgressHUD showErrorWithStatus:@"You'll get it next time!"];
+    [[Global getInstance] updateNotificationsForWord:wordToUpdate];
     [self performNextReview];
 }
 
@@ -135,8 +136,10 @@
     // check for another review
     if ([self.currentWordIndex integerValue] < self.wordsToReview.count - 1){
         [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - self.thisReviewCountsAs;
+        
         // we need to update the notfications beacuse the badge numbers will all need to be updated
-        [[Global getInstance] updateNotifications];
+        //  (this takes too long to do, so we just do it for a 'no' response and after all reviews are finished)
+        
         [self reviewWordWithIndex:([self.currentWordIndex integerValue] +1)];
     }
     else{
@@ -145,11 +148,7 @@
         [[self managedObjectContext] save:&error];
         [self dismissViewControllerAnimated:YES completion:nil];
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-        
-        // we need to update the notfications beacuse the badge numbers will all need to be updated
-        [[Global getInstance] updateNotifications];
     }
-
 }
 
 - (NSManagedObjectContext *)managedObjectContext

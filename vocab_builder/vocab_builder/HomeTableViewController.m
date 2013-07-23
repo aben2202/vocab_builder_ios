@@ -288,7 +288,7 @@
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    NSString *wordString = searchBar.text;
+    NSString *wordString = [searchBar.text lowercaseString];
     
     //first check if the searched word is already stored.
     BOOL wordAlreadyExists = false;
@@ -318,7 +318,7 @@
             self.searchedWord = word;
             
             // set alerts for new word
-            [[Global getInstance] updateNotifications];
+            [[Global getInstance] addNotificationsWithWord:word];
             
             // show definition view for searched word
             [self performSegueWithIdentifier:@"showDefinition" sender:searchBar];
@@ -340,11 +340,12 @@
     }
     else if ([alertView.title isEqualToString:@"Delete Word?"]){
         if (buttonIndex == 1) { // user clicked 'YES' to confirm deletion of the word
+            //first cancel the notifications for this word
+            [[Global getInstance] removeNotificationsWithWord:self.wordToDelete];
             NSManagedObjectContext *context = [self managedObjectContext];
             [context deleteObject:self.wordToDelete];
             NSError *error;
             [context save:&error];
-            [[Global getInstance] updateNotifications];
             [self fetchData];
             [self.tableView reloadData];
         }
@@ -362,7 +363,7 @@
     NSError *errorMSG;
     [[self managedObjectContext] save:&errorMSG];
     
-    [[Global getInstance] updateNotifications];
+    [[Global getInstance] addNotificationsWithWord:wordToRestart];
     [self fetchData];
     [self.tableView reloadData];
     [SVProgressHUD showSuccessWithStatus:@"Word Review Will Restart"];

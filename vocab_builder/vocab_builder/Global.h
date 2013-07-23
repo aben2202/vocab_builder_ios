@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 #import <RestKit/RestKit.h>
+#import "Word.h"
 
 @interface Global : NSObject
 
@@ -22,7 +23,10 @@
 
 //generic functions for use in all classes
 +(NSString *)getTimeAgoInHumanReadable:(NSDate *)previous_time;
+-(void)addNotificationsWithWord:(Word *)word;
+-(void)removeNotificationsWithWord:(Word *)word;
 -(void)updateNotifications;
+-(void)updateNotificationsForWord:(Word *)word;
 -(BOOL)wordsNeedToBeReviewed;
 -(void)setReviewWords;
 

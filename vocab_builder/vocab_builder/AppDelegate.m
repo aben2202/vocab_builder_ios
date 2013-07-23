@@ -51,6 +51,22 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // Let's update the notifications badge numbers
+    NSInteger badgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber];
+    for (UILocalNotification *localNote in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
+        UILocalNotification *noteWithBadge = [[UILocalNotification alloc] init];
+        noteWithBadge.fireDate = localNote.fireDate;
+        noteWithBadge.alertAction = localNote.alertAction;
+        noteWithBadge.alertBody = localNote.alertBody;
+        noteWithBadge.soundName = localNote.soundName;
+        badgeNumber = badgeNumber + 1;
+        noteWithBadge.applicationIconBadgeNumber = badgeNumber;
+        [[UIApplication sharedApplication] cancelLocalNotification:localNote];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:noteWithBadge];
+        NSLog(@"Local Notification scheduled for %@ with badge number %d", localNote.fireDate.description, localNote.applicationIconBadgeNumber);
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
