@@ -29,7 +29,7 @@
         <relationship name="textProns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TextPron" inverseName="entry" inverseEntity="TextPron" syncable="YES"/>
         <relationship name="wordRel" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Word" inverseName="entries" inverseEntity="Word" syncable="YES"/>
     </entity>
-    <entity name="ExampleUse" syncable="YES">
+    <entity name="ExampleUse" representedClassName="ExampleUse" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="exampleUses" inverseEntity="Entry" syncable="YES"/>
     </entity>
@@ -84,11 +84,11 @@
         <element name="Entry" positionX="-1838" positionY="-603" width="128" height="300"/>
         <element name="ExampleUse" positionX="-1640" positionY="-549" width="128" height="73"/>
         <element name="Label" positionX="-1649" positionY="-358" width="128" height="90"/>
+        <element name="Note" positionX="-1658" positionY="-159" width="128" height="105"/>
         <element name="RelatedWord" positionX="-1620" positionY="-459" width="128" height="90"/>
         <element name="RelatedWordsResponse" positionX="-2223" positionY="-342" width="128" height="75"/>
         <element name="ReviewSession" positionX="-2007" positionY="-342" width="128" height="120"/>
         <element name="TextPron" positionX="-1674" positionY="-645" width="128" height="105"/>
         <element name="Word" positionX="-2070" positionY="-612" width="128" height="195"/>
-        <element name="Note" positionX="-1658" positionY="-159" width="128" height="105"/>
     </elements>
 </model>

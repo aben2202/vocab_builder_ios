@@ -14,6 +14,7 @@
 #import "Global.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "Dictionary.h"
+#import "ExampleUse.h"
 
 
 @implementation Word
@@ -190,6 +191,7 @@
             NSMutableArray *entriesArray = [NSMutableArray arrayWithArray:[self.entries allObjects]];
             NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"sequence" ascending:YES];
             NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
+            NSMutableArray *exampleUses = [NSMutableArray array];
             
             for (Entry *entry in sortedEntries) {
                 if (entry.text != NULL && [dict.wordnikString isEqualToString:entry.sourceDictionary]) {
@@ -207,11 +209,27 @@
                     }
                     //add the entry text itself (the definition)
                     htmlString = [htmlString stringByAppendingString:[NSString stringWithFormat:@"%@<br><br>", entry.text]];
+                    
+                    //add any example uses for this entry to the array
+                    for (ExampleUse *eu in entry.exampleUses) {
+                        [exampleUses addObject:eu];
+                    }
                 }
             }
+            //print out the example uses from this dictionary
+            if (exampleUses.count != 0) {
+                NSString *exUseString = @"<b>Example Uses</b><br>";
+                for (ExampleUse *eu in exampleUses) {
+                    exUseString = [exUseString stringByAppendingString:[NSString stringWithFormat:@"- %@<br>", eu.text]];
+                }
+                htmlString = [htmlString stringByAppendingString:exUseString];
+            }
+            //add a horizontal line between each dictionary
+            htmlString = [htmlString stringByAppendingString:@"<hr>"];
         }
     }
-
+    
+    
     htmlString = [htmlString stringByAppendingString:@"</p></body>"];
     
     return htmlString;
