@@ -49,6 +49,7 @@
 		CB41592E17945B68003926A9 /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592D17945B68003926A9 /* Dictionary.m */; };
 		CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41593017945CBA003926A9 /* DictionaryTableCell.m */; };
 		CB7A69D41798759B00E21185 /* showDefButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69D31798759B00E21185 /* showDefButton.png */; };
+		CB7A69D717A034A100E21185 /* ExampleUse.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7A69D617A034A100E21185 /* ExampleUse.m */; };
 		CB8FCB461795A91A004BB481 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB441795A91A004BB481 /* AudioToolbox.framework */; };
 		CB8FCB471795A91A004BB481 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB451795A91A004BB481 /* MessageUI.framework */; };
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
@@ -141,6 +142,8 @@
 		CB41592F17945CBA003926A9 /* DictionaryTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableCell.h; sourceTree = "<group>"; };
 		CB41593017945CBA003926A9 /* DictionaryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableCell.m; sourceTree = "<group>"; };
 		CB7A69D31798759B00E21185 /* showDefButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = showDefButton.png; path = ../../../../../Graphics/showDefButton.png; sourceTree = "<group>"; };
+		CB7A69D517A034A100E21185 /* ExampleUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleUse.h; sourceTree = "<group>"; };
+		CB7A69D617A034A100E21185 /* ExampleUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleUse.m; sourceTree = "<group>"; };
 		CB8FCB441795A91A004BB481 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CB8FCB451795A91A004BB481 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CB9C830F178CAB62000774CE /* ReviewNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNotification.h; sourceTree = "<group>"; };
@@ -434,6 +437,8 @@
 				D8D200F4178A67F800C94B0D /* VocabBuilderDataModel.h */,
 				D8D200F5178A67F800C94B0D /* VocabBuilderDataModel.m */,
 				CB139407177BA5EA00EBE426 /* VocabBuilder.xcdatamodel */,
+				CB7A69D517A034A100E21185 /* ExampleUse.h */,
+				CB7A69D617A034A100E21185 /* ExampleUse.m */,
 				CB41592C17945B68003926A9 /* Dictionary.h */,
 				CB41592D17945B68003926A9 /* Dictionary.m */,
 			);
@@ -635,6 +640,7 @@
 				CB41592B1794526D003926A9 /* DefinitionViewController.m in Sources */,
 				CB41592E17945B68003926A9 /* Dictionary.m in Sources */,
 				CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */,
+				CB7A69D717A034A100E21185 /* ExampleUse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
