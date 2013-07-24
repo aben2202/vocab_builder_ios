@@ -34,6 +34,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //[self refresh];
+    
+    //set the background image
+    UIImage *backgroundImage = [UIImage imageNamed:@"plainWhiteGrunge.png"];
+    UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:backgroundImage];
+    backgroundImageView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    backgroundImageView.alpha = 1;
+    [self.view addSubview:backgroundImageView];
+    [self.view sendSubviewToBack:backgroundImageView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
