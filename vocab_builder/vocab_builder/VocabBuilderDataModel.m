@@ -160,53 +160,54 @@ static VocabBuilderDataModel *instance = nil;
 }
 
 -(NSArray *)createInitialReviewSessions{
-//    NSMutableArray *sessions = [NSMutableArray array];
-//    NSArray *sessionStrings = @[@"start",
-//                                @"10 minutes",
-//                                @"30 minutes",
-//                                @"1 hour",
-//                                @"6 hours",
-//                                @"1 day",
-//                                @"3 days",
-//                                @"1 week",
-//                                @"2 weeks",
-//                                @"1 month",
-//                                @"2 months"];
-//    NSInteger day = 60*24;
-//    NSArray *sessionMinutes = @[@0,
-//                                @10,
-//                                @30,
-//                                @60,
-//                                @(60*6),
-//                                @(day),
-//                                @(day*3),
-//                                @(day*7),
-//                                @(day*14),
-//                                @(day*30),
-//                                @(day*61)];
-
     NSMutableArray *sessions = [NSMutableArray array];
     NSArray *sessionStrings = @[@"start",
-                                @"1 minute",
-                                @"2 minutes",
-                                @"3 minutes",
-                                @"4 minutes",
-                                @"5 minutes",
                                 @"10 minutes",
                                 @"30 minutes",
                                 @"1 hour",
-                                @"2 hours"];
+                                @"6 hours",
+                                @"1 day",
+                                @"3 days",
+                                @"1 week",
+                                @"2 weeks",
+                                @"1 month",
+                                @"2 months"];
     NSInteger day = 60*24;
     NSArray *sessionMinutes = @[@0,
-                                @1,
-                                @2,
-                                @3,
-                                @4,
-                                @5,
                                 @10,
                                 @30,
                                 @60,
-                                @120];
+                                @(60*6),
+                                @(day),
+                                @(day*3),
+                                @(day*7),
+                                @(day*14),
+                                @(day*30),
+                                @(day*61)];
+
+//    NSMutableArray *sessions = [NSMutableArray array];
+//    NSArray *sessionStrings = @[@"start",
+//                                @"1 minute",
+//                                @"2 minutes",
+//                                @"3 minutes",
+//                                @"4 minutes",
+//                                @"5 minutes",
+//                                @"10 minutes",
+//                                @"30 minutes",
+//                                @"1 hour",
+//                                @"2 hours"];
+//    NSInteger day = 60*24;
+//    NSArray *sessionMinutes = @[@0,
+//                                @1,
+//                                @2,
+//                                @3,
+//                                @4,
+//                                @5,
+//                                @10,
+//                                @30,
+//                                @60,
+//                                @120];
+
     
     for (int i = 0; i < sessionStrings.count; i++){
         ReviewSession *newSession = [NSEntityDescription insertNewObjectForEntityForName:@"ReviewSession" inManagedObjectContext:[self managedObjectContext]];
