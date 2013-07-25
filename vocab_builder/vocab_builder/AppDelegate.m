@@ -130,8 +130,8 @@
 //    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
 
     NSString *momdPath = [[NSBundle mainBundle] pathForResource:@"VocabBuilder" ofType:@"momd"];
-    NSURL *momdURL = [NSURL fileURLWithPath:momdPath];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:momdURL];
+    NSURL *momURL = [NSURL fileURLWithPath:momdPath];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:momURL];
     
     return _managedObjectModel;
 }

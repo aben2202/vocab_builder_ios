@@ -176,7 +176,7 @@
         return cell;
     }
     else if (indexPath.section == 1){ // InTheWorksTableCell
-        if([self.wordsCurrent count] == 0 && [self.wordsFinished count] == 0){
+        if([self.wordsCurrent count] == 0){
             static NSString *CellIdentifier = @"GetStartedTableCell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
             return cell;
