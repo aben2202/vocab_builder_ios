@@ -189,7 +189,7 @@
     
     //first add in the pronunciations if any
     for (Pronunciation *pron in self.pronunciations) {
-        htmlString = [htmlString stringByAppendingString:[NSString stringWithFormat:@"<div style='font-size:20px'><i>%@</i></div><br>", pron.raw]];
+        htmlString = [htmlString stringByAppendingString:[NSString stringWithFormat:@"<div style='font-size:20px'><i>%@</i></div>", pron.raw]];
     }
     
     for (Dictionary *dict in [[VocabBuilderDataModel sharedDataModel] dictionaries]) {
@@ -199,9 +199,12 @@
             NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:@"sequence" ascending:YES];
             NSMutableArray *sortedEntries = [NSMutableArray arrayWithArray:[entriesArray sortedArrayUsingDescriptors:@[sortDesc]]];
             NSMutableArray *exampleUses = [NSMutableArray array];
+            NSInteger entriesForThisDictionary = 0;
             
             for (Entry *entry in sortedEntries) {
                 if (entry.text != NULL && [dict.wordnikString isEqualToString:entry.sourceDictionary]) {
+                    entriesForThisDictionary += 1;
+                    
                     //add the dictionary attribution text if we have not already
                     if (listedAttributionText == FALSE) {
                         NSString *attrText = [NSString stringWithFormat:@"<h3><p class='serif'><b>%@</b></p></h3>", entry.attributionText];
@@ -223,6 +226,7 @@
                     }
                 }
             }
+            
             //print out the example uses from this dictionary
             if (exampleUses.count != 0) {
                 NSString *exUseString = @"<b>Example Uses</b><br>";
@@ -231,8 +235,11 @@
                 }
                 htmlString = [htmlString stringByAppendingString:exUseString];
             }
+            
             //add a horizontal line between each dictionary
-            htmlString = [htmlString stringByAppendingString:@"<hr>"];
+            if (entriesForThisDictionary != 0) {
+                htmlString = [htmlString stringByAppendingString:@"<hr>"];
+            }
         }
     }
     

@@ -92,7 +92,7 @@
 -(void)getPronunciationsForWord:(Word *)word withSuccess:(void (^)(Word *))success failure:(void (^)(NSError *))failure{
     NSString *typeFormat = @"ahd";
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wordnik.com/v4/word.json/%@/pronunciations?limit=2&typeFormat=%@&useCanonical=true", word.theWord, typeFormat]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wordnik.com/v4/word.json/%@/pronunciations?limit=1&typeFormat=%@&useCanonical=true", word.theWord, typeFormat]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"e26ee69293d80e03b50040ada590aa0cc5a53f23105b45377" forHTTPHeaderField:@"api_key"];
