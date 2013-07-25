@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSSet *antonyms;
 @property (nonatomic, retain) NSSet *entries;
 @property (nonatomic, retain) NSSet *synonyms;
+@property (nonatomic, retain) NSSet *pronunciations;
 @property (nonatomic, retain) ReviewSession *previousReviewSession;
 @property (nonatomic, retain) ReviewSession *nextReviewSession;
 @end
@@ -41,6 +42,11 @@
 - (void)removeSynonymsObject:(Word *)value;
 - (void)addSynonyms:(NSSet *)values;
 - (void)removeSynonyms:(NSSet *)values;
+
+- (void)addPronunciationsObject:(Word *)value;
+- (void)removePronunciationsObject:(Word *)value;
+- (void)addPronunciations:(NSSet *)values;
+- (void)removePronunciations:(NSSet *)values;
 
 - (void)updateNextReviewSession;
 - (void)updateAfterCompletedReviewWithAnswer:(BOOL)answer;

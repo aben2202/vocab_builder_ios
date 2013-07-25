@@ -124,8 +124,13 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"VocabBuilder" withExtension:@"mom"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+//    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"VocabBuilder" withExtension:@"momd"];
+//    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+
+    NSString *momdPath = [[NSBundle mainBundle] pathForResource:@"VocabBuilder" ofType:@"momd"];
+    NSURL *momdURL = [NSURL fileURLWithPath:momdPath];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:momdURL];
+    
     return _managedObjectModel;
 }
 
@@ -138,10 +143,12 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"VocabBuilder.sqlite"];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:@YES, NSMigratePersistentStoresAutomaticallyOption,
+                                                                       @YES, NSInferMappingModelAutomaticallyOption, nil];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

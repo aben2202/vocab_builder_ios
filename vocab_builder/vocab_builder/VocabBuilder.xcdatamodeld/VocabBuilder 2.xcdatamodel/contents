@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Citation" syncable="YES">
+        <attribute name="cite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="citations" inverseEntity="Entry" syncable="YES"/>
+    </entity>
+    <entity name="Dictionary" representedClassName="Dictionary" syncable="YES">
+        <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="humanString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wordnikString" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Entry" representedClassName="Entry" syncable="YES">
+        <attribute name="attributionText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attributionUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="extendedText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partOfSpeech" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="seqString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceDictionary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="citations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Citation" inverseName="entry" inverseEntity="Citation" syncable="YES"/>
+        <relationship name="exampleUses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExampleUse" inverseName="entry" inverseEntity="ExampleUse" syncable="YES"/>
+        <relationship name="labels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Label" inverseName="entry" inverseEntity="Label" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" syncable="YES"/>
+        <relationship name="relatedWords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWord" inverseName="entry" inverseEntity="RelatedWord" syncable="YES"/>
+        <relationship name="textProns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TextPron" inverseName="entry" inverseEntity="TextPron" syncable="YES"/>
+        <relationship name="wordRel" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Word" inverseName="entries" inverseEntity="Word" syncable="YES"/>
+    </entity>
+    <entity name="ExampleUse" representedClassName="ExampleUse" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="exampleUses" inverseEntity="Entry" syncable="YES"/>
+    </entity>
+    <entity name="Label" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="labels" inverseEntity="Entry" syncable="YES"/>
+    </entity>
+    <entity name="Note" syncable="YES">
+        <attribute name="appliesTo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noteType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pos" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Pronunciation" syncable="YES">
+        <attribute name="raw" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seq" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="word" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="pronunciations" inverseEntity="Word" syncable="YES"/>
+    </entity>
+    <entity name="RelatedWord" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="relatedWords" inverseEntity="Entry" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RelatedWordsResponse" inverseName="words" inverseEntity="RelatedWordsResponse" syncable="YES"/>
+    </entity>
+    <entity name="RelatedWordsResponse" syncable="YES">
+        <attribute name="relationshipType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWord" inverseName="newRelationship" inverseEntity="RelatedWord" syncable="YES"/>
+    </entity>
+    <entity name="ReviewSession" representedClassName="ReviewSession" syncable="YES">
+        <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="minutes" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="wordAsNext" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="nextReviewSession" inverseEntity="Word" syncable="YES"/>
+        <relationship name="wordAsPrevious" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="previousReviewSession" inverseEntity="Word" syncable="YES"/>
+    </entity>
+    <entity name="TextPron" syncable="YES">
+        <attribute name="raw" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rawType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seq" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="entry" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="textProns" inverseEntity="Entry" syncable="YES"/>
+    </entity>
+    <entity name="Word" representedClassName="Word" syncable="YES">
+        <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="nextReviewDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="previousReviewDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reviewCycleStart" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="theWord" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="antonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWordsResponse" syncable="YES"/>
+        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="wordRel" inverseEntity="Entry" syncable="YES"/>
+        <relationship name="nextReviewSession" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ReviewSession" inverseName="wordAsNext" inverseEntity="ReviewSession" syncable="YES"/>
+        <relationship name="previousReviewSession" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ReviewSession" inverseName="wordAsPrevious" inverseEntity="ReviewSession" syncable="YES"/>
+        <relationship name="pronunciations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pronunciation" inverseName="word" inverseEntity="Pronunciation" syncable="YES"/>
+        <relationship name="synonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWordsResponse" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Citation" positionX="-1658" positionY="-270" width="128" height="90"/>
+        <element name="Dictionary" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Entry" positionX="-1838" positionY="-603" width="128" height="300"/>
+        <element name="ExampleUse" positionX="-1640" positionY="-549" width="128" height="73"/>
+        <element name="Label" positionX="-1649" positionY="-358" width="128" height="90"/>
+        <element name="Note" positionX="-1658" positionY="-159" width="128" height="105"/>
+        <element name="RelatedWord" positionX="-1620" positionY="-459" width="128" height="90"/>
+        <element name="RelatedWordsResponse" positionX="-2223" positionY="-342" width="128" height="75"/>
+        <element name="ReviewSession" positionX="-2007" positionY="-342" width="128" height="120"/>
+        <element name="TextPron" positionX="-1674" positionY="-645" width="128" height="105"/>
+        <element name="Word" positionX="-2070" positionY="-612" width="128" height="210"/>
+        <element name="Pronunciation" positionX="-2124" positionY="-180" width="128" height="105"/>
+    </elements>
+</model>

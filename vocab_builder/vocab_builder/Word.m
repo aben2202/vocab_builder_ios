@@ -27,6 +27,7 @@
 @dynamic antonyms;
 @dynamic entries;
 @dynamic synonyms;
+@dynamic pronunciations;
 @dynamic previousReviewSession;
 @dynamic nextReviewSession;
 
