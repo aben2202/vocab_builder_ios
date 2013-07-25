@@ -44,7 +44,7 @@
         <attribute name="pos" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Pronunciation" syncable="YES">
+    <entity name="Pronunciation" representedClassName="Pronunciation" syncable="YES">
         <attribute name="raw" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rawType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="seq" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>

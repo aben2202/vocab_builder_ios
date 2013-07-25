@@ -18,6 +18,7 @@
 //+ (RKObjectMapping *)vocabBuilderWordMapping;
 
 + (RKEntityMapping *)entryMapping;
++ (RKEntityMapping *)pronunciationMapping;
 
 
 + (void)setupResponseAndRequestDescriptors;

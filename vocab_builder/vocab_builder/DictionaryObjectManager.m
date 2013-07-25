@@ -11,6 +11,7 @@
 #import "MappingProvider.h"
 #import "AppDelegate.h"
 #import "VocabBuilderDataModel.h"
+#import "Pronunciation.h"
 
 @implementation DictionaryObjectManager
 
@@ -53,8 +54,7 @@
             
             //[self addSynonymsToWord:theWord withSuccess:success failure:failure];
             //[self addAntonymsToWord:theWord withSuccess:success failure:failure];
-            
-            if (success) success(theWord);
+            [self getPronunciationsForWord:theWord withSuccess:success failure:failure];
         }
         
         // word was not found.  ask to try another word
@@ -87,6 +87,39 @@
 
 -(void)addAntonymsToWord:(Word *)word withSuccess:(void (^)(Word *))success failure:(void (^)(NSError *))failure{
     
+}
+
+-(void)getPronunciationsForWord:(Word *)word withSuccess:(void (^)(Word *))success failure:(void (^)(NSError *))failure{
+    NSString *typeFormat = @"ahd";
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.wordnik.com/v4/word.json/%@/pronunciations?limit=2&typeFormat=%@&useCanonical=true", word.theWord, typeFormat]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"e26ee69293d80e03b50040ada590aa0cc5a53f23105b45377" forHTTPHeaderField:@"api_key"];
+    
+    NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[MappingProvider pronunciationMapping] pathPattern:nil keyPath:nil statusCodes:statusCodeSet];
+    RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
+    
+    __block RKManagedObjectStore *store = [[VocabBuilderDataModel sharedDataModel] objectStore];
+    operation.managedObjectCache = store.managedObjectCache;
+    operation.managedObjectContext = store.persistentStoreManagedObjectContext;
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        // if there was at least 1 result we add it to the word's pronunciations
+        if (mappingResult.count > 0) {
+            word.pronunciations = mappingResult.set;
+            NSError *error;
+            [store.persistentStoreManagedObjectContext save:&error];
+        }
+        if (success) success(word);
+        
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error.localizedDescription);
+        if (failure) failure(error);
+    }];
+    
+    [operation start];
 }
 
 

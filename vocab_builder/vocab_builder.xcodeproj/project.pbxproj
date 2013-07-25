@@ -59,6 +59,7 @@
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
 		CB9C831B178DDD3E000774CE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C831A178DDD3E000774CE /* Word.m */; };
 		CBBDA20117A1A62A007A1F28 /* VocabBuilder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBBDA1FE17A1A62A007A1F28 /* VocabBuilder.xcdatamodeld */; };
+		CBBDA20417A1AD66007A1F28 /* Pronunciation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBDA20317A1AD66007A1F28 /* Pronunciation.m */; };
 		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
 		D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE90178C8CDA00ED135E /* ReviewViewController.m */; };
 		D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD10CD178B11AE0036B0AA /* CoreData.framework */; };
@@ -161,6 +162,8 @@
 		CB9C831A178DDD3E000774CE /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		CBBDA1FF17A1A62A007A1F28 /* VocabBuilder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VocabBuilder 2.xcdatamodel"; sourceTree = "<group>"; };
 		CBBDA20017A1A62A007A1F28 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
+		CBBDA20217A1AD66007A1F28 /* Pronunciation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pronunciation.h; sourceTree = "<group>"; };
+		CBBDA20317A1AD66007A1F28 /* Pronunciation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pronunciation.m; sourceTree = "<group>"; };
 		D84AEE8C178C56F300ED135E /* ReviewSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSession.h; sourceTree = "<group>"; };
 		D84AEE8D178C56F300ED135E /* ReviewSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSession.m; sourceTree = "<group>"; };
 		D84AEE8F178C8CDA00ED135E /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
@@ -417,6 +420,8 @@
 				CB41592D17945B68003926A9 /* Dictionary.m */,
 				D8BD1151178B244A0036B0AA /* Entry.h */,
 				D8BD1152178B244A0036B0AA /* Entry.m */,
+				CBBDA20217A1AD66007A1F28 /* Pronunciation.h */,
+				CBBDA20317A1AD66007A1F28 /* Pronunciation.m */,
 				CB9C830F178CAB62000774CE /* ReviewNotification.h */,
 				CB9C8310178CAB62000774CE /* ReviewNotification.m */,
 			);
@@ -662,6 +667,7 @@
 				CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */,
 				CB7A69D717A034A100E21185 /* ExampleUse.m in Sources */,
 				CBBDA20117A1A62A007A1F28 /* VocabBuilder.xcdatamodeld in Sources */,
+				CBBDA20417A1AD66007A1F28 /* Pronunciation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

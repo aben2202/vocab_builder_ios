@@ -125,6 +125,12 @@
     return relatedWordsResponseMapping;
 }
 
++(RKEntityMapping *)pronunciationMapping{
+    RKEntityMapping *pronunciationMapping = [RKEntityMapping mappingForEntityForName:@"Pronunciation" inManagedObjectStore:[[VocabBuilderDataModel sharedDataModel] objectStore]];
+    [pronunciationMapping addAttributeMappingsFromArray:@[@"seq", @"rawType", @"raw"]];
+    return pronunciationMapping;
+}
+
 +(void)setupResponseAndRequestDescriptors{
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     
@@ -133,6 +139,9 @@
     
     RKResponseDescriptor *relatedWordsResponse = [RKResponseDescriptor responseDescriptorWithMapping:[self relatedWordsResponse] pathPattern:nil keyPath:nil statusCodes:statusCodeSet];
     [[DictionaryObjectManager sharedManager] addResponseDescriptor:relatedWordsResponse];
+    
+    RKResponseDescriptor *pronunciationResponse = [RKResponseDescriptor responseDescriptorWithMapping:[self pronunciationMapping] pathPattern:nil keyPath:nil statusCodes:statusCodeSet];
+    [[DictionaryObjectManager sharedManager] addResponseDescriptor:pronunciationResponse];
 }
 
 @end

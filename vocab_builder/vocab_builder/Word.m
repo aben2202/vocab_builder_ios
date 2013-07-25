@@ -15,6 +15,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "Dictionary.h"
 #import "ExampleUse.h"
+#import "Pronunciation.h"
 
 
 @implementation Word
@@ -185,6 +186,11 @@
 -(NSString *)htmlDefinitionString{
     NSString *htmlString = @"<html><head><style>p.serif{font-family:'Times New Roman',Times,serif;} p.sansserif{font-family:Arial,Helvetica,sans-serif;}</style></head><body>";
     BOOL listedAttributionText = FALSE;
+    
+    //first add in the pronunciations if any
+    for (Pronunciation *pron in self.pronunciations) {
+        htmlString = [htmlString stringByAppendingString:[NSString stringWithFormat:@"<div style='font-size:20px'><i>%@</i></div><br>", pron.raw]];
+    }
     
     for (Dictionary *dict in [[VocabBuilderDataModel sharedDataModel] dictionaries]) {
         listedAttributionText = FALSE;
