@@ -67,7 +67,7 @@
     //request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
     
     //for test adds on simulator
-    //request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
+    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
     
     return request;
 }
@@ -102,6 +102,7 @@
     self.showDefButton.hidden = false;
     self.yesButton.hidden = true;
     self.noButton.hidden = true;
+    self.infoButton.hidden = true;
     self.wereYouCorrectLabel.hidden = true;
     self.noWillRestartLabel.hidden = true;
 }
@@ -111,6 +112,7 @@
     self.showDefButton.hidden = true;
     self.yesButton.hidden = false;
     self.noButton.hidden = false;
+    self.infoButton.hidden = false;
     self.wereYouCorrectLabel.hidden = false;
     self.noWillRestartLabel.hidden = false;
 }
@@ -128,16 +130,28 @@
 - (IBAction)yesButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:YES];
-    [SVProgressHUD showSuccessWithStatus:@"Nice Work!"];
-    [self performNextReview];
+    //[SVProgressHUD showSuccessWithStatus:@"Nice Work!"];
+    //[self performNextReview];
+    NSString *nextReview = [self readableDate:wordToUpdate.nextReviewDate];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Great Work!" message:[NSString stringWithFormat:@"Your next review session for this word is %@.", nextReview] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (IBAction)noButtonClicked:(id)sender {
     Word *wordToUpdate = [self.wordsToReview objectAtIndex:[self.currentWordIndex integerValue]];
     [wordToUpdate updateAfterCompletedReviewWithAnswer:NO];
-    [SVProgressHUD showErrorWithStatus:@"You'll get it next time!"];
+    //[SVProgressHUD showErrorWithStatus:@"You'll get it next time!"];
     [[Global getInstance] updateNotificationsForWord:wordToUpdate];
-    [self performNextReview];
+    //[self performNextReview];
+    NSString *nextReview = [self readableDate:wordToUpdate.nextReviewDate];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"It's OK" message:[NSString stringWithFormat:@"We'll make sure you get this definition down in no time, so the review cycle for this word will restart.  Your next review session for this word is %@.", nextReview] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (IBAction)infoButtonClicked:(id)sender {
+    NSString *message = @"You should only click 'Yes' if you knew the definition almost immediately.  If you had to think about the definition for more than a second or two you should click 'No'.";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"YES or NO" message:message delegate:self cancelButtonTitle:@"Got it" otherButtonTitles:nil];
+    [alert show];
 }
 
 -(void)performNextReview{
@@ -169,6 +183,14 @@
     return context;
 }
 
+-(NSString *)readableDate:(NSDate *)date{
+    NSLocale *locale = [NSLocale currentLocale];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd, h:mm a"];
+    [formatter setLocale:locale];
+    return [formatter stringFromDate:date];
+}
+
 #pragma mark - admob banner view delegate methods
 -(void)adViewDidReceiveAd:(GADBannerView *)view{
     NSLog(@"Received ad");
@@ -185,10 +207,11 @@
 
 #pragma mark - alert view delegate
 
-//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    if ([alertView.title isEqualToString:@"Reset Word"]) {
-//        [self performNextReview];
-//    }
-//}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    // we only perform next review if its not the info alertview
+    if (![alertView.title isEqualToString:@"YES or NO"]) {
+        [self performNextReview];
+    }
+}
 
 @end

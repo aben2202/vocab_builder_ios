@@ -26,11 +26,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *showDefButton;
 @property (weak, nonatomic) IBOutlet UILabel *wereYouCorrectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *noWillRestartLabel;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
 
 @property NSInteger thisReviewCountsAs;
 
 - (IBAction)yesButtonClicked:(id)sender;
 - (IBAction)noButtonClicked:(id)sender;
+- (IBAction)infoButtonClicked:(id)sender;
 - (void)refresh;
 - (GADRequest *)createRequest;
 - (IBAction)showDefClicked:(id)sender;

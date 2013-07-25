@@ -195,7 +195,7 @@
             NSLocale *locale = [NSLocale currentLocale];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MM/dd/yy" options:0 locale:locale];
-            NSString *timeFormat = [NSDateFormatter dateFormatFromTemplate:@"hh/mm/ss" options:0 locale:locale];
+            NSString *timeFormat = [NSDateFormatter dateFormatFromTemplate:@"hh:mm" options:0 locale:locale];
             [formatter setDateFormat:dateFormat];
             [formatter setLocale:locale];
             cell.nextReviewDateLabel.text = [formatter stringFromDate:cell.theWord.nextReviewDate];

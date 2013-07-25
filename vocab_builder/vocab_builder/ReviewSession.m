@@ -10,7 +10,6 @@
 #import "Word.h"
 #import "VocabBuilderDataModel.h"
 
-
 @implementation ReviewSession
 
 @dynamic enabled;

@@ -54,6 +54,7 @@
 		CB7A69DB17A0473700E21185 /* plainWhiteGrunge.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69DA17A0473700E21185 /* plainWhiteGrunge.png */; };
 		CB7A69DD17A050E600E21185 /* no_button_black_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69DC17A050E600E21185 /* no_button_black_background.png */; };
 		CB7A69DF17A0525E00E21185 /* yes_button_black_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69DE17A0525E00E21185 /* yes_button_black_background.png */; };
+		CB7A69E117A17A5500E21185 /* blue-info-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69E017A17A5500E21185 /* blue-info-button.png */; };
 		CB8FCB461795A91A004BB481 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB441795A91A004BB481 /* AudioToolbox.framework */; };
 		CB8FCB471795A91A004BB481 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB451795A91A004BB481 /* MessageUI.framework */; };
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
@@ -152,6 +153,7 @@
 		CB7A69DA17A0473700E21185 /* plainWhiteGrunge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plainWhiteGrunge.png; path = "../../../../../Graphics/grunge paper white/plainWhiteGrunge.png"; sourceTree = "<group>"; };
 		CB7A69DC17A050E600E21185 /* no_button_black_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = no_button_black_background.png; path = "../../../../../Graphics/yes no buttons 2/no_button_black_background.png"; sourceTree = "<group>"; };
 		CB7A69DE17A0525E00E21185 /* yes_button_black_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yes_button_black_background.png; path = "../../../../../Graphics/yes no buttons 2/yes_button_black_background.png"; sourceTree = "<group>"; };
+		CB7A69E017A17A5500E21185 /* blue-info-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-info-button.png"; path = "../../../../../Graphics/info buttons/blue-info-button.png"; sourceTree = "<group>"; };
 		CB8FCB441795A91A004BB481 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CB8FCB451795A91A004BB481 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CB9C830F178CAB62000774CE /* ReviewNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewNotification.h; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		CB9C830A178C99E4000774CE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CB7A69E017A17A5500E21185 /* blue-info-button.png */,
 				CB7A69DE17A0525E00E21185 /* yes_button_black_background.png */,
 				CB7A69DC17A050E600E21185 /* no_button_black_background.png */,
 				CB7A69DA17A0473700E21185 /* plainWhiteGrunge.png */,
@@ -406,11 +409,11 @@
 				D84AEE8C178C56F300ED135E /* ReviewSession.h */,
 				D84AEE8D178C56F300ED135E /* ReviewSession.m */,
 				CB9C8319178DDD3E000774CE /* Word.h */,
+				CB9C831A178DDD3E000774CE /* Word.m */,
 				CB7A69D517A034A100E21185 /* ExampleUse.h */,
 				CB7A69D617A034A100E21185 /* ExampleUse.m */,
 				CB41592C17945B68003926A9 /* Dictionary.h */,
 				CB41592D17945B68003926A9 /* Dictionary.m */,
-				CB9C831A178DDD3E000774CE /* Word.m */,
 				D8BD1151178B244A0036B0AA /* Entry.h */,
 				D8BD1152178B244A0036B0AA /* Entry.m */,
 				CB9C830F178CAB62000774CE /* ReviewNotification.h */,
@@ -572,6 +575,7 @@
 				CB7A69DB17A0473700E21185 /* plainWhiteGrunge.png in Resources */,
 				CB7A69DD17A050E600E21185 /* no_button_black_background.png in Resources */,
 				CB7A69DF17A0525E00E21185 /* yes_button_black_background.png in Resources */,
+				CB7A69E117A17A5500E21185 /* blue-info-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
