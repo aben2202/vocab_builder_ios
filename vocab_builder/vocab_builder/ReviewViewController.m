@@ -133,7 +133,13 @@
     //[SVProgressHUD showSuccessWithStatus:@"Nice Work!"];
     //[self performNextReview];
     NSString *nextReview = [self readableDate:wordToUpdate.nextReviewDate];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Great Work!" message:[NSString stringWithFormat:@"Your next review session for this word is %@.", nextReview] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alert;
+    if (nextReview == nil) { //they have finished this word
+        alert = [[UIAlertView alloc] initWithTitle:@"Congratulations!" message:@"You have successfully completed this word!  If you ever wish to review this word again, simply click on the colorful refresh button next to the word in the 'Done and Done' section." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    }
+    else{
+        alert = [[UIAlertView alloc] initWithTitle:@"Great Work!" message:[NSString stringWithFormat:@"Your next review session for this word is %@.", nextReview] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    }
     [alert show];
 }
 

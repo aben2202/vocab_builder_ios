@@ -74,9 +74,6 @@
             NSTimeInterval interval = 60 * [[self.nextReviewSession minutes] integerValue];
             self.nextReviewDate = [self.reviewCycleStart dateByAddingTimeInterval:interval];
         }
-        else{
-             [SVProgressHUD showSuccessWithStatus:@"Congrats!  You finished this word!"];
-        }
     }
     else{ //they did not know the definition so we reset the cycle
         [self resetReviewCycle];
