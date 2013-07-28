@@ -191,6 +191,7 @@
             cell.reviewProgressBar.progress = [[cell.theWord reviewProgress] floatValue];
             NSInteger percentageLabelNumber = ([[cell.theWord reviewProgress] floatValue] * 100);
             cell.reviewPercentageLabel.text = [NSString stringWithFormat:@"%d%%", percentageLabelNumber];
+            cell.reviewProgressLabel.frame = CGRectMake(188, 0, 92, 21);
             
             NSLocale *locale = [NSLocale currentLocale];
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

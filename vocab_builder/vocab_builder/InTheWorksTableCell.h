@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nextReviewDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextReviewTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *letterImageView;
+@property (weak, nonatomic) IBOutlet UILabel *reviewProgressLabel;
 
 @end
