@@ -91,7 +91,7 @@
     
     self.title = [NSString stringWithFormat:@"Review %d of %d", index+1, self.wordsToReview.count];
     self.reviewNumberLabel.text = [NSString stringWithFormat:@"%d of %d", index + 1, self.wordsToReview.count];
-    self.reviewSessionNameLabel.text = [NSString stringWithFormat:@"'%@'", wordToReview.nextReviewSession.timeName];
+    self.reviewSessionNameLabel.text = [NSString stringWithFormat:@"This is the '%@'", wordToReview.nextReviewSession.timeName];
     
     self.theWordLabel.text = wordToReview.theWord;
     [self.definitionWebView loadHTMLString:[wordToReview htmlDefinitionString] baseURL:nil];
