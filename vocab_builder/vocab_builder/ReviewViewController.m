@@ -67,7 +67,7 @@
     //request.testDevices = [NSArray arrayWithObjects:@"5d5cf0c15383488a857a24046b7d0abc", nil];
     
     //for test adds on simulator
-    request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
+    //request.testDevices = [NSArray arrayWithObjects:@"GAD_SIMULATOR_ID", nil];
     
     return request;
 }
