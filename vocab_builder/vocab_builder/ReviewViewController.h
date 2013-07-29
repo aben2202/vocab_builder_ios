@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wereYouCorrectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *noWillRestartLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIImageView *defBorderImageView;
 
 @property NSInteger thisReviewCountsAs;
 

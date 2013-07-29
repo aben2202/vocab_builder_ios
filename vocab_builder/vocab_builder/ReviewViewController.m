@@ -105,6 +105,7 @@
     self.infoButton.hidden = true;
     self.wereYouCorrectLabel.hidden = true;
     self.noWillRestartLabel.hidden = true;
+    self.defBorderImageView.hidden = true;
 }
 
 -(void)setupDefinitionLayout{
@@ -115,6 +116,7 @@
     self.infoButton.hidden = false;
     self.wereYouCorrectLabel.hidden = false;
     self.noWillRestartLabel.hidden = false;
+    self.defBorderImageView.hidden = false;
 }
 
 - (void)didReceiveMemoryWarning

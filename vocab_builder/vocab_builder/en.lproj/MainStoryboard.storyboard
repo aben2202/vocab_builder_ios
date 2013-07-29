@@ -489,7 +489,8 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aL0-NG-wV8">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="210" id="6fg-RY-Zg0"/>
+                                    <constraint firstAttribute="width" constant="305" id="59p-d8-Jph"/>
+                                    <constraint firstAttribute="height" constant="205" id="yJO-Me-IlU"/>
                                 </constraints>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0S8-mC-FON">
@@ -526,9 +527,11 @@
                                     <action selector="infoButtonClicked:" destination="g7U-d4-eqU" eventType="touchUpInside" id="VFI-iZ-Z0U"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="frame1_blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="zJx-ga-QsR"/>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="20g-2Q-agh" secondAttribute="trailing" constant="45" id="1cF-lB-2tC"/>
                             <constraint firstItem="W60-5d-uzr" firstAttribute="centerX" secondItem="kqf-p6-UNa" secondAttribute="centerX" type="default" id="3fs-Fn-pfG"/>
                             <constraint firstItem="0S8-mC-FON" firstAttribute="centerX" secondItem="rrX-sT-jqd" secondAttribute="centerX" type="default" id="6Jp-3Y-e3t"/>
                             <constraint firstItem="rrX-sT-jqd" firstAttribute="trailing" secondItem="VBR-uh-daA" secondAttribute="trailing" type="default" id="8Dc-kS-SJ1"/>
@@ -539,8 +542,6 @@
                             <constraint firstItem="QLA-MV-df0" firstAttribute="centerX" secondItem="roh-Gu-isy" secondAttribute="centerX" type="default" id="Fnf-a4-kso"/>
                             <constraint firstAttribute="bottom" secondItem="kqf-p6-UNa" secondAttribute="bottom" constant="189" id="G4g-PA-6cL"/>
                             <constraint firstItem="Ra5-iA-ksl" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="110" id="Jcs-Hk-s7l"/>
-                            <constraint firstItem="T4J-lM-CIg" firstAttribute="top" secondItem="VBR-uh-daA" secondAttribute="top" constant="100" id="K8i-Dz-VZo"/>
-                            <constraint firstAttribute="trailing" secondItem="20g-2Q-agh" secondAttribute="trailing" constant="45" id="LMd-22-hUc"/>
                             <constraint firstAttribute="bottom" secondItem="roh-Gu-isy" secondAttribute="bottom" constant="114" id="NJb-fl-VPs"/>
                             <constraint firstItem="rrX-sT-jqd" firstAttribute="top" secondItem="VBR-uh-daA" secondAttribute="top" constant="118" id="O7O-2B-9Kw"/>
                             <constraint firstAttribute="bottom" secondItem="W60-5d-uzr" secondAttribute="bottom" constant="167" id="OBu-dX-vlS"/>
@@ -549,26 +550,29 @@
                             <constraint firstItem="m8g-lU-Fbe" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="45" id="Puc-Ih-6vb"/>
                             <constraint firstItem="Bd3-Vv-QVz" firstAttribute="top" secondItem="VBR-uh-daA" secondAttribute="top" constant="26" id="R23-AV-CpK"/>
                             <constraint firstItem="roh-Gu-isy" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="RCe-FV-IK8"/>
-                            <constraint firstItem="aL0-NG-wV8" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" type="default" id="T5S-Rx-Kr7"/>
+                            <constraint firstItem="aL0-NG-wV8" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="7" id="RSo-ub-o4v"/>
+                            <constraint firstItem="aL0-NG-wV8" firstAttribute="bottom" secondItem="zJx-ga-QsR" secondAttribute="bottom" type="default" id="T1r-6o-iam"/>
                             <constraint firstItem="rrX-sT-jqd" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" type="default" id="TiJ-R7-NjF"/>
                             <constraint firstAttribute="bottom" secondItem="QLA-MV-df0" secondAttribute="bottom" constant="65" id="UUm-93-Gwm"/>
                             <constraint firstAttribute="trailing" secondItem="roh-Gu-isy" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="UfU-9g-bFs"/>
-                            <constraint firstItem="aL0-NG-wV8" firstAttribute="top" secondItem="Bd3-Vv-QVz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UuT-gn-xJ0"/>
                             <constraint firstItem="Ra5-iA-ksl" firstAttribute="top" secondItem="VBR-uh-daA" secondAttribute="top" constant="6" id="Wwb-pU-EH6"/>
                             <constraint firstItem="7Ga-QR-H9E" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="159" id="ZbC-QM-P7j"/>
                             <constraint firstItem="7Ga-QR-H9E" firstAttribute="baseline" secondItem="Ra5-iA-ksl" secondAttribute="baseline" type="default" id="ZlE-J3-rib"/>
-                            <constraint firstItem="aL0-NG-wV8" firstAttribute="trailing" secondItem="VBR-uh-daA" secondAttribute="trailing" type="default" id="arw-pE-YVX"/>
+                            <constraint firstItem="aL0-NG-wV8" firstAttribute="top" secondItem="T4J-lM-CIg" secondAttribute="top" type="default" id="b5v-xj-4Y9"/>
                             <constraint firstAttribute="bottom" secondItem="pu3-b0-PJG" secondAttribute="bottom" constant="95" id="bHO-gK-h2P"/>
                             <constraint firstItem="Bd3-Vv-QVz" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" type="default" id="iU2-Hf-Q6U"/>
+                            <constraint firstItem="zJx-ga-QsR" firstAttribute="top" secondItem="Bd3-Vv-QVz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kK3-Ny-CEF"/>
                             <constraint firstItem="T4J-lM-CIg" firstAttribute="trailing" secondItem="VBR-uh-daA" secondAttribute="trailing" type="default" id="oZI-pV-HVG"/>
                             <constraint firstItem="pu3-b0-PJG" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="25" id="obc-n7-S7T"/>
                             <constraint firstItem="m8g-lU-Fbe" firstAttribute="top" secondItem="20g-2Q-agh" secondAttribute="top" type="default" id="u0f-Ml-myW"/>
+                            <constraint firstItem="zJx-ga-QsR" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" type="default" id="vIZ-Tf-c2B"/>
                             <constraint firstItem="T4J-lM-CIg" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" type="default" id="xsK-sx-63Q"/>
                             <constraint firstAttribute="bottom" secondItem="m8g-lU-Fbe" secondAttribute="bottom" constant="46" id="yJf-g1-Lsn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6uX-K1-F3k"/>
                     <connections>
+                        <outlet property="defBorderImageView" destination="zJx-ga-QsR" id="AVP-MZ-3yZ"/>
                         <outlet property="definitionWebView" destination="aL0-NG-wV8" id="tbd-BS-hiP"/>
                         <outlet property="infoButton" destination="QLA-MV-df0" id="wJI-qR-nbb"/>
                         <outlet property="noButton" destination="20g-2Q-agh" id="lvq-X3-fR1"/>
@@ -618,6 +622,7 @@
     </scenes>
     <resources>
         <image name="blue-info-button.png" width="50" height="50"/>
+        <image name="frame1_blue.png" width="320" height="210"/>
         <image name="no_button_black_background.png" width="100" height="100"/>
         <image name="restart_arrows.png" width="482" height="482"/>
         <image name="showDefButton.png" width="320" height="75"/>
@@ -681,6 +686,7 @@
                 <relationship kind="action" name="noButtonClicked:"/>
                 <relationship kind="action" name="showDefClicked:"/>
                 <relationship kind="action" name="yesButtonClicked:"/>
+                <relationship kind="outlet" name="defBorderImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="definitionWebView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="infoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="noButton" candidateClass="UIButton"/>
