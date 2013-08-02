@@ -52,10 +52,16 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
+    
+    
+    // if there are a lot of words in the app, the notifications further out in time will not be stored.  then when reviews are completed, they should be added again since they are now in the next 64.  so everytime they close the app, we will update the notifications
+    [[Global getInstance] updateNotifications];
+    
     // Let's update the current app icon badge and notifications badge numbers
     [[Global getInstance] setReviewWords];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[Global getInstance].wordsThatNeedToBeReviewed.count];
     NSInteger badgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber];
+    NSInteger count = 0;
     for (UILocalNotification *localNote in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
         UILocalNotification *noteWithBadge = [[UILocalNotification alloc] init];
         noteWithBadge.fireDate = localNote.fireDate;
@@ -67,7 +73,8 @@
         [[UIApplication sharedApplication] cancelLocalNotification:localNote];
         
         [[UIApplication sharedApplication] scheduleLocalNotification:noteWithBadge];
-        NSLog(@"Local Notification scheduled for %@ with badge number %d", localNote.fireDate.description, localNote.applicationIconBadgeNumber);
+        NSLog(@"%d) Local Notification scheduled for %@ with badge number %d", count, localNote.fireDate.description, localNote.applicationIconBadgeNumber);
+        count += 1;
     }
 }
 

@@ -125,7 +125,7 @@ static Global *instance =nil;
     NSLog(@"updating local notifications");
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    // now iterate through all the words and review sessions to create the notifications
+    // now iterate through all the words and review sessions to create the notificationsial
     for (Word *word in [[VocabBuilderDataModel sharedDataModel] words]){
         for(ReviewSession *reviewSession in [[VocabBuilderDataModel sharedDataModel] reviewSessions]){
             // in order to create a notification for this review session, it must be enabled and we must not have already performed the review session
