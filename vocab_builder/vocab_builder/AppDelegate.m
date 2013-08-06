@@ -15,6 +15,7 @@
 #import "HomeTableViewController.h"
 #import "SettingsTableViewController.h"
 #import "DefinitionViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation AppDelegate
 
@@ -86,6 +87,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    //Setup for facebook tracking... downloads and uses
+    [FBSettings setDefaultAppID:@"502725236470731"];
+    [FBAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -46,6 +46,7 @@
 		CB20951017A6DF0C00DA7B88 /* frame1_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = CB20950F17A6DF0C00DA7B88 /* frame1_gray.png */; };
 		CB20951217A6E10200DA7B88 /* frame1_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB20951117A6E10200DA7B88 /* frame1_yellow.png */; };
 		CB20951617A6E27100DA7B88 /* frame1_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = CB20951517A6E27100DA7B88 /* frame1_blue.png */; };
+		CB20951817B14A7A00DA7B88 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB20951717B14A7A00DA7B88 /* FacebookSDK.framework */; };
 		CB27C6DD178F39B100D83E13 /* green-button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB27C6DC178F39B100D83E13 /* green-button.png */; };
 		CB41592B1794526D003926A9 /* DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592A1794526D003926A9 /* DefinitionViewController.m */; };
 		CB41592E17945B68003926A9 /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592D17945B68003926A9 /* Dictionary.m */; };
@@ -145,6 +146,7 @@
 		CB20950F17A6DF0C00DA7B88 /* frame1_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame1_gray.png; path = "../../../../../Graphics/grunge frames/frame1_gray.png"; sourceTree = "<group>"; };
 		CB20951117A6E10200DA7B88 /* frame1_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame1_yellow.png; path = "../../../../../Graphics/grunge frames/frame1_yellow.png"; sourceTree = "<group>"; };
 		CB20951517A6E27100DA7B88 /* frame1_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = frame1_blue.png; path = "../../../../../Graphics/grunge frames/frame1_blue.png"; sourceTree = "<group>"; };
+		CB20951717B14A7A00DA7B88 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		CB27C6DC178F39B100D83E13 /* green-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-button.png"; sourceTree = "<group>"; };
 		CB4159291794526D003926A9 /* DefinitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefinitionViewController.h; sourceTree = "<group>"; };
 		CB41592A1794526D003926A9 /* DefinitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefinitionViewController.m; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				D8D20080177793CB00C94B0D /* UIKit.framework in Frameworks */,
 				D8D20082177793CB00C94B0D /* Foundation.framework in Frameworks */,
 				91F8B8D0334D453BA3865D0C /* libPods.a in Frameworks */,
+				CB20951817B14A7A00DA7B88 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +356,7 @@
 		D8D2007E177793CB00C94B0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB20951717B14A7A00DA7B88 /* FacebookSDK.framework */,
 				CB8FCB441795A91A004BB481 /* AudioToolbox.framework */,
 				CB8FCB451795A91A004BB481 /* MessageUI.framework */,
 				D8BD10CD178B11AE0036B0AA /* CoreData.framework */,
@@ -763,9 +767,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrew Benson (9DLY92G8NN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Benson (9DLY92G8NN)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vocab_builder/vocab_builder-Prefix.pch";
 				INFOPLIST_FILE = "vocab_builder/vocab_builder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "CE272E10-97A0-443E-ABC3-7DB074703EBE";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CE272E10-97A0-443E-ABC3-7DB074703EBE";
@@ -852,9 +861,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Benson (BHAGV5ZMCR)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Benson (BHAGV5ZMCR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vocab_builder/vocab_builder-Prefix.pch";
 				INFOPLIST_FILE = "vocab_builder/vocab_builder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "50B90437-7A83-407D-BA73-A7AC898D4959";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "50B90437-7A83-407D-BA73-A7AC898D4959";
@@ -868,9 +882,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Andrew Benson (9DLY92G8NN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Andrew Benson (9DLY92G8NN)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "vocab_builder/vocab_builder-Prefix.pch";
 				INFOPLIST_FILE = "vocab_builder/vocab_builder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "D8B09EE0-5CAF-4A11-B5F9-E1BB76B1F257";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D8B09EE0-5CAF-4A11-B5F9-E1BB76B1F257";
