@@ -625,7 +625,7 @@
         <image name="frame1_blue.png" width="320" height="210"/>
         <image name="no_button_black_background.png" width="100" height="100"/>
         <image name="restart_arrows.png" width="482" height="482"/>
-        <image name="showDefButton.png" width="16" height="16"/>
+        <image name="showDefButton.png" width="320" height="75"/>
         <image name="yes_button_black_background.png" width="100" height="100"/>
     </resources>
     <classes>
