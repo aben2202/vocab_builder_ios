@@ -127,7 +127,7 @@
         NSNumber *enabledSessionsCompleted = 0;
         
         for (ReviewSession *reviewSession in [[VocabBuilderDataModel sharedDataModel] reviewSessions]) {
-            if (reviewSession.enabled && ([self.previousReviewSession isGreaterThan:reviewSession] || [self.previousReviewSession.timeName isEqualToString:reviewSession.timeName]) && ![reviewSession.timeName isEqualToString:@"start"]) {
+            if ([reviewSession.enabled boolValue] && ([self.previousReviewSession isGreaterThan:reviewSession] || [self.previousReviewSession.timeName isEqualToString:reviewSession.timeName]) && ![reviewSession.timeName isEqualToString:@"start"]) {
                 enabledSessionsCompleted = [NSNumber numberWithInt:([enabledSessionsCompleted integerValue] + 1)];
             }
         }

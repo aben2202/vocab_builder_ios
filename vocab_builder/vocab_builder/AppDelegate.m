@@ -74,7 +74,7 @@
         [[UIApplication sharedApplication] cancelLocalNotification:localNote];
         
         [[UIApplication sharedApplication] scheduleLocalNotification:noteWithBadge];
-        NSLog(@"%d) Local Notification scheduled for %@ with badge number %d", count, localNote.fireDate.description, localNote.applicationIconBadgeNumber);
+        NSLog(@"%d) Local Notification scheduled for %@ with badge number %d", count, noteWithBadge.fireDate.description, noteWithBadge.applicationIconBadgeNumber);
         count += 1;
     }
 }
