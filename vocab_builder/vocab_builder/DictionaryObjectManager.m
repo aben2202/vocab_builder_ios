@@ -122,5 +122,30 @@
     [operation start];
 }
 
+-(void)addToServer:(NSString *)wordString withSuccess:(void (^)(Word *))success failure:(void (^)(NSError *))failure{
+    // url for testing
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:3000/api/v1/lookup_word?word=%@", wordString]];
+    
+    // url for production
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://vocab-builder.herokuapp.com/api/v1/lookup_word?word=%@", wordString]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    
+    NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[MappingProvider addWordToRailsServerResponseMapping] pathPattern:nil keyPath:nil statusCodes:statusCodeSet];
+    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        // if there was at least 1 result sent back, save the word.  else, ask for another word
+        NSLog(@"In success block for 'addToServer' operation call");
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        if (failure) failure(error);
+    }];
+    
+    [operation start];
+
+}
+
 
 @end

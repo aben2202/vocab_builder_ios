@@ -14,6 +14,7 @@
 #import "DictionaryObjectManager.h"
 #import "Session.h"
 #import "VocabBuilderDataModel.h"
+#import "RailsServerResponse.h"
 
 @implementation MappingProvider
 
@@ -130,6 +131,15 @@
     [pronunciationMapping addAttributeMappingsFromArray:@[@"seq", @"rawType", @"raw"]];
     return pronunciationMapping;
 }
+
++(RKMapping *)addWordToRailsServerResponseMapping{
+    RKObjectMapping *railsServerResponseMapping = [RKObjectMapping mappingForClass:[RailsServerResponse class]];
+    [railsServerResponseMapping addAttributeMappingsFromArray:@[@"word", @"occurances"]];
+    
+    return railsServerResponseMapping;
+}
+
+
 
 +(void)setupResponseAndRequestDescriptors{
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);

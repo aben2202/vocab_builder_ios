@@ -20,6 +20,8 @@
 + (RKEntityMapping *)entryMapping;
 + (RKEntityMapping *)pronunciationMapping;
 
++ (RKMapping *)addWordToRailsServerResponseMapping;
+
 
 + (void)setupResponseAndRequestDescriptors;
 

@@ -316,6 +316,7 @@
     if (wordAlreadyExists == false){
     
         [[DictionaryObjectManager sharedManager] getWord:wordString withSuccess:^(Word *word) {
+            NSLog(@"Successfully looked up word using wordnik api");
             self.searchedWord = word;
             
             // set alerts for new word
@@ -323,6 +324,14 @@
             
             // show definition view for searched word
             [self performSegueWithIdentifier:@"showDefinition" sender:searchBar];
+            
+            // add word to rails server
+            [[DictionaryObjectManager sharedManager] addToServer:wordString withSuccess:^(Word *word) {
+                NSLog(@"Successfully added word to rails server");
+            } failure:^(NSError *error) {
+                // failure code goes here
+                NSLog(@"%@", error.localizedDescription);
+            }];
             
         } failure:^(NSError *error) {
             // failure code goes here

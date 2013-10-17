@@ -52,6 +52,7 @@
 		CB41592B1794526D003926A9 /* DefinitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592A1794526D003926A9 /* DefinitionViewController.m */; };
 		CB41592E17945B68003926A9 /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592D17945B68003926A9 /* Dictionary.m */; };
 		CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41593017945CBA003926A9 /* DictionaryTableCell.m */; };
+		CB4FCEBD18105BBE006F248A /* RailsServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4FCEBC18105BBE006F248A /* RailsServerResponse.m */; };
 		CB7A69D717A034A100E21185 /* ExampleUse.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7A69D617A034A100E21185 /* ExampleUse.m */; };
 		CB7A69D917A0471700E21185 /* plainTanGrunge.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69D817A0471700E21185 /* plainTanGrunge.png */; };
 		CB7A69DB17A0473700E21185 /* plainWhiteGrunge.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69DA17A0473700E21185 /* plainWhiteGrunge.png */; };
@@ -155,6 +156,8 @@
 		CB41592D17945B68003926A9 /* Dictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dictionary.m; sourceTree = "<group>"; };
 		CB41592F17945CBA003926A9 /* DictionaryTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryTableCell.h; sourceTree = "<group>"; };
 		CB41593017945CBA003926A9 /* DictionaryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableCell.m; sourceTree = "<group>"; };
+		CB4FCEBB18105BBE006F248A /* RailsServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RailsServerResponse.h; sourceTree = "<group>"; };
+		CB4FCEBC18105BBE006F248A /* RailsServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RailsServerResponse.m; sourceTree = "<group>"; };
 		CB7A69D517A034A100E21185 /* ExampleUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleUse.h; sourceTree = "<group>"; };
 		CB7A69D617A034A100E21185 /* ExampleUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleUse.m; sourceTree = "<group>"; };
 		CB7A69D817A0471700E21185 /* plainTanGrunge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plainTanGrunge.png; path = "../../../../../Graphics/grunge paper tan/plainTanGrunge.png"; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 				CBBDA20317A1AD66007A1F28 /* Pronunciation.m */,
 				CB9C830F178CAB62000774CE /* ReviewNotification.h */,
 				CB9C8310178CAB62000774CE /* ReviewNotification.m */,
+				CB4FCEBB18105BBE006F248A /* RailsServerResponse.h */,
+				CB4FCEBC18105BBE006F248A /* RailsServerResponse.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -684,6 +689,7 @@
 				CB7A69D717A034A100E21185 /* ExampleUse.m in Sources */,
 				CBBDA20117A1A62A007A1F28 /* VocabBuilder.xcdatamodeld in Sources */,
 				CBBDA20417A1AD66007A1F28 /* Pronunciation.m in Sources */,
+				CB4FCEBD18105BBE006F248A /* RailsServerResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
