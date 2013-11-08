@@ -53,8 +53,64 @@
                                     <outlet property="searchBar" destination="ivb-uR-je7" id="1fh-ui-nCM"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InTheWorksTableCell" id="Bbf-e1-2ZS" customClass="InTheWorksTableCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WordOfDayTableCell" id="yWd-bk-3zb" customClass="WordOfTheDayTableCell">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WOD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDq-G9-tmG">
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                            </accessibility>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="142" id="3dR-3Y-1DG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7f-u5-fHz">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="38" id="JUC-2M-A4t"/>
+                                                <constraint firstAttribute="width" constant="38" id="xCm-M0-FSU"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKx-P4-Uog">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="91" id="L9X-z7-fNi"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Add To List">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.8608861770072993" green="0.37231979927007297" blue="0.35002281021897808" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kKx-P4-Uog" firstAttribute="bottom" secondItem="yWd-bk-3zb" secondAttribute="bottom" type="default" id="7ji-DI-0VE"/>
+                                    <constraint firstItem="g7f-u5-fHz" firstAttribute="centerY" secondItem="kKx-P4-Uog" secondAttribute="centerY" type="default" id="D5j-r3-L0v"/>
+                                    <constraint firstAttribute="trailing" secondItem="kKx-P4-Uog" secondAttribute="trailing" constant="20" type="default" id="EE8-x1-DDL"/>
+                                    <constraint firstItem="GDq-G9-tmG" firstAttribute="top" secondItem="yWd-bk-3zb" secondAttribute="top" constant="11" id="Fug-oP-hWC"/>
+                                    <constraint firstItem="kKx-P4-Uog" firstAttribute="leading" secondItem="GDq-G9-tmG" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Gyg-xk-XIF"/>
+                                    <constraint firstItem="kKx-P4-Uog" firstAttribute="top" secondItem="yWd-bk-3zb" secondAttribute="top" type="default" id="KII-0R-xhg"/>
+                                    <constraint firstItem="g7f-u5-fHz" firstAttribute="leading" secondItem="yWd-bk-3zb" secondAttribute="leading" constant="11" id="vgg-mu-xL4"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="WODAddToListButton" destination="kKx-P4-Uog" id="bhi-QM-tjy"/>
+                                    <outlet property="WODFirstLetterImage" destination="g7f-u5-fHz" id="C9F-zd-odb"/>
+                                    <outlet property="WODLabel" destination="GDq-G9-tmG" id="Pdo-k3-jcx"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InTheWorksTableCell" id="Bbf-e1-2ZS" customClass="InTheWorksTableCell">
+                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -161,7 +217,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DoneAndDoneTableCell" id="iZV-nk-KGh" customClass="DoneAndDoneTableCell">
-                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="154" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -219,7 +275,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GetStartedTableCell" id="dxQ-dq-XcB">
-                                <rect key="frame" x="0.0" y="154" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="198" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -344,6 +400,39 @@
                                 <connections>
                                     <outlet property="dictionaryNameLabel" destination="5ZC-h4-xXt" id="DU6-Nm-xrv"/>
                                     <outlet property="dictionarySwitch" destination="pjr-B4-sWD" id="5WS-jp-xbh"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WordOfTheDaySettingTableCell" rowHeight="36" id="Pi8-G1-hSx" customClass="WordOfTheDaySettingTableCell">
+                                <rect key="frame" x="0.0" y="94" width="320" height="36"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Frt-rU-WRL">
+                                            <connections>
+                                                <action selector="updateDictionaries:" destination="IcF-AN-7IT" eventType="valueChanged" id="H5B-Ia-bJD"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Word of the day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-7i-Mn2">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="Frt-rU-WRL" firstAttribute="top" secondItem="Pi8-G1-hSx" secondAttribute="top" constant="4" id="75B-rs-BaL"/>
+                                    <constraint firstItem="RHU-7i-Mn2" firstAttribute="leading" secondItem="Pi8-G1-hSx" secondAttribute="leading" constant="20" type="default" id="D9E-BJ-bWb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Frt-rU-WRL" secondAttribute="trailing" constant="20" type="default" id="GDH-Za-TTI"/>
+                                    <constraint firstItem="Frt-rU-WRL" firstAttribute="centerY" secondItem="RHU-7i-Mn2" secondAttribute="centerY" type="default" id="jGa-3X-1Kq"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="WODLabel" destination="RHU-7i-Mn2" id="aOe-Fo-sFU"/>
+                                    <outlet property="WODSwitch" destination="Frt-rU-WRL" id="IeB-nB-KbI"/>
+                                    <outlet property="dictionaryNameLabel" destination="RHU-7i-Mn2" id="BoG-Wc-hsV"/>
+                                    <outlet property="dictionarySwitch" destination="Frt-rU-WRL" id="PWk-7V-a2T"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -710,6 +799,21 @@
             <relationships>
                 <relationship kind="action" name="updateDictionaries:"/>
                 <relationship kind="action" name="updateSession:"/>
+            </relationships>
+        </class>
+        <class className="WordOfTheDaySettingTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WordOfTheDaySettingTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="WODLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="WODSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="WordOfTheDayTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WordOfTheDayTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="WODAddToListButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="WODFirstLetterImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="WODLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

@@ -13,6 +13,7 @@
 
 // lookup the word using wordnik api
 -(void)getWord:(NSString *)wordString withSuccess:(void (^)(Word *word))success failure:(void (^)(NSError *error))failure;
+-(void)getWordOfTheDayWithSuccess:(void (^)(Word *word))success failure:(void (^)(NSError *error))failure;
 
 // add the word to rails server
 -(void)addToServer:(NSString *)wordString withSuccess:(void (^)(Word *word))success failure:(void (^)(NSError *error))failure;

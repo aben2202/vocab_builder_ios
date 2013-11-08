@@ -65,6 +65,8 @@
 		CB9C831B178DDD3E000774CE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C831A178DDD3E000774CE /* Word.m */; };
 		CBBDA20117A1A62A007A1F28 /* VocabBuilder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBBDA1FE17A1A62A007A1F28 /* VocabBuilder.xcdatamodeld */; };
 		CBBDA20417A1AD66007A1F28 /* Pronunciation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBDA20317A1AD66007A1F28 /* Pronunciation.m */; };
+		CBDB52EC1822BD26003CC5D4 /* WordOfTheDaySettingTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDB52EB1822BD26003CC5D4 /* WordOfTheDaySettingTableCell.m */; };
+		CBDB52EF1822C291003CC5D4 /* WordOfTheDayTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CBDB52EE1822C291003CC5D4 /* WordOfTheDayTableCell.m */; };
 		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
 		D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE90178C8CDA00ED135E /* ReviewViewController.m */; };
 		D8BD10CE178B11AE0036B0AA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BD10CD178B11AE0036B0AA /* CoreData.framework */; };
@@ -175,6 +177,10 @@
 		CBBDA20017A1A62A007A1F28 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
 		CBBDA20217A1AD66007A1F28 /* Pronunciation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pronunciation.h; sourceTree = "<group>"; };
 		CBBDA20317A1AD66007A1F28 /* Pronunciation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pronunciation.m; sourceTree = "<group>"; };
+		CBDB52EA1822BD26003CC5D4 /* WordOfTheDaySettingTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordOfTheDaySettingTableCell.h; sourceTree = "<group>"; };
+		CBDB52EB1822BD26003CC5D4 /* WordOfTheDaySettingTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordOfTheDaySettingTableCell.m; sourceTree = "<group>"; };
+		CBDB52ED1822C291003CC5D4 /* WordOfTheDayTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordOfTheDayTableCell.h; sourceTree = "<group>"; };
+		CBDB52EE1822C291003CC5D4 /* WordOfTheDayTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordOfTheDayTableCell.m; sourceTree = "<group>"; };
 		D84AEE8C178C56F300ED135E /* ReviewSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSession.h; sourceTree = "<group>"; };
 		D84AEE8D178C56F300ED135E /* ReviewSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewSession.m; sourceTree = "<group>"; };
 		D84AEE8F178C8CDA00ED135E /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
@@ -470,6 +476,10 @@
 				D8D200EC1787420C00C94B0D /* ReviewSessionTableCell.m */,
 				CB41592F17945CBA003926A9 /* DictionaryTableCell.h */,
 				CB41593017945CBA003926A9 /* DictionaryTableCell.m */,
+				CBDB52EA1822BD26003CC5D4 /* WordOfTheDaySettingTableCell.h */,
+				CBDB52EB1822BD26003CC5D4 /* WordOfTheDaySettingTableCell.m */,
+				CBDB52ED1822C291003CC5D4 /* WordOfTheDayTableCell.h */,
+				CBDB52EE1822C291003CC5D4 /* WordOfTheDayTableCell.m */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -690,6 +700,8 @@
 				CBBDA20117A1A62A007A1F28 /* VocabBuilder.xcdatamodeld in Sources */,
 				CBBDA20417A1AD66007A1F28 /* Pronunciation.m in Sources */,
 				CB4FCEBD18105BBE006F248A /* RailsServerResponse.m in Sources */,
+				CBDB52EC1822BD26003CC5D4 /* WordOfTheDaySettingTableCell.m in Sources */,
+				CBDB52EF1822C291003CC5D4 /* WordOfTheDayTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

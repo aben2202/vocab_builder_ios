@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSMutableArray* wordsCurrent;
 @property (strong, nonatomic) NSMutableArray* wordsFinished;
+@property (strong, nonatomic) Word *wordOfTheDay;
 
 - (IBAction)restartButtonClicked:(id)sender;
 

@@ -18,6 +18,7 @@
 #import "ReviewViewController.h"
 #import "Global.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "WordOfTheDayTableCell.h"
 
 @interface HomeTableViewController ()
 
@@ -88,6 +89,10 @@
             //user searched for a word
             defVC.theWord = self.searchedWord;
         }
+        else if ([sender isKindOfClass:[WordOfTheDayTableCell class]]){
+            //user clicked on word of the day
+            defVC.theWord = self.wordOfTheDay;
+        }
         else if ([sender isKindOfClass:[InTheWorksTableCell class]]){
             //user clicked on a 'in the works' word
             InTheWorksTableCell *theSender = sender;
@@ -120,6 +125,35 @@
             [self.wordsFinished addObject:currentWord];
         }
     }
+    
+    // get the current word of the day
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSUInteger preservedComponents = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit);
+    NSDate *startOfToday = [calendar dateFromComponents:[calendar components:preservedComponents fromDate:now]];
+    if ([startOfToday compare:[Global getInstance].timeForLastWODFetch] == NSOrderedDescending) {
+        //last wod fetch was before midnight today so we have to update the word of the day
+        [[DictionaryObjectManager sharedManager] getWordOfTheDayWithSuccess:^(Word *word) {
+            NSLog(@"Successfully looked up word using wordnik api");
+            self.wordOfTheDay = word;
+            
+            // show definition view for searched word
+            [self performSegueWithIdentifier:@"showDefinition" sender:searchBar];
+            
+            // add word to rails server
+            [[DictionaryObjectManager sharedManager] addToServer:wordString withSuccess:^(Word *word) {
+                NSLog(@"Successfully added word to rails server");
+            } failure:^(NSError *error) {
+                // failure code goes here
+                NSLog(@"%@", error.localizedDescription);
+            }];
+            
+        } failure:^(NSError *error) {
+            // failure code goes here
+            NSLog(@"%@", error.localizedDescription);
+        }];
+
+    }
 }
 
 
@@ -142,23 +176,30 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     switch (section) {
-        case 0:
+        case 0: // search bar
             return 1;
-        case 1: //"In the works" section
+        case 1: // word of the day section
+            if ([Global getInstance].wordOfTheDayEnabled) {
+                return 1;
+            }
+            else{
+                return 0;
+            }
+        case 2: //"In the works" section
             if ([self.wordsCurrent count] == 0) {
                 return 1;
             }
             else{
                 return self.wordsCurrent.count;
             }
-        case 2: //"Done and done" section
+        case 3: //"Done and done" section
             return self.wordsFinished.count;
         default:
             break;
@@ -175,7 +216,19 @@
         
         return cell;
     }
-    else if (indexPath.section == 1){ // InTheWorksTableCell
+    else if (indexPath.section == 1){ // word of the day section
+        static NSString *CellIdentifier = @"WordOfTheDayTableCell";
+        WordOfTheDayTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.WODLabel.text = self.wordOfTheDay.theWord;
+        NSString *firstLetter = [self getFirstLetter:self.wordOfTheDay.theWord];
+        UIImage *letterImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", firstLetter]];
+        [cell.WODFirstLetterImage setImage:letterImage];
+        cell.backgroundColor = [UIColor colorWithRed:(220/255.0) green:(85/255.0) blue:(99/255.0) alpha:1];
+        return cell;
+    }
+    
+    
+    else if (indexPath.section == 2){ // InTheWorksTableCell
         if([self.wordsCurrent count] == 0){
             static NSString *CellIdentifier = @"GetStartedTableCell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -234,8 +287,10 @@
         case 0:
             return @"";
         case 1:
-            return @"In the works...";
+            return @"WORD OF THE DAY";
         case 2:
+            return @"In the works...";
+        case 3:
             return @"Done and done...";
         default:
             return @"";
@@ -248,11 +303,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
+        // user clicked on word of the day
+        WordOfTheDayTableCell *cellClickedOn = (WordOfTheDayTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        [self performSegueWithIdentifier:@"showDefinition" sender:cellClickedOn];
+    }
+    if (indexPath.section == 2) {
         // user clicked on 'in the works' word
         InTheWorksTableCell *cellClickedOn = (InTheWorksTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [self performSegueWithIdentifier:@"showDefinition" sender:cellClickedOn];
     }
-    else if (indexPath.section == 2) {
+    else if (indexPath.section == 3) {
         // user clicked on 'done and done' word
         DoneAndDoneTableCell *cellClickedOn = (DoneAndDoneTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [self performSegueWithIdentifier:@"showDefinition" sender:cellClickedOn];
@@ -260,7 +320,8 @@
 }
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0){
+    // don't allow row deletion for search bar and word of the day cells
+    if (indexPath.section == 0 || indexPath.section == 1){
         return UITableViewCellEditingStyleNone;
     }
     else {
@@ -271,10 +332,10 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     //if we are deleting a row, remove the word from the database
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        if (indexPath.section == 1) {  //we are deleting a 'in the works' word
+        if (indexPath.section == 2) {  //we are deleting a 'in the works' word
             self.wordToDelete = [self.wordsCurrent objectAtIndex:indexPath.row];
         }
-        else if (indexPath.section == 2){ // we are deleting a 'done and done' word
+        else if (indexPath.section == 3){ // we are deleting a 'done and done' word
             self.wordToDelete = [self.wordsFinished objectAtIndex:indexPath.row];
         }
         UIAlertView *verifyDelete = [[UIAlertView alloc] initWithTitle:@"Delete Word?" message:[NSString stringWithFormat:@"Are you sure you want to delete the word '%@' and all its review data?", self.wordToDelete.theWord] delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];

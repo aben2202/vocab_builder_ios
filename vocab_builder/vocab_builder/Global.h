@@ -17,6 +17,9 @@
 
 @property (nonatomic, retain) NSDictionary *reviewSessions;
 @property (strong, nonatomic) NSMutableArray *wordsThatNeedToBeReviewed;
+@property BOOL *wordOfTheDayEnabled;
+@property (strong, nonatomic) Word *wordOfTheDay;
+@property (strong, nonatomic) NSDate *timeForLastWODFetch;
 
 
 +(Global*)getInstance;
