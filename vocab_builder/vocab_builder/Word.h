@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSSet *pronunciations;
 @property (nonatomic, retain) ReviewSession *previousReviewSession;
 @property (nonatomic, retain) ReviewSession *nextReviewSession;
+@property (nonatomic, retain) NSNumber * progress;
 @end
 
 @interface Word (CoreDataGeneratedAccessors)
@@ -51,7 +52,8 @@
 - (void)updateNextReviewSession;
 - (void)updateAfterCompletedReviewWithAnswer:(BOOL)answer;
 - (void)resetReviewCycle;
-- (NSNumber *)reviewProgress;
+//- (NSNumber *)reviewProgress;
+- (void) updateProgress;
 - (NSInteger)setNextReviewForMostRecentEnabledReview;
 - (NSString *)htmlDefinitionString;
 

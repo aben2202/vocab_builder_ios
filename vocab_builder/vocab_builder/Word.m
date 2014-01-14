@@ -31,6 +31,7 @@
 @dynamic pronunciations;
 @dynamic previousReviewSession;
 @dynamic nextReviewSession;
+@dynamic progress;
 
 ////////////////////////////////////////////////////////////////////////////////
 // - updateNextReviewSession
@@ -65,6 +66,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 -(void)updateAfterCompletedReviewWithAnswer:(BOOL)answer{
+    [self updateProgress];
     if (answer == YES) {
         //update with 'yes' answer here
         ReviewSession *thisReviewSession = self.nextReviewSession;
@@ -112,15 +114,16 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// - reviewProgress
+// - updateProgress
 //
-//   this method returns the review progress for the word by checking the enabled
+//   this method updates the review progress for the word by checking the enabled
 //       reviewSessions.  the return value will be a decimal between 0 and 1.
 ////////////////////////////////////////////////////////////////////////////////
 
--(NSNumber *)reviewProgress{
+-(void)updateProgress{
     if ([self.previousReviewSession.timeName isEqualToString:@"start"]) {
-        return 0;
+        //set progress to 0
+        self.progress = 0;
     }
     else{
         NSNumber *totalReviews = [NSNumber numberWithInteger:[ReviewSession numberOfEnabledSessions]];
@@ -132,8 +135,7 @@
             }
         }
         
-        NSNumber *numberToReturn = [NSNumber numberWithDouble:([enabledSessionsCompleted doubleValue]/[totalReviews doubleValue])];
-        return numberToReturn;
+        self.progress = [NSNumber numberWithDouble:([enabledSessionsCompleted doubleValue]/[totalReviews doubleValue])];
     }
 }
 
