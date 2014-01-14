@@ -53,6 +53,7 @@
 		CB41592E17945B68003926A9 /* Dictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41592D17945B68003926A9 /* Dictionary.m */; };
 		CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB41593017945CBA003926A9 /* DictionaryTableCell.m */; };
 		CB4FCEBD18105BBE006F248A /* RailsServerResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4FCEBC18105BBE006F248A /* RailsServerResponse.m */; };
+		CB5F13E11885FAD900AE716A /* VocabBuilder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB5F13DE1885FAD900AE716A /* VocabBuilder.xcdatamodeld */; };
 		CB7A69D717A034A100E21185 /* ExampleUse.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7A69D617A034A100E21185 /* ExampleUse.m */; };
 		CB7A69D917A0471700E21185 /* plainTanGrunge.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69D817A0471700E21185 /* plainTanGrunge.png */; };
 		CB7A69DB17A0473700E21185 /* plainWhiteGrunge.png in Resources */ = {isa = PBXBuildFile; fileRef = CB7A69DA17A0473700E21185 /* plainWhiteGrunge.png */; };
@@ -63,7 +64,6 @@
 		CB8FCB471795A91A004BB481 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8FCB451795A91A004BB481 /* MessageUI.framework */; };
 		CB9C8311178CAB62000774CE /* ReviewNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C8310178CAB62000774CE /* ReviewNotification.m */; };
 		CB9C831B178DDD3E000774CE /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9C831A178DDD3E000774CE /* Word.m */; };
-		CBBDA20117A1A62A007A1F28 /* VocabBuilder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBBDA1FE17A1A62A007A1F28 /* VocabBuilder.xcdatamodeld */; };
 		CBBDA20417A1AD66007A1F28 /* Pronunciation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBDA20317A1AD66007A1F28 /* Pronunciation.m */; };
 		D84AEE8E178C56F300ED135E /* ReviewSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE8D178C56F300ED135E /* ReviewSession.m */; };
 		D84AEE91178C8CDB00ED135E /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AEE90178C8CDA00ED135E /* ReviewViewController.m */; };
@@ -158,6 +158,8 @@
 		CB41593017945CBA003926A9 /* DictionaryTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryTableCell.m; sourceTree = "<group>"; };
 		CB4FCEBB18105BBE006F248A /* RailsServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RailsServerResponse.h; sourceTree = "<group>"; };
 		CB4FCEBC18105BBE006F248A /* RailsServerResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RailsServerResponse.m; sourceTree = "<group>"; };
+		CB5F13DF1885FAD900AE716A /* VocabBuilder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VocabBuilder 2.xcdatamodel"; sourceTree = "<group>"; };
+		CB5F13E01885FAD900AE716A /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
 		CB7A69D517A034A100E21185 /* ExampleUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleUse.h; sourceTree = "<group>"; };
 		CB7A69D617A034A100E21185 /* ExampleUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleUse.m; sourceTree = "<group>"; };
 		CB7A69D817A0471700E21185 /* plainTanGrunge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plainTanGrunge.png; path = "../../../../../Graphics/grunge paper tan/plainTanGrunge.png"; sourceTree = "<group>"; };
@@ -171,8 +173,6 @@
 		CB9C8310178CAB62000774CE /* ReviewNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewNotification.m; sourceTree = "<group>"; };
 		CB9C8319178DDD3E000774CE /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		CB9C831A178DDD3E000774CE /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
-		CBBDA1FF17A1A62A007A1F28 /* VocabBuilder 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "VocabBuilder 2.xcdatamodel"; sourceTree = "<group>"; };
-		CBBDA20017A1A62A007A1F28 /* VocabBuilder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VocabBuilder.xcdatamodel; sourceTree = "<group>"; };
 		CBBDA20217A1AD66007A1F28 /* Pronunciation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pronunciation.h; sourceTree = "<group>"; };
 		CBBDA20317A1AD66007A1F28 /* Pronunciation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pronunciation.m; sourceTree = "<group>"; };
 		D84AEE8C178C56F300ED135E /* ReviewSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewSession.h; sourceTree = "<group>"; };
@@ -477,9 +477,9 @@
 		D8D200F7178A68A100C94B0D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				CB5F13DE1885FAD900AE716A /* VocabBuilder.xcdatamodeld */,
 				D8D200F4178A67F800C94B0D /* VocabBuilderDataModel.h */,
 				D8D200F5178A67F800C94B0D /* VocabBuilderDataModel.m */,
-				CBBDA1FE17A1A62A007A1F28 /* VocabBuilder.xcdatamodeld */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -687,9 +687,9 @@
 				CB41592E17945B68003926A9 /* Dictionary.m in Sources */,
 				CB41593117945CBA003926A9 /* DictionaryTableCell.m in Sources */,
 				CB7A69D717A034A100E21185 /* ExampleUse.m in Sources */,
-				CBBDA20117A1A62A007A1F28 /* VocabBuilder.xcdatamodeld in Sources */,
 				CBBDA20417A1AD66007A1F28 /* Pronunciation.m in Sources */,
 				CB4FCEBD18105BBE006F248A /* RailsServerResponse.m in Sources */,
+				CB5F13E11885FAD900AE716A /* VocabBuilder.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,13 +973,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CBBDA1FE17A1A62A007A1F28 /* VocabBuilder.xcdatamodeld */ = {
+		CB5F13DE1885FAD900AE716A /* VocabBuilder.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CBBDA1FF17A1A62A007A1F28 /* VocabBuilder 2.xcdatamodel */,
-				CBBDA20017A1A62A007A1F28 /* VocabBuilder.xcdatamodel */,
+				CB5F13DF1885FAD900AE716A /* VocabBuilder 2.xcdatamodel */,
+				CB5F13E01885FAD900AE716A /* VocabBuilder.xcdatamodel */,
 			);
-			currentVersion = CBBDA1FF17A1A62A007A1F28 /* VocabBuilder 2.xcdatamodel */;
+			currentVersion = CB5F13DF1885FAD900AE716A /* VocabBuilder 2.xcdatamodel */;
 			path = VocabBuilder.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -134,9 +134,11 @@
                 enabledSessionsCompleted = [NSNumber numberWithInt:([enabledSessionsCompleted integerValue] + 1)];
             }
         }
-        
-        self.progress = [NSNumber numberWithDouble:([enabledSessionsCompleted doubleValue]/[totalReviews doubleValue])];
+        NSNumber *progress = [NSNumber numberWithDouble:([enabledSessionsCompleted doubleValue]/[totalReviews doubleValue])];
+        self.progress = progress;
     }
+    NSError *error;
+    [[self managedObjectContext] save:&error];
 }
 
 
