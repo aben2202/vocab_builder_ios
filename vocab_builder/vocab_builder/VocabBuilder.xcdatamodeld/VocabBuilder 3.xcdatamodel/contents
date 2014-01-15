@@ -76,6 +76,7 @@
         <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="nextReviewDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="previousReviewDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="progress" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="reviewCycleStart" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="theWord" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="antonyms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RelatedWordsResponse" syncable="YES"/>
