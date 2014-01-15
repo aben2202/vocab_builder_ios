@@ -188,7 +188,9 @@ static Global *instance =nil;
     
     NSDate *now = [NSDate date];
     for (Word *currentWord in words) {
-        if ([currentWord.nextReviewDate compare:now] == NSOrderedAscending) {
+        //we subtract 1 second from the next review date in the following comparison since the notifications are sent on second precision, but the review date has millisecond precision.
+        //  by subtracting 1 second, we get the desired results.
+        if (([currentWord.nextReviewDate timeIntervalSince1970] - 1.0)  <= [now timeIntervalSince1970]) {
             //add to list of words that need to be reviewed
             [self.wordsThatNeedToBeReviewed addObject:currentWord];
         }

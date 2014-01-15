@@ -66,7 +66,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 -(void)updateAfterCompletedReviewWithAnswer:(BOOL)answer{
-    [self updateProgress];
     if (answer == YES) {
         //update with 'yes' answer here
         ReviewSession *thisReviewSession = self.nextReviewSession;
@@ -85,6 +84,12 @@
         self.finished = [NSNumber numberWithBool:true];
         self.nextReviewDate = nil;
     }
+    //update the progress
+    [self updateProgress];
+    //save the changes
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+
 }
 
 
