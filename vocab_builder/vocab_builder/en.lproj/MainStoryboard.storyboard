@@ -483,13 +483,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="This is the '15 minutes'" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqf-p6-UNa">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="This is the '15 minutes'" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqf-p6-UNa">
                                 <rect key="frame" x="20" y="346" width="280" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="review session for this word." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W60-5d-uzr">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="review session for this word." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W60-5d-uzr">
                                 <rect key="frame" x="51" y="370" width="218" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -509,7 +509,7 @@
                                     <action selector="showDefClicked:" destination="g7U-d4-eqU" eventType="touchUpInside" id="sXq-cU-BVr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLA-MV-df0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLA-MV-df0">
                                 <rect key="frame" x="148" y="477" width="25" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="ZJI-S3-7O1"/>
@@ -534,12 +534,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geK-WT-cUw">
-                                <rect key="frame" x="0.0" y="95" width="328" height="326"/>
+                                <rect key="frame" x="0.0" y="95" width="320" height="326"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="eHs-mL-hTo"/>
+                                </constraints>
                             </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" image="frame1_blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="zJx-ga-QsR">
                                 <rect key="frame" x="-3" y="90" width="327" height="329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="327" id="nxv-3P-aR0"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -567,9 +573,12 @@
                             <constraint firstItem="7Ga-QR-H9E" firstAttribute="baseline" secondItem="Ra5-iA-ksl" secondAttribute="baseline" id="ZlE-J3-rib"/>
                             <constraint firstAttribute="bottom" secondItem="pu3-b0-PJG" secondAttribute="bottom" constant="114" id="bHO-gK-h2P"/>
                             <constraint firstItem="Bd3-Vv-QVz" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" id="iU2-Hf-Q6U"/>
+                            <constraint firstAttribute="centerX" secondItem="kqf-p6-UNa" secondAttribute="centerX" id="l2e-1s-dxm"/>
                             <constraint firstAttribute="bottom" secondItem="W60-5d-uzr" secondAttribute="bottom" constant="177" id="mjf-5w-0m9"/>
                             <constraint firstItem="pu3-b0-PJG" firstAttribute="leading" secondItem="VBR-uh-daA" secondAttribute="leading" constant="24" id="obc-n7-S7T"/>
+                            <constraint firstAttribute="centerX" secondItem="W60-5d-uzr" secondAttribute="centerX" id="tNd-lg-dVY"/>
                             <constraint firstItem="m8g-lU-Fbe" firstAttribute="top" secondItem="20g-2Q-agh" secondAttribute="top" id="u0f-Ml-myW"/>
+                            <constraint firstAttribute="centerX" secondItem="QLA-MV-df0" secondAttribute="centerX" id="wAV-9s-3tC"/>
                             <constraint firstAttribute="bottom" secondItem="m8g-lU-Fbe" secondAttribute="bottom" constant="46" id="yJf-g1-Lsn"/>
                         </constraints>
                     </view>
