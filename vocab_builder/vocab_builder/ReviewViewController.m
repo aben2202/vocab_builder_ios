@@ -75,7 +75,9 @@
 -(void)refresh{
     [[Global getInstance] setReviewWords];
     self.wordsToReview = [Global getInstance].wordsThatNeedToBeReviewed;
-    [self reviewWordWithIndex:[[NSNumber numberWithInteger:0] integerValue]];
+    if ([self.wordsToReview count] > 0) {
+        [self reviewWordWithIndex:[[NSNumber numberWithInteger:0] integerValue]];
+    }
 }
 
 -(void)reviewWordWithIndex:(NSInteger)index{

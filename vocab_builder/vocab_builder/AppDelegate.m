@@ -37,7 +37,17 @@
     [Global getInstance].wordsThatNeedToBeReviewed = [NSMutableArray array];
     
     self.navController = (UINavigationController *)self.window.rootViewController;
-        
+    
+    //we update the progress for any unfinished words since this is a new attribute in version ...
+    for (Word *currentWord in [[VocabBuilderDataModel sharedDataModel] words]) {
+        // add word to correct array
+        if ([currentWord.finished boolValue] == false) {
+            [currentWord updateProgress];
+        }
+    }
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+    
     //check to see if they have any outstanding reviews
     return YES;
 }

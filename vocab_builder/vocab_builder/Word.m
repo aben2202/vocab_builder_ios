@@ -31,6 +31,7 @@
 @dynamic pronunciations;
 @dynamic previousReviewSession;
 @dynamic nextReviewSession;
+@dynamic progress;
 
 ////////////////////////////////////////////////////////////////////////////////
 // - updateNextReviewSession
@@ -83,6 +84,12 @@
         self.finished = [NSNumber numberWithBool:true];
         self.nextReviewDate = nil;
     }
+    //update the progress
+    [self updateProgress];
+    //save the changes
+    NSError *error;
+    [[self managedObjectContext] save:&error];
+
 }
 
 
@@ -112,15 +119,16 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// - reviewProgress
+// - updateProgress
 //
-//   this method returns the review progress for the word by checking the enabled
+//   this method updates the review progress for the word by checking the enabled
 //       reviewSessions.  the return value will be a decimal between 0 and 1.
 ////////////////////////////////////////////////////////////////////////////////
 
--(NSNumber *)reviewProgress{
+-(void)updateProgress{
     if ([self.previousReviewSession.timeName isEqualToString:@"start"]) {
-        return 0;
+        //set progress to 0
+        self.progress = 0;
     }
     else{
         NSNumber *totalReviews = [NSNumber numberWithInteger:[ReviewSession numberOfEnabledSessions]];
@@ -131,10 +139,11 @@
                 enabledSessionsCompleted = [NSNumber numberWithInt:([enabledSessionsCompleted integerValue] + 1)];
             }
         }
-        
-        NSNumber *numberToReturn = [NSNumber numberWithDouble:([enabledSessionsCompleted doubleValue]/[totalReviews doubleValue])];
-        return numberToReturn;
+        NSNumber *progress = [NSNumber numberWithDouble:([enabledSessionsCompleted doubleValue]/[totalReviews doubleValue])];
+        self.progress = progress;
     }
+    NSError *error;
+    [[self managedObjectContext] save:&error];
 }
 
 

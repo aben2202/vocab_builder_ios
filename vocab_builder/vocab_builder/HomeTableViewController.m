@@ -188,8 +188,8 @@
             // Configure the cell...
             cell.theWord = [self.wordsCurrent objectAtIndex:indexPath.row];
             cell.theWordLabel.text = [cell.theWord.theWord lowercaseString];
-            cell.reviewProgressBar.progress = [[cell.theWord reviewProgress] floatValue];
-            NSInteger percentageLabelNumber = ([[cell.theWord reviewProgress] floatValue] * 100);
+            cell.reviewProgressBar.progress = [cell.theWord.progress floatValue];
+            NSInteger percentageLabelNumber = ([cell.theWord.progress floatValue] * 100);
             cell.reviewPercentageLabel.text = [NSString stringWithFormat:@"%d%%", percentageLabelNumber];
             cell.reviewProgressLabel.frame = CGRectMake(188, 0, 92, 21);
             
@@ -289,12 +289,14 @@
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    NSString *wordString = [searchBar.text lowercaseString];
+    //set the word to lowercase, trim any outside white space, and replace any
+    //  inside whitespace with dashes
+    NSString *wordString = [[[searchBar.text lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
     
     //first check if the searched word is already stored.
     BOOL wordAlreadyExists = false;
     for(Word *word in self.wordsCurrent){
-        if([word.theWord isEqualToString:searchBar.text]){
+        if([word.theWord isEqualToString:wordString]){
             wordAlreadyExists = true;
             self.searchedWord = word;
             [self performSegueWithIdentifier:@"showDefinition" sender:searchBar];
@@ -303,7 +305,7 @@
     }
     if (wordAlreadyExists == false){
         for (Word *word in self.wordsFinished){
-            if([word.theWord isEqualToString:searchBar.text]){
+            if([word.theWord isEqualToString:wordString]){
                 wordAlreadyExists = true;
                 self.searchedWord = word;
                 [self performSegueWithIdentifier:@"showDefinition" sender:searchBar];

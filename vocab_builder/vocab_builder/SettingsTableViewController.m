@@ -147,6 +147,9 @@
         
         return cell;
     }
+    else{
+        return NULL;
+    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
